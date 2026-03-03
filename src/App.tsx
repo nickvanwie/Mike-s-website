@@ -32,12 +32,9 @@ export default function App() {
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center">
-            {/* <!-- LOGO HERE --> */}
-            <div className="font-heading text-2xl font-bold tracking-wider text-white">
-              SUMMIT<span className="text-gold">ELECTRIC</span>
-            </div>
-          </div>
+          <a href="#hero" className="flex items-center">
+            <img src="/logo.svg" alt="Summit Electric" className="h-9 w-auto" />
+          </a>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
@@ -136,33 +133,26 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right: Quote form – exact iframe size, no white overspill */}
-            <div className="w-full md:w-[420px] flex-shrink-0">
-              <div className="bg-white rounded-lg shadow-2xl overflow-hidden border border-white/10">
-                <div className="bg-gold py-4 px-6">
-                  <h3 className="text-white font-heading font-bold text-center text-lg">GET A FREE QUOTE</h3>
-                </div>
-                <div className="relative w-full overflow-hidden" style={{ height: '520px' }}>
-                  <iframe
-                    src="https://core.switchflowai.com/widget/form/gpOPebgVrFMlV3mWzrw1"
-                    className="absolute inset-0 w-full h-full border-0 rounded-b-lg"
-                    style={{ minHeight: '520px' }}
-                    id="inline-gpOPebgVrFMlV3mWzrw1"
-                    data-layout="{'id':'INLINE'}"
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="Website Form"
-                    data-height="1223"
-                    data-layout-iframe-id="inline-gpOPebgVrFMlV3mWzrw1"
-                    data-form-id="gpOPebgVrFMlV3mWzrw1"
-                    title="Website Form"
-                  />
-                </div>
-              </div>
+            {/* Right: Quote form – iframe only, no red bar or white border; full form height */}
+            <div className="w-full md:w-[420px] flex-shrink-0 rounded-lg overflow-y-auto max-h-[85vh]">
+              <iframe
+                src="https://core.switchflowai.com/widget/form/gpOPebgVrFMlV3mWzrw1"
+                className="w-full border-0 block"
+                style={{ height: '1223px' }}
+                id="inline-gpOPebgVrFMlV3mWzrw1"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Website Form"
+                data-height="1223"
+                data-layout-iframe-id="inline-gpOPebgVrFMlV3mWzrw1"
+                data-form-id="gpOPebgVrFMlV3mWzrw1"
+                title="Website Form"
+              />
             </div>
           </div>
         </div>
@@ -437,9 +427,9 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-8">
             {/* Brand / Contact */}
             <div className="md:col-span-2 space-y-6">
-              <div className="font-heading text-2xl font-bold tracking-wider text-white">
-                SUMMIT<span className="text-gold">ELECTRIC</span>
-              </div>
+              <a href="#hero" className="inline-block">
+                <img src="/logo.svg" alt="Summit Electric" className="h-10 w-auto" />
+              </a>
               <p className="text-gray-400 max-w-xs">
                 Your trusted partner for residential and commercial electrical solutions. 
                 Quality workmanship guaranteed.
