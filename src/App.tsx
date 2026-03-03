@@ -8,7 +8,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > 1);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -99,78 +99,47 @@ export default function App() {
       </nav>
 
       {/* 2. HERO */}
-      <section id="hero" className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
-        {/* Background Image with Overlay */}
+      <section id="hero" className="relative min-h-[70vh] pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden">
+        {/* Background Image with lighter overlay so image is more visible */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/hero.png" 
             alt="Summit Electric - Professional Electrical Services" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-navy-900/85 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 to-navy-900/40"></div>
+          <div className="absolute inset-0 bg-navy-900/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60"></div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            {/* Left Content */}
-            <div className="w-full md:w-3/5 space-y-6">
-              <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
-                SERVING AKRON & SURROUNDING AREAS
-              </div>
-              <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
-                RELIABLE ELECTRICAL <br />
-                <span className="text-gold">SOLUTIONS FOR YOU</span>
-              </h1>
-              <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md">
-                Professional residential and commercial electrical services. 
-                Safety, quality, and integrity in every connection we make.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <button onClick={scrollToHero} className="bg-gold text-navy-900 px-8 py-3 rounded font-bold hover:bg-white transition-colors shadow-lg shadow-gold/20">
-                  REQUEST SERVICE
-                </button>
-                <a href="#services" className="border border-white/30 text-white px-8 py-3 rounded font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
-                  VIEW SERVICES
-                </a>
-              </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-start">
+          <div className="w-full max-w-3xl">
+            <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
+              SERVING AKRON & SURROUNDING AREAS
             </div>
-
-            {/* Right Card - Quote Form */}
-            <div className="w-full md:w-2/5">
-              <div className="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col">
-                <div className="bg-gold py-4 px-6">
-                  <h3 className="text-white font-heading font-bold text-center">GET A FREE QUOTE</h3>
-                </div>
-                <div className="flex-1 min-h-[420px] p-4 rounded-b-lg overflow-hidden">
-                  <iframe
-                    src="https://core.switchflowai.com/widget/form/gpOPebgVrFMlV3mWzrw1"
-                    style={{ width: '100%', height: '100%', minHeight: '400px', border: 'none', borderRadius: '10px' }}
-                    id="inline-gpOPebgVrFMlV3mWzrw1"
-                    data-layout="{'id':'INLINE'}"
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="Website Form"
-                    data-height="1223"
-                    data-layout-iframe-id="inline-gpOPebgVrFMlV3mWzrw1"
-                    data-form-id="gpOPebgVrFMlV3mWzrw1"
-                    title="Website Form"
-                  />
-                </div>
-              </div>
+            <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
+              RELIABLE ELECTRICAL <br />
+              <span className="text-gold">SOLUTIONS FOR YOU</span>
+            </h1>
+            <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
+              Professional residential and commercial electrical services. 
+              Safety, quality, and integrity in every connection we make.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-6">
+              <a href="#contact" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
+                REQUEST SERVICE
+              </a>
+              <a href="#services" className="border border-white/30 text-white px-8 py-3 rounded font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
+                VIEW SERVICES
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* 3. TRUST BAR */}
-      <section className="bg-navy-800 border-y border-white/5 py-5 relative z-10">
+      <section className="bg-navy-800 border-y border-white/5 py-8 md:py-10 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-0">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {[
               { icon: Shield, text: "MILITARY OWNED" },
               { icon: Users, text: "FAMILY BUSINESS" },
@@ -178,9 +147,9 @@ export default function App() {
               { icon: CheckCircle, text: "INSURED" },
               { icon: FileText, text: "FULLY LICENSED" }
             ].map((item, i) => (
-              <div key={i} className="flex items-center space-x-3 px-4 border-r last:border-r-0 border-white/10">
-                <item.icon className="text-gold w-6 h-6" />
-                <span className="font-heading text-sm font-bold tracking-wide">{item.text}</span>
+              <div key={i} className="flex items-center gap-4 px-6 py-3 rounded-lg bg-navy-900/50 border border-white/10 min-w-[180px] justify-center md:min-w-0">
+                <item.icon className="text-gold w-8 h-8 shrink-0" />
+                <span className="font-heading text-base md:text-lg font-bold tracking-wide">{item.text}</span>
               </div>
             ))}
           </div>
@@ -292,10 +261,10 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative">
             {[
-              { step: "01", title: "CONTACT", desc: "Reach out by phone or our free quote form. Tell us about your project—residential or commercial, repair or new installation. We'll respond quickly to schedule a no-pressure consultation at your convenience." },
-              { step: "02", title: "ASSESS", desc: "A licensed electrician visits your property to evaluate your needs, inspect existing systems, and discuss options. You'll receive a clear, written estimate with no hidden fees. We answer all your questions before any work begins." },
-              { step: "03", title: "EXECUTE", desc: "Our trained team arrives on time with the right tools and materials. We perform the work to code, keep your space clean, and test everything before we leave. For larger jobs, we'll keep you updated on progress and timing." },
-              { step: "04", title: "ENJOY", desc: "Your electrical systems are safe, reliable, and built to last. We stand behind our work with clear warranties and are always available for follow-up support. You'll have peace of mind and power you can count on." }
+              { step: "01", title: "CONTACT", desc: "Reach out by phone or our free quote form for a no-pressure consultation." },
+              { step: "02", title: "ASSESS", desc: "We visit your property, evaluate your needs, and provide a clear written estimate." },
+              { step: "03", title: "EXECUTE", desc: "Our team arrives on time and completes the work to code with minimal disruption." },
+              { step: "04", title: "ENJOY", desc: "You get safe, reliable power with warranties and ongoing support." }
             ].map((item, i) => (
               <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/50 rounded-lg p-6 border border-white/5">
                 <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(211,30,38,0.3)]">
@@ -419,7 +388,7 @@ export default function App() {
       </section>
 
       {/* 11. CTA BANNER */}
-      <section className="py-12 md:py-14 bg-navy-900 relative border-t border-white/10">
+      <section id="contact" className="py-12 md:py-14 bg-navy-900 relative border-t border-white/10">
         <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
           <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">READY TO START YOUR PROJECT?</h2>
           <button 
