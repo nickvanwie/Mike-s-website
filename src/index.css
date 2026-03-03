@@ -7,3 +7,11 @@
   --color-navy-800: #122135;
   --color-gold: #D31E26;
 }
+
+@keyframes review-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.review-marquee-track {
+  animation: review-marquee 60s linear infinite;
+}

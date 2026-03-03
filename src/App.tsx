@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Search, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone, Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Search, Star } from 'lucide-react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
-  const [reviewIndex, setReviewIndex] = useState(0);
-
   const googleReviews = [
     { name: 'Mike T.', text: 'Summit Electric did an outstanding job upgrading our panel. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
     { name: 'Sarah L.', text: 'We had an emergency and they came out the same day. The team was knowledgeable and fixed the issue quickly. Five stars.', date: '1 month ago' },
@@ -23,10 +21,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const t = setInterval(() => setReviewIndex((i) => (i + 1) % 5), 6000);
-    return () => clearInterval(t);
-  }, []);
 
   const toggleAccordion = (index: number) => {
     setActiveAccordion(activeAccordion === index ? null : index);
@@ -318,37 +312,55 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. GALLERY */}
+      {/* 7. GALLERY - collage of customer project photos */}
       <section id="gallery" className="py-12 md:py-14 bg-navy-800">
         <div className="container mx-auto px-4 md:px-8">
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
-          <p className="text-gray-400 mb-10 max-w-2xl">A sample of residential and commercial work we're proud of.</p>
+          <p className="text-gray-400 mb-10 max-w-2xl">A collage of customer project photos—residential and commercial work we're proud of.</p>
           
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="relative overflow-hidden rounded-lg group bg-navy-900 border-t-4 border-gold border border-white/10 shadow-lg aspect-[4/3] hover:-translate-y-1 transition-transform duration-300">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {[
+              { seed: 10, wide: true },
+              { seed: 11 },
+              { seed: 12 },
+              { seed: 13 },
+              { seed: 14 },
+              { seed: 15, wide: true },
+              { seed: 16 },
+              { seed: 17 },
+              { seed: 18 },
+              { seed: 19 },
+              { seed: 20, wide: true },
+              { seed: 21 },
+              { seed: 22 },
+              { seed: 23 },
+              { seed: 24 },
+              { seed: 25 },
+              { seed: 26, wide: true },
+              { seed: 27 },
+              { seed: 28 },
+              { seed: 29 },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className={`relative overflow-hidden rounded-lg group bg-navy-900 border border-white/10 hover:border-gold/40 transition-all duration-300 aspect-[4/3] ${item.wide ? 'md:col-span-2' : ''}`}
+              >
                 <img 
-                  src={`https://picsum.photos/seed/project-${i + 10}/600/600`} 
-                  alt={`Project ${i + 1}`}
+                  src={`https://picsum.photos/seed/project-${item.seed}/600/600`} 
+                  alt={`Customer project ${i + 1}`}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/95 via-navy-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
-                  <span className="text-white font-heading font-bold text-base tracking-wide">Project {i + 1}</span>
-                </div>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                  <Search className="text-gold w-6 h-6 drop-shadow-md" />
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 8. REVIEWS */}
-      <section id="reviews" className="py-12 md:py-14 bg-navy-900">
+      {/* 8. REVIEWS - constant slow stream, 3-4 visible */}
+      <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-8">
             <div className="flex justify-center space-x-1 mb-4">
@@ -357,26 +369,15 @@ export default function App() {
             <h2 className="font-heading text-3xl md:text-4xl font-bold">WHAT OUR CLIENTS SAY</h2>
           </div>
 
-          <div className="max-w-3xl mx-auto relative">
-            <div className="bg-navy-800 rounded-xl p-8 md:p-10 border border-white/10 border-t-4 border-t-gold shadow-xl min-h-[220px] flex flex-col justify-center">
-              <div className="text-center">
-                <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-6">"{googleReviews[reviewIndex].text}"</p>
-                <p className="text-white font-heading font-bold">{googleReviews[reviewIndex].name}</p>
-                <p className="text-gray-500 text-sm mt-1">{googleReviews[reviewIndex].date} · Google Review</p>
-              </div>
-            </div>
-            <div className="flex justify-center items-center gap-4 mt-6">
-              <button type="button" onClick={() => setReviewIndex((i) => (i - 1 + 5) % 5)} className="p-2 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-gold transition-colors" aria-label="Previous review">
-                <ChevronLeft size={24} />
-              </button>
-              <div className="flex gap-2">
-                {googleReviews.map((_, i) => (
-                  <button key={i} type="button" onClick={() => setReviewIndex(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i === reviewIndex ? 'bg-gold scale-110' : 'bg-white/30 hover:bg-white/50'}`} aria-label={`Go to review ${i + 1}`} />
-                ))}
-              </div>
-              <button type="button" onClick={() => setReviewIndex((i) => (i + 1) % 5)} className="p-2 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-gold transition-colors" aria-label="Next review">
-                <ChevronRight size={24} />
-              </button>
+          <div className="relative -mx-4 md:-mx-8 overflow-hidden">
+            <div className="review-marquee-track flex gap-6 py-4 w-max">
+              {[...googleReviews, ...googleReviews].map((review, i) => (
+                <div key={i} className="flex-shrink-0 w-[320px] md:w-[360px] bg-navy-800 rounded-xl p-6 border border-white/10 border-t-4 border-t-gold shadow-xl">
+                  <p className="text-gray-200 text-base leading-relaxed mb-4 line-clamp-3">"{review.text}"</p>
+                  <p className="text-white font-heading font-bold text-sm">{review.name}</p>
+                  <p className="text-gray-500 text-xs mt-0.5">{review.date} · Google Review</p>
+                </div>
+              ))}
             </div>
           </div>
 
