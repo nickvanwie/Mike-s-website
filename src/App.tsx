@@ -27,13 +27,13 @@ export default function App() {
       {/* 1. NAV */}
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 ${
-          isScrolled ? 'bg-navy-900 shadow-lg' : 'bg-transparent'
+          isScrolled ? 'bg-navy-900 shadow-lg border-b-2 border-gold' : 'bg-transparent border-b-2 border-transparent'
         }`}
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           {/* Logo */}
           <a href="#hero" className="flex items-center">
-            <img src="/logo.svg" alt="Summit Electric" className="h-9 w-auto" />
+            <img src="/logo.svg" alt="Summit Electric" className="h-14 md:h-16 w-auto" />
           </a>
 
           {/* Desktop Links */}
@@ -133,8 +133,8 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right: Quote form – iframe only, no red bar or white border; full form height */}
-            <div className="w-full md:w-[420px] flex-shrink-0 rounded-lg overflow-y-auto max-h-[85vh]">
+            {/* Right: Quote form – iframe fits exactly to embed size, no scroll */}
+            <div className="w-full md:w-[520px] flex-shrink-0 rounded-lg">
               <iframe
                 src="https://core.switchflowai.com/widget/form/gpOPebgVrFMlV3mWzrw1"
                 className="w-full border-0 block"
@@ -428,7 +428,7 @@ export default function App() {
             {/* Brand / Contact */}
             <div className="md:col-span-2 space-y-6">
               <a href="#hero" className="inline-block">
-                <img src="/logo.svg" alt="Summit Electric" className="h-10 w-auto" />
+                <img src="/logo.svg" alt="Summit Electric" className="h-14 md:h-16 w-auto" />
               </a>
               <p className="text-gray-400 max-w-xs">
                 Your trusted partner for residential and commercial electrical solutions. 
