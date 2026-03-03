@@ -99,14 +99,13 @@ export default function App() {
       </nav>
 
       {/* 2. HERO */}
-      <section id="hero" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+      <section id="hero" className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://picsum.photos/seed/electrical-hero-dark/1920/1080" 
-            alt="Background" 
+            src="/hero.png" 
+            alt="Summit Electric - Professional Electrical Services" 
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-navy-900/85 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 to-navy-900/40"></div>
@@ -137,15 +136,30 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right Card */}
+            {/* Right Card - Quote Form */}
             <div className="w-full md:w-2/5">
-              <div className="bg-white rounded-lg shadow-2xl overflow-hidden min-h-[400px] flex flex-col">
+              <div className="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col">
                 <div className="bg-gold py-4 px-6">
-                  <h3 className="text-navy-900 font-heading font-bold text-center">GET A FREE QUOTE</h3>
+                  <h3 className="text-white font-heading font-bold text-center">GET A FREE QUOTE</h3>
                 </div>
-                <div className="flex-1 p-8 flex items-center justify-center bg-gray-50 text-gray-400 border-2 border-dashed border-gray-200 m-4 rounded">
-                  {/* <!-- GHL FORM EMBED --> */}
-                  &lt;!-- GHL FORM EMBED --&gt;
+                <div className="flex-1 min-h-[420px] p-4 rounded-b-lg overflow-hidden">
+                  <iframe
+                    src="https://core.switchflowai.com/widget/form/gpOPebgVrFMlV3mWzrw1"
+                    style={{ width: '100%', height: '100%', minHeight: '400px', border: 'none', borderRadius: '10px' }}
+                    id="inline-gpOPebgVrFMlV3mWzrw1"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Website Form"
+                    data-height="1223"
+                    data-layout-iframe-id="inline-gpOPebgVrFMlV3mWzrw1"
+                    data-form-id="gpOPebgVrFMlV3mWzrw1"
+                    title="Website Form"
+                  />
                 </div>
               </div>
             </div>
@@ -154,7 +168,7 @@ export default function App() {
       </section>
 
       {/* 3. TRUST BAR */}
-      <section className="bg-navy-800 border-y border-white/5 py-8 relative z-10">
+      <section className="bg-navy-800 border-y border-white/5 py-5 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-0">
             {[
@@ -174,7 +188,7 @@ export default function App() {
       </section>
 
       {/* 4. ABOUT */}
-      <section id="about" className="py-20 bg-navy-900">
+      <section id="about" className="py-12 md:py-14 bg-navy-900">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
@@ -213,9 +227,9 @@ export default function App() {
       </section>
 
       {/* 5. SERVICES */}
-      <section id="services" className="py-20 bg-navy-800">
+      <section id="services" className="py-12 md:py-14 bg-navy-800">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">PREMIUM ELECTRICAL SERVICES</h2>
           </div>
@@ -269,30 +283,30 @@ export default function App() {
       </section>
 
       {/* 6. PROCESS */}
-      <section id="process" className="py-20 bg-navy-900">
+      <section id="process" className="py-12 md:py-14 bg-navy-900">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="font-heading text-3xl md:text-4xl font-bold">HOW WE WORK</h2>
+            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From your first call to the final inspection, we follow a clear, reliable process so you know what to expect every step of the way.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative">
             {[
-              { step: "01", title: "CONTACT", desc: "Reach out for a free consultation." },
-              { step: "02", title: "ASSESS", desc: "We evaluate your needs onsite." },
-              { step: "03", title: "EXECUTE", desc: "Expert installation & service." },
-              { step: "04", title: "ENJOY", desc: "Safe, reliable power guaranteed." }
+              { step: "01", title: "CONTACT", desc: "Reach out by phone or our free quote form. Tell us about your project—residential or commercial, repair or new installation. We'll respond quickly to schedule a no-pressure consultation at your convenience." },
+              { step: "02", title: "ASSESS", desc: "A licensed electrician visits your property to evaluate your needs, inspect existing systems, and discuss options. You'll receive a clear, written estimate with no hidden fees. We answer all your questions before any work begins." },
+              { step: "03", title: "EXECUTE", desc: "Our trained team arrives on time with the right tools and materials. We perform the work to code, keep your space clean, and test everything before we leave. For larger jobs, we'll keep you updated on progress and timing." },
+              { step: "04", title: "ENJOY", desc: "Your electrical systems are safe, reliable, and built to last. We stand behind our work with clear warranties and are always available for follow-up support. You'll have peace of mind and power you can count on." }
             ].map((item, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center z-10">
-                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-6 shadow-[0_0_15px_rgba(245,166,35,0.2)]">
+              <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/50 rounded-lg p-6 border border-white/5">
+                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(211,30,38,0.3)]">
                   {item.step}
                 </div>
                 <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm">{item.desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
                 
-                {/* Arrow for desktop */}
                 {i < 3 && (
-                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-[2px] bg-navy-800 -z-10">
-                    <div className="absolute right-0 -top-1.5 w-3 h-3 border-t-2 border-r-2 border-navy-800 rotate-45 transform translate-x-1/2"></div>
+                  <div className="hidden md:block absolute top-1/2 left-[60%] w-[80%] h-[2px] bg-navy-700 -z-10">
+                    <div className="absolute right-0 -top-1.5 w-3 h-3 border-t-2 border-r-2 border-navy-700 rotate-45 transform translate-x-1/2"></div>
                   </div>
                 )}
               </div>
@@ -302,36 +316,37 @@ export default function App() {
       </section>
 
       {/* 7. GALLERY */}
-      <section id="gallery" className="py-20 bg-navy-800">
-        <div className="container mx-auto px-4 md:px-8 mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold">RECENT PROJECTS</h2>
-        </div>
-        
-        {/* 10-cell grid (2 rows of 5 on desktop) */}
-        <div className="grid grid-cols-2 md:grid-cols-5 auto-rows-[200px]">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <div key={i} className="relative overflow-hidden group bg-navy-900 border border-navy-800">
-              {/* Image */}
-              <img 
-                src={`https://picsum.photos/seed/project-${i + 10}/600/600`} 
-                alt={`Project ${i + 1}`}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                referrerPolicy="no-referrer"
-              />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-navy-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Search className="text-white w-8 h-8 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100" />
+      <section id="gallery" className="py-12 md:py-14 bg-navy-800">
+        <div className="max-w-5xl mx-auto px-4 md:px-8">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-2">RECENT PROJECTS</h2>
+          <p className="text-gray-400 mb-8">A sample of residential and commercial work we're proud of.</p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="relative overflow-hidden rounded-lg group bg-navy-900 border border-white/10 shadow-lg aspect-[4/3]">
+                <img 
+                  src={`https://picsum.photos/seed/project-${i + 10}/600/600`} 
+                  alt={`Project ${i + 1}`}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                  <span className="text-white font-heading font-bold text-sm">Project {i + 1}</span>
+                </div>
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                  <Search className="text-white w-6 h-6 drop-shadow-md" />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* 8. REVIEWS */}
-      <section id="reviews" className="py-20 bg-navy-900">
+      <section id="reviews" className="py-12 md:py-14 bg-navy-900">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <div className="flex justify-center space-x-1 mb-4">
               {[1,2,3,4,5].map(star => <Star key={star} className="text-gold fill-gold w-5 h-5" />)}
             </div>
@@ -346,29 +361,29 @@ export default function App() {
       </section>
 
       {/* 9. FAQ */}
-      <section id="faq" className="py-20 bg-navy-800">
+      <section id="faq" className="py-12 md:py-14 bg-navy-800">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col md:flex-row gap-12">
+          <div className="flex flex-col md:flex-row gap-10">
             {/* FAQ Accordion */}
             <div className="w-full md:w-1/2">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-8">FREQUENTLY ASKED QUESTIONS</h2>
-              <div className="space-y-4">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">FREQUENTLY ASKED QUESTIONS</h2>
+              <div className="space-y-2">
                 {[
-                  { q: "Do you offer emergency services?", a: "Yes, we offer 24/7 emergency electrical services for urgent issues that cannot wait." },
-                  { q: "Are your electricians licensed and insured?", a: "Absolutely. All our technicians are fully licensed, bonded, and insured for your peace of mind." },
-                  { q: "Do you provide free estimates?", a: "Yes, we provide free, no-obligation estimates for all our residential and commercial projects." },
-                  { q: "What areas do you serve?", a: "We serve Akron, Hudson, Stow, Tallmadge, Cuyahoga Falls, Barberton, and surrounding communities." }
+                  { q: "Do you offer emergency services?", a: "Yes. We offer 24/7 emergency electrical services for urgent issues that cannot wait—including power outages, sparking, burning smells, or safety hazards. Call us anytime; we'll dispatch a licensed electrician as quickly as possible to diagnose and resolve the problem safely." },
+                  { q: "Are your electricians licensed and insured?", a: "Absolutely. Every technician who comes to your home or business is fully licensed, bonded, and insured. We carry general liability and workers' compensation so you're protected. We're happy to provide proof of insurance upon request and to meet any requirements from property managers or HOAs." },
+                  { q: "Do you provide free estimates?", a: "Yes. We provide free, no-obligation estimates for both residential and commercial projects. After we assess your needs—either from your description or an onsite visit—we'll give you a clear written quote with no hidden fees. There's no pressure to commit; we want you to feel confident before any work begins." },
+                  { q: "What areas do you serve?", a: "We proudly serve Akron and the surrounding communities, including Hudson, Stow, Tallmadge, Cuyahoga Falls, Barberton, and the greater Summit County area. If you're unsure whether we cover your location, give us a call or submit a quote request—we'll let you know right away." }
                 ].map((item, i) => (
-                  <div key={i} className="border-b border-white/10 pb-4">
+                  <div key={i} className="border-b border-white/10 pb-3">
                     <button 
                       className={`w-full flex justify-between items-center text-left font-bold text-lg py-2 transition-colors ${activeAccordion === i ? 'text-gold' : 'text-white hover:text-gold'}`}
                       onClick={() => toggleAccordion(i)}
                     >
                       <span>{item.q}</span>
-                      {activeAccordion === i ? <ChevronUp size={20} className="text-gold" /> : <ChevronDown size={20} className="text-gold" />}
+                      {activeAccordion === i ? <ChevronUp size={20} className="text-gold shrink-0 ml-2" /> : <ChevronDown size={20} className="text-gold shrink-0 ml-2" />}
                     </button>
                     <div 
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${activeAccordion === i ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${activeAccordion === i ? 'max-h-[500px] opacity-100 mt-1' : 'max-h-0 opacity-0'}`}
                     >
                       <p className="text-gray-400 leading-relaxed pb-2">{item.a}</p>
                     </div>
@@ -389,7 +404,7 @@ export default function App() {
       </section>
 
       {/* 10. SERVICE AREAS */}
-      <section className="py-16 bg-navy-900 border-t border-white/5">
+      <section className="py-10 bg-navy-900 border-t border-white/5">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <h4 className="text-gray-500 font-bold tracking-widest text-sm mb-8">PROUDLY SERVING</h4>
           <div className="flex flex-wrap justify-center gap-4 md:gap-8">
@@ -404,9 +419,9 @@ export default function App() {
       </section>
 
       {/* 11. CTA BANNER */}
-      <section className="py-20 bg-navy-900 relative border-t border-white/10">
+      <section className="py-12 md:py-14 bg-navy-900 relative border-t border-white/10">
         <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
-          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-8">READY TO START YOUR PROJECT?</h2>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">READY TO START YOUR PROJECT?</h2>
           <button 
             onClick={scrollToHero}
             className="bg-gold text-navy-900 px-10 py-4 rounded font-bold text-lg hover:bg-white transition-colors shadow-lg shadow-gold/20"
@@ -417,9 +432,9 @@ export default function App() {
       </section>
 
       {/* 12. FOOTER */}
-      <footer className="bg-navy-800 pt-16 pb-8 border-t-4 border-gold">
+      <footer className="bg-navy-800 pt-12 pb-6 border-t-4 border-gold">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-8">
             {/* Brand / Contact */}
             <div className="md:col-span-2 space-y-6">
               <div className="font-heading text-2xl font-bold tracking-wider text-white">
