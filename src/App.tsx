@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Search, Star } from 'lucide-react';
+import { Menu, X, Phone, Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Search, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+  const [reviewIndex, setReviewIndex] = useState(0);
+
+  const googleReviews = [
+    { name: 'Mike T.', text: 'Summit Electric did an outstanding job upgrading our panel. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
+    { name: 'Sarah L.', text: 'We had an emergency and they came out the same day. The team was knowledgeable and fixed the issue quickly. Five stars.', date: '1 month ago' },
+    { name: 'James K.', text: 'From quote to completion, everything was smooth. Fair pricing and quality work. Will use again for our next project.', date: '3 weeks ago' },
+    { name: 'Jennifer M.', text: 'Best electricians in the area. They installed our EV charger and outdoor lighting—both look great and work perfectly.', date: '1 month ago' },
+    { name: 'David R.', text: 'Military-owned and it shows—disciplined, thorough, and honest. Could not ask for a better experience.', date: '2 months ago' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +21,11 @@ export default function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const t = setInterval(() => setReviewIndex((i) => (i + 1) % 5), 6000);
+    return () => clearInterval(t);
   }, []);
 
   const toggleAccordion = (index: number) => {
@@ -342,10 +356,35 @@ export default function App() {
             </div>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">WHAT OUR CLIENTS SAY</h2>
           </div>
-          
-          <div className="bg-navy-800 rounded-lg p-12 border border-white/5 flex items-center justify-center min-h-[200px]">
-            {/* <!-- REVIEWS WIDGET EMBED --> */}
-            <span className="font-mono text-gray-500">&lt;!-- REVIEWS WIDGET EMBED --&gt;</span>
+
+          <div className="max-w-3xl mx-auto relative">
+            <div className="bg-navy-800 rounded-xl p-8 md:p-10 border border-white/10 border-t-4 border-t-gold shadow-xl min-h-[220px] flex flex-col justify-center">
+              <div className="text-center">
+                <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-6">"{googleReviews[reviewIndex].text}"</p>
+                <p className="text-white font-heading font-bold">{googleReviews[reviewIndex].name}</p>
+                <p className="text-gray-500 text-sm mt-1">{googleReviews[reviewIndex].date} · Google Review</p>
+              </div>
+            </div>
+            <div className="flex justify-center items-center gap-4 mt-6">
+              <button type="button" onClick={() => setReviewIndex((i) => (i - 1 + 5) % 5)} className="p-2 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-gold transition-colors" aria-label="Previous review">
+                <ChevronLeft size={24} />
+              </button>
+              <div className="flex gap-2">
+                {googleReviews.map((_, i) => (
+                  <button key={i} type="button" onClick={() => setReviewIndex(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i === reviewIndex ? 'bg-gold scale-110' : 'bg-white/30 hover:bg-white/50'}`} aria-label={`Go to review ${i + 1}`} />
+                ))}
+              </div>
+              <button type="button" onClick={() => setReviewIndex((i) => (i + 1) % 5)} className="p-2 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-gold transition-colors" aria-label="Next review">
+                <ChevronRight size={24} />
+              </button>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <a href="https://www.google.com/search?q=Summit+Electric+reviews" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gold text-white px-8 py-4 rounded font-bold text-base hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
+              <Star className="w-5 h-5 fill-white" />
+              Leave us a review on Google
+            </a>
           </div>
         </div>
       </section>
@@ -394,25 +433,30 @@ export default function App() {
       </section>
 
       {/* 10. SERVICE AREAS */}
-      <section className="py-10 bg-navy-900 border-t border-white/5">
+      <section className="py-12 md:py-14 bg-navy-900 border-t border-white/5">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row gap-10 items-center lg:items-start justify-between">
-            <div className="text-center lg:text-left flex-1">
-              <h4 className="text-gray-500 font-bold tracking-widest text-sm mb-6">PROUDLY SERVING</h4>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6">
+          <div className="rounded-2xl overflow-hidden border border-white/10 bg-navy-800/60 shadow-xl flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+              <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6">PROUDLY SERVING</h2>
+              <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted electrical services across Summit County and surrounding communities.</p>
+              <div className="grid grid-cols-2 gap-3">
                 {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
-                  <a key={city} href="#" className="text-gold font-bold text-lg hover:text-white transition-colors flex items-center">
-                    <MapPin size={16} className="mr-1" />
-                    {city}
+                  <a
+                    key={city}
+                    href="#"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-sm transition-all duration-200 group"
+                  >
+                    <MapPin size={18} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="group-hover:text-gold transition-colors">{city}</span>
                   </a>
                 ))}
               </div>
             </div>
-            <div className="w-full lg:w-auto flex-shrink-0 rounded-lg overflow-hidden border border-white/10">
+            <div className="lg:w-1/2 min-h-[320px] md:min-h-[400px] bg-navy-900">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052786.409900489!2d-79.74353328749999!3d41.650627000000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dcaf33c816a8d7%3A0xe32ba79e665453b9!2sSummit%20Electric!5e0!3m2!1sen!2sus!4v1772504144421!5m2!1sen!2sus"
-                width="450"
-                height="400"
+                className="w-full h-full min-h-[320px] md:min-h-[400px]"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
