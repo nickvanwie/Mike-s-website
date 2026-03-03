@@ -1,0 +1,481 @@
+import { useState, useEffect } from 'react';
+import { Menu, X, Phone, Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Search, Star } from 'lucide-react';
+
+export default function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleAccordion = (index: number) => {
+    setActiveAccordion(activeAccordion === index ? null : index);
+  };
+
+  const scrollToHero = () => {
+    document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="font-sans text-white bg-navy-900 min-h-screen selection:bg-gold selection:text-navy-900">
+      {/* 1. NAV */}
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-navy-900 shadow-lg py-4' : 'bg-transparent py-6'
+        }`}
+      >
+        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center">
+            {/* <!-- LOGO HERE --> */}
+            <div className="font-heading text-2xl font-bold tracking-wider text-white">
+              SUMMIT<span className="text-gold">ELECTRIC</span>
+            </div>
+          </div>
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            {['Home', 'About', 'Services', 'Process', 'Reviews', 'FAQ'].map((item) => (
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                className="text-sm font-medium hover:text-gold transition-colors duration-200"
+              >
+                {item.toUpperCase()}
+              </a>
+            ))}
+          </div>
+
+          {/* CTA & Phone */}
+          <div className="hidden md:flex items-center space-x-6">
+            <a href="tel:1234567891" className="flex items-center space-x-2 text-white hover:text-gold transition-colors">
+              <Phone size={18} className="text-gold" />
+              <span className="font-bold">(123) 456-7891</span>
+            </a>
+            <button 
+              onClick={scrollToHero}
+              className="bg-gold text-navy-900 px-6 py-2.5 rounded font-bold text-sm hover:bg-white transition-colors duration-200"
+            >
+              GET FREE QUOTE
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-navy-800 absolute top-full left-0 right-0 p-4 shadow-xl border-t border-white/10">
+            <div className="flex flex-col space-y-4">
+              {['Home', 'About', 'Services', 'Process', 'Reviews', 'FAQ'].map((item) => (
+                <a 
+                  key={item} 
+                  href={`#${item.toLowerCase()}`}
+                  className="text-white hover:text-gold font-medium py-2 border-b border-white/5"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.toUpperCase()}
+                </a>
+              ))}
+              <a href="tel:1234567891" className="flex items-center space-x-2 text-gold font-bold py-2">
+                <Phone size={18} />
+                <span>(123) 456-7891</span>
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* 2. HERO */}
+      <section id="hero" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://picsum.photos/seed/electrical-hero-dark/1920/1080" 
+            alt="Background" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-navy-900/85 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 to-navy-900/40"></div>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            {/* Left Content */}
+            <div className="w-full md:w-3/5 space-y-6">
+              <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
+                SERVING AKRON & SURROUNDING AREAS
+              </div>
+              <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
+                RELIABLE ELECTRICAL <br />
+                <span className="text-gold">SOLUTIONS FOR YOU</span>
+              </h1>
+              <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md">
+                Professional residential and commercial electrical services. 
+                Safety, quality, and integrity in every connection we make.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <button onClick={scrollToHero} className="bg-gold text-navy-900 px-8 py-3 rounded font-bold hover:bg-white transition-colors shadow-lg shadow-gold/20">
+                  REQUEST SERVICE
+                </button>
+                <a href="#services" className="border border-white/30 text-white px-8 py-3 rounded font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
+                  VIEW SERVICES
+                </a>
+              </div>
+            </div>
+
+            {/* Right Card */}
+            <div className="w-full md:w-2/5">
+              <div className="bg-white rounded-lg shadow-2xl overflow-hidden min-h-[400px] flex flex-col">
+                <div className="bg-gold py-4 px-6">
+                  <h3 className="text-navy-900 font-heading font-bold text-center">GET A FREE QUOTE</h3>
+                </div>
+                <div className="flex-1 p-8 flex items-center justify-center bg-gray-50 text-gray-400 border-2 border-dashed border-gray-200 m-4 rounded">
+                  {/* <!-- GHL FORM EMBED --> */}
+                  &lt;!-- GHL FORM EMBED --&gt;
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. TRUST BAR */}
+      <section className="bg-navy-800 border-y border-white/5 py-8 relative z-10">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-0">
+            {[
+              { icon: Shield, text: "MILITARY OWNED" },
+              { icon: Users, text: "FAMILY BUSINESS" },
+              { icon: Clock, text: "40+ YEARS EXPERIENCE" },
+              { icon: CheckCircle, text: "INSURED" },
+              { icon: FileText, text: "FULLY LICENSED" }
+            ].map((item, i) => (
+              <div key={i} className="flex items-center space-x-3 px-4 border-r last:border-r-0 border-white/10">
+                <item.icon className="text-gold w-6 h-6" />
+                <span className="font-heading text-sm font-bold tracking-wide">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. ABOUT */}
+      <section id="about" className="py-20 bg-navy-900">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
+            <div className="w-full md:w-1/2 space-y-6">
+              <h4 className="text-gold font-bold tracking-widest text-sm">ABOUT SUMMIT ELECTRIC</h4>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold">POWERING OUR COMMUNITY WITH PRIDE</h2>
+              <p className="text-gray-400 leading-relaxed">
+                Summit Electric has been a trusted name in electrical contracting for over four decades. 
+                As a military-owned, family-operated business, we bring disciplined precision and 
+                personal care to every project.
+              </p>
+              <p className="text-gray-400 leading-relaxed">
+                Whether it's a simple residential repair or a complex commercial installation, 
+                our team of licensed electricians ensures your systems are safe, efficient, and 
+                built to last.
+              </p>
+              <div className="pt-4">
+                <a href="#contact" className="text-gold font-bold border-b-2 border-gold pb-1 hover:text-white hover:border-white transition-colors">
+                  MEET THE TEAM
+                </a>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2">
+              <div className="aspect-[4/3] bg-navy-800 rounded-lg border border-white/10 flex items-center justify-center text-gray-500 relative overflow-hidden group">
+                <img 
+                  src="https://picsum.photos/seed/electrician-team/800/600" 
+                  alt="Team" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"></div>
+                <span className="font-mono text-sm relative z-10 bg-navy-900/80 px-4 py-2 rounded">&lt;!-- PHOTO: Team or Van --&gt;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. SERVICES */}
+      <section id="services" className="py-20 bg-navy-800">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold">PREMIUM ELECTRICAL SERVICES</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { 
+                title: "ELECTRICAL SERVICES", 
+                desc: "Full-service repairs, installations, and maintenance for your home.",
+                img: "https://picsum.photos/seed/wiring-repair/600/400"
+              },
+              { 
+                title: "POWER & ENERGY SOLUTIONS", 
+                desc: "Panel upgrades, EV chargers, and whole-home surge protection.",
+                img: "https://picsum.photos/seed/solar-panel/600/400"
+              },
+              { 
+                title: "SECURITY & OUTDOOR LIGHTING", 
+                desc: "Landscape lighting, motion sensors, and security system wiring.",
+                img: "https://picsum.photos/seed/outdoor-lights/600/400"
+              },
+              { 
+                title: "COMMERCIAL SERVICES", 
+                desc: "Reliable power solutions for offices, retail, and industrial facilities.",
+                img: "https://picsum.photos/seed/office-building/600/400"
+              }
+            ].map((service, i) => (
+              <div 
+                key={i} 
+                className="bg-navy-900 rounded overflow-hidden border-t-4 border-gold hover:-translate-y-1.5 transition-transform duration-300 shadow-lg group flex flex-col md:flex-row"
+              >
+                <div className="w-full md:w-2/5 h-48 md:h-auto relative overflow-hidden">
+                  <img 
+                    src={service.img} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div className="p-8 w-full md:w-3/5">
+                  <h3 className="font-heading text-xl font-bold mb-4 group-hover:text-gold transition-colors">
+                    <a href="#">{service.title}</a>
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. PROCESS */}
+      <section id="process" className="py-20 bg-navy-900">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold">HOW WE WORK</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {[
+              { step: "01", title: "CONTACT", desc: "Reach out for a free consultation." },
+              { step: "02", title: "ASSESS", desc: "We evaluate your needs onsite." },
+              { step: "03", title: "EXECUTE", desc: "Expert installation & service." },
+              { step: "04", title: "ENJOY", desc: "Safe, reliable power guaranteed." }
+            ].map((item, i) => (
+              <div key={i} className="relative flex flex-col items-center text-center z-10">
+                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-6 shadow-[0_0_15px_rgba(245,166,35,0.2)]">
+                  {item.step}
+                </div>
+                <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm">{item.desc}</p>
+                
+                {/* Arrow for desktop */}
+                {i < 3 && (
+                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-[2px] bg-navy-800 -z-10">
+                    <div className="absolute right-0 -top-1.5 w-3 h-3 border-t-2 border-r-2 border-navy-800 rotate-45 transform translate-x-1/2"></div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. GALLERY */}
+      <section id="gallery" className="py-20 bg-navy-800">
+        <div className="container mx-auto px-4 md:px-8 mb-12">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold">RECENT PROJECTS</h2>
+        </div>
+        
+        {/* 10-cell grid (2 rows of 5 on desktop) */}
+        <div className="grid grid-cols-2 md:grid-cols-5 auto-rows-[200px]">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className="relative overflow-hidden group bg-navy-900 border border-navy-800">
+              {/* Image */}
+              <img 
+                src={`https://picsum.photos/seed/project-${i + 10}/600/600`} 
+                alt={`Project ${i + 1}`}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                referrerPolicy="no-referrer"
+              />
+              
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-navy-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <Search className="text-white w-8 h-8 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 8. REVIEWS */}
+      <section id="reviews" className="py-20 bg-navy-900">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-12">
+            <div className="flex justify-center space-x-1 mb-4">
+              {[1,2,3,4,5].map(star => <Star key={star} className="text-gold fill-gold w-5 h-5" />)}
+            </div>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold">WHAT OUR CLIENTS SAY</h2>
+          </div>
+          
+          <div className="bg-navy-800 rounded-lg p-12 border border-white/5 flex items-center justify-center min-h-[200px]">
+            {/* <!-- REVIEWS WIDGET EMBED --> */}
+            <span className="font-mono text-gray-500">&lt;!-- REVIEWS WIDGET EMBED --&gt;</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. FAQ */}
+      <section id="faq" className="py-20 bg-navy-800">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex flex-col md:flex-row gap-12">
+            {/* FAQ Accordion */}
+            <div className="w-full md:w-1/2">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-8">FREQUENTLY ASKED QUESTIONS</h2>
+              <div className="space-y-4">
+                {[
+                  { q: "Do you offer emergency services?", a: "Yes, we offer 24/7 emergency electrical services for urgent issues that cannot wait." },
+                  { q: "Are your electricians licensed and insured?", a: "Absolutely. All our technicians are fully licensed, bonded, and insured for your peace of mind." },
+                  { q: "Do you provide free estimates?", a: "Yes, we provide free, no-obligation estimates for all our residential and commercial projects." },
+                  { q: "What areas do you serve?", a: "We serve Akron, Hudson, Stow, Tallmadge, Cuyahoga Falls, Barberton, and surrounding communities." }
+                ].map((item, i) => (
+                  <div key={i} className="border-b border-white/10 pb-4">
+                    <button 
+                      className={`w-full flex justify-between items-center text-left font-bold text-lg py-2 transition-colors ${activeAccordion === i ? 'text-gold' : 'text-white hover:text-gold'}`}
+                      onClick={() => toggleAccordion(i)}
+                    >
+                      <span>{item.q}</span>
+                      {activeAccordion === i ? <ChevronUp size={20} className="text-gold" /> : <ChevronDown size={20} className="text-gold" />}
+                    </button>
+                    <div 
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${activeAccordion === i ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
+                    >
+                      <p className="text-gray-400 leading-relaxed pb-2">{item.a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Image Placeholder */}
+            <div className="w-full md:w-1/2">
+              <div className="h-full min-h-[400px] bg-navy-900 rounded border border-white/10 flex items-center justify-center relative">
+                {/* <!-- PHOTO: [description] --> */}
+                <span className="font-mono text-gray-500">&lt;!-- PHOTO: Electrician at work --&gt;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. SERVICE AREAS */}
+      <section className="py-16 bg-navy-900 border-t border-white/5">
+        <div className="container mx-auto px-4 md:px-8 text-center">
+          <h4 className="text-gray-500 font-bold tracking-widest text-sm mb-8">PROUDLY SERVING</h4>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+            {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
+              <a key={city} href="#" className="text-gold font-bold text-lg hover:text-white transition-colors flex items-center">
+                <MapPin size={16} className="mr-1" />
+                {city}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. CTA BANNER */}
+      <section className="py-20 bg-navy-900 relative border-t border-white/10">
+        <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-8">READY TO START YOUR PROJECT?</h2>
+          <button 
+            onClick={scrollToHero}
+            className="bg-gold text-navy-900 px-10 py-4 rounded font-bold text-lg hover:bg-white transition-colors shadow-lg shadow-gold/20"
+          >
+            GET YOUR FREE QUOTE
+          </button>
+        </div>
+      </section>
+
+      {/* 12. FOOTER */}
+      <footer className="bg-navy-800 pt-16 pb-8 border-t-4 border-gold">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
+            {/* Brand / Contact */}
+            <div className="md:col-span-2 space-y-6">
+              <div className="font-heading text-2xl font-bold tracking-wider text-white">
+                SUMMIT<span className="text-gold">ELECTRIC</span>
+              </div>
+              <p className="text-gray-400 max-w-xs">
+                Your trusted partner for residential and commercial electrical solutions. 
+                Quality workmanship guaranteed.
+              </p>
+              <div className="space-y-2">
+                <a href="tel:1234567891" className="block text-white hover:text-gold transition-colors font-bold">(123) 456-7891</a>
+                <p className="text-gray-400">info@summitelectric.com</p>
+              </div>
+            </div>
+
+            {/* Business Links */}
+            <div>
+              <h4 className="font-heading font-bold text-white mb-6">COMPANY</h4>
+              <ul className="space-y-3">
+                {['About Us', 'Our Process', 'Careers', 'Reviews', 'Contact'].map(link => (
+                  <li key={link}><a href="#" className="text-gray-400 hover:text-gold transition-colors text-sm">{link}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Service Links */}
+            <div>
+              <h4 className="font-heading font-bold text-white mb-6">SERVICES</h4>
+              <ul className="space-y-3">
+                {['Residential', 'Commercial', 'Generators', 'Lighting', 'Safety Inspections'].map(link => (
+                  <li key={link}><a href="#" className="text-gray-400 hover:text-gold transition-colors text-sm">{link}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Hours */}
+            <div>
+              <h4 className="font-heading font-bold text-white mb-6">HOURS</h4>
+              <ul className="space-y-3 text-sm text-gray-400">
+                <li className="flex justify-between"><span>Mon - Fri</span> <span>9am - 5pm</span></li>
+                <li className="flex justify-between"><span>Sat - Sun</span> <span>Closed</span></li>
+                <li className="pt-4 text-gold font-bold">24/7 Emergency Service</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>&copy; {new Date().getFullYear()} Summit Electric. All rights reserved.</p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
