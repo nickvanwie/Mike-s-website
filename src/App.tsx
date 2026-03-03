@@ -26,8 +26,8 @@ export default function App() {
     <div className="font-sans text-white bg-navy-900 min-h-screen selection:bg-gold selection:text-navy-900">
       {/* 1. NAV */}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-navy-900 shadow-lg py-4' : 'bg-transparent py-6'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 ${
+          isScrolled ? 'bg-navy-900 shadow-lg' : 'bg-transparent'
         }`}
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
@@ -111,26 +111,58 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60"></div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-start">
-          <div className="w-full max-w-3xl">
-            <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
-              SERVING AKRON & SURROUNDING AREAS
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start md:items-center">
+            {/* Left: Hero text */}
+            <div className="w-full md:max-w-3xl flex-shrink-0">
+              <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
+                SERVING AKRON & SURROUNDING AREAS
+              </div>
+              <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
+                RELIABLE ELECTRICAL <br />
+                <span className="text-gold">SOLUTIONS FOR YOU</span>
+              </h1>
+              <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
+                Professional residential and commercial electrical services. 
+                Safety, quality, and integrity in every connection we make.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-6">
+                <a href="#contact" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
+                  REQUEST SERVICE
+                </a>
+                <a href="#services" className="border border-white/30 text-white px-8 py-3 rounded font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
+                  VIEW SERVICES
+                </a>
+              </div>
             </div>
-            <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
-              RELIABLE ELECTRICAL <br />
-              <span className="text-gold">SOLUTIONS FOR YOU</span>
-            </h1>
-            <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
-              Professional residential and commercial electrical services. 
-              Safety, quality, and integrity in every connection we make.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-6">
-              <a href="#contact" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
-                REQUEST SERVICE
-              </a>
-              <a href="#services" className="border border-white/30 text-white px-8 py-3 rounded font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
-                VIEW SERVICES
-              </a>
+
+            {/* Right: Quote form – exact iframe size, no white overspill */}
+            <div className="w-full md:w-[420px] flex-shrink-0">
+              <div className="bg-white rounded-lg shadow-2xl overflow-hidden border border-white/10">
+                <div className="bg-gold py-4 px-6">
+                  <h3 className="text-white font-heading font-bold text-center text-lg">GET A FREE QUOTE</h3>
+                </div>
+                <div className="relative w-full overflow-hidden" style={{ height: '520px' }}>
+                  <iframe
+                    src="https://core.switchflowai.com/widget/form/gpOPebgVrFMlV3mWzrw1"
+                    className="absolute inset-0 w-full h-full border-0 rounded-b-lg"
+                    style={{ minHeight: '520px' }}
+                    id="inline-gpOPebgVrFMlV3mWzrw1"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Website Form"
+                    data-height="1223"
+                    data-layout-iframe-id="inline-gpOPebgVrFMlV3mWzrw1"
+                    data-form-id="gpOPebgVrFMlV3mWzrw1"
+                    title="Website Form"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -180,15 +212,13 @@ export default function App() {
               </div>
             </div>
             <div className="w-full md:w-1/2">
-              <div className="aspect-[4/3] bg-navy-800 rounded-lg border border-white/10 flex items-center justify-center text-gray-500 relative overflow-hidden group">
+              <div className="aspect-[4/3] rounded-lg border border-white/10 relative overflow-hidden">
                 <img 
-                  src="https://picsum.photos/seed/electrician-team/800/600" 
-                  alt="Team" 
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-                  referrerPolicy="no-referrer"
+                  src="/about-panel.png" 
+                  alt="Electrician working on electrical control panel - Summit Electric" 
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"></div>
-                <span className="font-mono text-sm relative z-10 bg-navy-900/80 px-4 py-2 rounded">&lt;!-- PHOTO: Team or Van --&gt;</span>
+                <div className="absolute inset-0 bg-navy-900/45"></div>
               </div>
             </div>
           </div>
@@ -286,25 +316,26 @@ export default function App() {
 
       {/* 7. GALLERY */}
       <section id="gallery" className="py-12 md:py-14 bg-navy-800">
-        <div className="max-w-5xl mx-auto px-4 md:px-8">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-2">RECENT PROJECTS</h2>
-          <p className="text-gray-400 mb-8">A sample of residential and commercial work we're proud of.</p>
+        <div className="container mx-auto px-4 md:px-8">
+          <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
+          <p className="text-gray-400 mb-10 max-w-2xl">A sample of residential and commercial work we're proud of.</p>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="relative overflow-hidden rounded-lg group bg-navy-900 border border-white/10 shadow-lg aspect-[4/3]">
+              <div key={i} className="relative overflow-hidden rounded-lg group bg-navy-900 border-t-4 border-gold border border-white/10 shadow-lg aspect-[4/3] hover:-translate-y-1 transition-transform duration-300">
                 <img 
                   src={`https://picsum.photos/seed/project-${i + 10}/600/600`} 
                   alt={`Project ${i + 1}`}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
-                  <span className="text-white font-heading font-bold text-sm">Project {i + 1}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/95 via-navy-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                  <span className="text-white font-heading font-bold text-base tracking-wide">Project {i + 1}</span>
                 </div>
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                  <Search className="text-white w-6 h-6 drop-shadow-md" />
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                  <Search className="text-gold w-6 h-6 drop-shadow-md" />
                 </div>
               </div>
             ))}
