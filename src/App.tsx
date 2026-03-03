@@ -42,7 +42,7 @@ export default function App() {
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`} 
-                className="text-sm font-medium hover:text-gold transition-colors duration-200"
+                className="text-base font-bold hover:text-gold transition-colors duration-200"
               >
                 {item.toUpperCase()}
               </a>
@@ -50,14 +50,14 @@ export default function App() {
           </div>
 
           {/* CTA & Phone */}
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="tel:1234567891" className="flex items-center space-x-2 text-white hover:text-gold transition-colors">
-              <Phone size={18} className="text-gold" />
-              <span className="font-bold">(123) 456-7891</span>
+          <div className="hidden md:flex items-center space-x-4">
+            <a href="tel:1234567891" className="flex items-center space-x-2 bg-black border border-white/20 text-white px-4 py-2.5 rounded font-bold text-base hover:bg-navy-800 hover:text-gold transition-colors duration-200">
+              <Phone size={20} className="text-gold" />
+              <span>(123) 456-7891</span>
             </a>
             <button 
               onClick={scrollToHero}
-              className="bg-gold text-navy-900 px-6 py-2.5 rounded font-bold text-sm hover:bg-white transition-colors duration-200"
+              className="bg-gold text-white px-6 py-2.5 rounded font-bold text-base hover:bg-white hover:text-navy-900 transition-colors duration-200"
             >
               GET FREE QUOTE
             </button>
@@ -80,13 +80,13 @@ export default function App() {
                 <a 
                   key={item} 
                   href={`#${item.toLowerCase()}`}
-                  className="text-white hover:text-gold font-medium py-2 border-b border-white/5"
+                  className="text-white hover:text-gold font-bold text-base py-2 border-b border-white/5"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.toUpperCase()}
                 </a>
               ))}
-              <a href="tel:1234567891" className="flex items-center space-x-2 text-gold font-bold py-2">
+              <a href="tel:1234567891" className="flex items-center space-x-2 text-gold font-bold text-base py-2">
                 <Phone size={18} />
                 <span>(123) 456-7891</span>
               </a>
@@ -395,15 +395,31 @@ export default function App() {
 
       {/* 10. SERVICE AREAS */}
       <section className="py-10 bg-navy-900 border-t border-white/5">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h4 className="text-gray-500 font-bold tracking-widest text-sm mb-8">PROUDLY SERVING</h4>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-            {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
-              <a key={city} href="#" className="text-gold font-bold text-lg hover:text-white transition-colors flex items-center">
-                <MapPin size={16} className="mr-1" />
-                {city}
-              </a>
-            ))}
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex flex-col lg:flex-row gap-10 items-center lg:items-start justify-between">
+            <div className="text-center lg:text-left flex-1">
+              <h4 className="text-gray-500 font-bold tracking-widest text-sm mb-6">PROUDLY SERVING</h4>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6">
+                {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
+                  <a key={city} href="#" className="text-gold font-bold text-lg hover:text-white transition-colors flex items-center">
+                    <MapPin size={16} className="mr-1" />
+                    {city}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="w-full lg:w-auto flex-shrink-0 rounded-lg overflow-hidden border border-white/10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052786.409900489!2d-79.74353328749999!3d41.650627000000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dcaf33c816a8d7%3A0xe32ba79e665453b9!2sSummit%20Electric!5e0!3m2!1sen!2sus!4v1772504144421!5m2!1sen!2sus"
+                width="450"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Summit Electric location"
+              />
+            </div>
           </div>
         </div>
       </section>
