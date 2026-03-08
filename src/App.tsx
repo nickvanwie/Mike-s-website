@@ -5,6 +5,14 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+  const [quoteForm, setQuoteForm] = useState({ name: '', phone: '', email: '', service: '', message: '' });
+
+  const handleQuoteSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Hook up to your CRM/email endpoint; for now just prevent default
+    console.log('Quote submitted', quoteForm);
+  };
+
   const googleReviews = [
     { name: 'Mike T.', text: 'Summit Electric did an outstanding job upgrading our panel. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
     { name: 'Sarah L.', text: 'We had an emergency and they came out the same day. The team was knowledgeable and fixed the issue quickly. Five stars.', date: '1 month ago' },
@@ -141,34 +149,56 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right: Quote form – iframe fits exactly to embed size, no scroll */}
-            <div className="w-full md:w-[520px] flex-shrink-0 rounded-lg">
-              <iframe
-                src="https://core.switchflowai.com/widget/form/gpOPebgVrFMlV3mWzrw1"
-                className="w-full border-0 block"
-                style={{ height: '1223px' }}
-                id="inline-gpOPebgVrFMlV3mWzrw1"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Website Form"
-                data-height="1223"
-                data-layout-iframe-id="inline-gpOPebgVrFMlV3mWzrw1"
-                data-form-id="gpOPebgVrFMlV3mWzrw1"
-                title="Website Form"
-              />
+            {/* Right: Custom quote form matching site style */}
+            <div className="w-full md:w-[420px] flex-shrink-0">
+              <form onSubmit={handleQuoteSubmit} className="rounded-xl border border-white/10 border-t-4 border-t-gold bg-navy-800/95 backdrop-blur-sm shadow-2xl overflow-hidden">
+                <div className="p-6 md:p-8 space-y-4">
+                  <h3 className="font-heading text-xl font-bold text-white mb-6">GET A FREE QUOTE</h3>
+                  <div>
+                    <label htmlFor="quote-name" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Full Name *</label>
+                    <input id="quote-name" type="text" required value={quoteForm.name} onChange={(e) => setQuoteForm((f) => ({ ...f, name: e.target.value }))} placeholder="John Smith" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm" />
+                  </div>
+                  <div>
+                    <label htmlFor="quote-phone" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Phone *</label>
+                    <input id="quote-phone" type="tel" required value={quoteForm.phone} onChange={(e) => setQuoteForm((f) => ({ ...f, phone: e.target.value }))} placeholder="(123) 456-7890" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm" />
+                  </div>
+                  <div>
+                    <label htmlFor="quote-email" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Email *</label>
+                    <input id="quote-email" type="email" required value={quoteForm.email} onChange={(e) => setQuoteForm((f) => ({ ...f, email: e.target.value }))} placeholder="john@example.com" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm" />
+                  </div>
+                  <div>
+                    <label htmlFor="quote-service" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Service needed</label>
+                    <select id="quote-service" value={quoteForm.service} onChange={(e) => setQuoteForm((f) => ({ ...f, service: e.target.value }))} className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm">
+                      <option value="">Select service...</option>
+                      <option value="residential">Residential</option>
+                      <option value="commercial">Commercial</option>
+                      <option value="repair">Repair / Emergency</option>
+                      <option value="installation">New Installation</option>
+                      <option value="panel">Panel Upgrade</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="quote-message" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Message</label>
+                    <textarea id="quote-message" rows={3} value={quoteForm.message} onChange={(e) => setQuoteForm((f) => ({ ...f, message: e.target.value }))} placeholder="Tell us about your project..." className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm resize-none" />
+                  </div>
+                  <button type="submit" className="w-full bg-gold text-white font-heading font-bold text-base py-3.5 rounded-lg hover:bg-white hover:text-navy-900 transition-colors duration-200">
+                    REQUEST FREE QUOTE
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </section>
 
       {/* 3. TRUST BAR */}
-      <section className="bg-navy-800 border-y border-white/5 py-8 md:py-10 relative z-10">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="relative border-y border-white/5 py-8 md:py-10 z-10 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/electrical-wires/1920/400" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/88" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {[
               { icon: Shield, text: "MILITARY OWNED" },
@@ -187,8 +217,12 @@ export default function App() {
       </section>
 
       {/* 4. ABOUT */}
-      <section id="about" className="py-12 md:py-14 bg-navy-900">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="about" className="py-12 md:py-14 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/industrial-dark/1920/1080" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/90" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
               <h4 className="text-gold font-bold tracking-widest text-sm">ABOUT SUMMIT ELECTRIC</h4>
@@ -224,8 +258,12 @@ export default function App() {
       </section>
 
       {/* 5. SERVICES */}
-      <section id="services" className="py-12 md:py-14 bg-navy-800">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="services" className="py-12 md:py-14 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/electrical-panel-dark/1920/1080" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/85" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-10">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">PREMIUM ELECTRICAL SERVICES</h2>
@@ -280,8 +318,12 @@ export default function App() {
       </section>
 
       {/* 6. PROCESS */}
-      <section id="process" className="py-12 md:py-14 bg-navy-900">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="process" className="py-12 md:py-14 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/construction-tools/1920/1080" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/88" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-10">
             <h2 className="font-heading text-3xl md:text-4xl font-bold">HOW WE WORK</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From your first call to the final inspection, we follow a clear, reliable process so you know what to expect every step of the way.</p>
@@ -313,8 +355,12 @@ export default function App() {
       </section>
 
       {/* 7. GALLERY - collage of customer project photos */}
-      <section id="gallery" className="py-12 md:py-14 bg-navy-800">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="gallery" className="py-12 md:py-14 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/workshop-dark/1920/1080" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/82" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
           <p className="text-gray-400 mb-10 max-w-2xl">A collage of customer project photos—residential and commercial work we're proud of.</p>
@@ -360,8 +406,12 @@ export default function App() {
       </section>
 
       {/* 8. REVIEWS - constant slow stream, 3-4 visible */}
-      <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="reviews" className="py-12 md:py-14 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/circuit-dark/1920/1080" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/88" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-8">
             <div className="flex justify-center space-x-1 mb-4">
               {[1,2,3,4,5].map(star => <Star key={star} className="text-gold fill-gold w-5 h-5" />)}
@@ -391,8 +441,12 @@ export default function App() {
       </section>
 
       {/* 9. FAQ */}
-      <section id="faq" className="py-12 md:py-14 bg-navy-800">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="faq" className="py-12 md:py-14 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/lighting-dark/1920/1080" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/87" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10">
             {/* FAQ Accordion */}
             <div className="w-full md:w-1/2">
@@ -434,8 +488,12 @@ export default function App() {
       </section>
 
       {/* 10. SERVICE AREAS */}
-      <section className="py-12 md:py-14 bg-navy-900 border-t border-white/5">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="py-12 md:py-14 relative border-t border-white/5 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/map-roads/1920/600" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/90" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="rounded-2xl overflow-hidden border border-white/10 bg-navy-800/60 shadow-xl flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-8 md:p-10 flex flex-col justify-center">
               <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
@@ -470,7 +528,11 @@ export default function App() {
       </section>
 
       {/* 11. CTA BANNER */}
-      <section id="contact" className="py-12 md:py-14 bg-navy-900 relative border-t border-white/10">
+      <section id="contact" className="py-12 md:py-14 relative border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="https://picsum.photos/seed/electrician-final/1920/600" alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-navy-900/85" />
+        </div>
         <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
           <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">READY TO START YOUR PROJECT?</h2>
           <button 
