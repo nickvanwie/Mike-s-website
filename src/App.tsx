@@ -186,22 +186,38 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. TRUST BAR */}
-      <section className="bg-navy-800 border-y border-white/5 py-8 md:py-10 relative z-10">
+      {/* 3. TRUST BAR - two-column with image */}
+      <section className="bg-navy-800 border-y border-white/5 py-12 md:py-14 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {[
-              { icon: Shield, text: "MILITARY OWNED" },
-              { icon: Users, text: "FAMILY BUSINESS" },
-              { icon: Clock, text: "40+ YEARS EXPERIENCE" },
-              { icon: CheckCircle, text: "INSURED" },
-              { icon: FileText, text: "FULLY LICENSED" }
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-4 px-6 py-3 rounded-lg bg-navy-900/50 border border-white/10 min-w-[180px] justify-center md:min-w-0">
-                <item.icon className="text-gold w-8 h-8 shrink-0" />
-                <span className="font-heading text-base md:text-lg font-bold tracking-wide">{item.text}</span>
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
+            {/* Left: headline + trust badges */}
+            <div className="w-full lg:w-1/2 space-y-6">
+              <div>
+                <h4 className="text-gold font-bold tracking-widest text-sm mb-2">WHY SUMMIT</h4>
+                <h2 className="font-heading text-2xl md:text-3xl font-bold text-white">BUILT ON TRUST & EXPERIENCE</h2>
               </div>
-            ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { icon: Shield, text: "MILITARY OWNED" },
+                  { icon: Users, text: "FAMILY BUSINESS" },
+                  { icon: Clock, text: "40+ YEARS EXPERIENCE" },
+                  { icon: CheckCircle, text: "INSURED" },
+                  { icon: FileText, text: "FULLY LICENSED" }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 px-5 py-3.5 rounded-lg bg-navy-900/60 border border-gold/20 min-w-0">
+                    <item.icon className="text-gold w-8 h-8 shrink-0" />
+                    <span className="font-heading text-base md:text-lg font-bold tracking-wide">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Right: supporting image */}
+            <div className="w-full lg:w-1/2">
+              <div className="aspect-[4/3] rounded-lg border border-white/10 overflow-hidden relative">
+                <img src="/stock-pics/24.png" alt="Summit Electric - trusted electrical services" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-navy-900/50" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
