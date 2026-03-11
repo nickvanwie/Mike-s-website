@@ -223,18 +223,23 @@ export default function App() {
       </section>
 
       {/* 4. ABOUT */}
-      <section id="about" className="py-12 md:py-14 bg-navy-900">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="about" className="py-12 md:py-14 bg-navy-900 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/stock-pics/9.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/70" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
               <h4 className="text-gold font-bold tracking-widest text-sm">ABOUT SUMMIT ELECTRIC</h4>
               <h2 className="font-heading text-3xl md:text-4xl font-bold">POWERING OUR COMMUNITY WITH PRIDE</h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed">
                 Summit Electric has been a trusted name in electrical contracting for over four decades. 
                 As a military-owned, family-operated business, we bring disciplined precision and 
                 personal care to every project.
               </p>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed">
                 Whether it's a simple residential repair or a complex commercial installation, 
                 our team of licensed electricians ensures your systems are safe, efficient, and 
                 built to last.
@@ -246,9 +251,9 @@ export default function App() {
               </div>
             </div>
             <div className="w-full md:w-1/2">
-              <div className="aspect-[4/3] rounded-lg border border-white/10 relative overflow-hidden">
+              <div className="aspect-[4/3] rounded-lg border border-white/10 relative overflow-hidden shadow-xl">
                 <img 
-                  src="/about-panel.png" 
+                  src="/stock-pics/7.png" 
                   alt="Electrician working on electrical control panel - Summit Electric" 
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -260,8 +265,12 @@ export default function App() {
       </section>
 
       {/* 5. SERVICES */}
-      <section id="services" className="py-12 md:py-14 bg-navy-800">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="services" className="py-12 md:py-14 bg-navy-800 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/stock-pics/10.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy-900/65" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-10">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">PREMIUM ELECTRICAL SERVICES</h2>
@@ -272,32 +281,32 @@ export default function App() {
               { 
                 title: "ELECTRICAL SERVICES", 
                 desc: "Full-service repairs, installations, and maintenance for your home.",
-                img: "https://picsum.photos/seed/wiring-repair/600/400"
+                img: "/stock-pics/1.png"
               },
               { 
                 title: "POWER & ENERGY SOLUTIONS", 
                 desc: "Panel upgrades, EV chargers, and whole-home surge protection.",
-                img: "https://picsum.photos/seed/solar-panel/600/400"
+                img: "/stock-pics/2.png"
               },
               { 
                 title: "SECURITY & OUTDOOR LIGHTING", 
                 desc: "Landscape lighting, motion sensors, and security system wiring.",
-                img: "https://picsum.photos/seed/outdoor-lights/600/400"
+                img: "/stock-pics/3.png"
               },
               { 
                 title: "COMMERCIAL SERVICES", 
                 desc: "Reliable power solutions for offices, retail, and industrial facilities.",
-                img: "https://picsum.photos/seed/office-building/600/400"
+                img: "/stock-pics/4.png"
               },
               { 
                 title: "GENERATOR INSTALLATION", 
                 desc: "Standby and portable generator installation, wiring, and transfer switches for backup power.",
-                img: "https://picsum.photos/seed/generator/600/400"
+                img: "/stock-pics/5.png"
               },
               { 
                 title: "ELECTRICAL INSPECTIONS", 
                 desc: "Code compliance inspections, safety audits, and pre-purchase electrical assessments.",
-                img: "https://picsum.photos/seed/inspection/600/400"
+                img: "/stock-pics/6.png"
               }
             ].map((service, i) => (
               <div 
@@ -309,7 +318,6 @@ export default function App() {
                     src={service.img} 
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors"></div>
                 </div>
@@ -326,8 +334,12 @@ export default function App() {
       </section>
 
       {/* 6. PROCESS */}
-      <section id="process" className="py-12 md:py-14 bg-navy-900">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="process" className="py-12 md:py-14 bg-navy-900 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/stock-pics/21.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy-900/70" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-10">
             <h2 className="font-heading text-3xl md:text-4xl font-bold">HOW WE WORK</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From your first call to the final inspection, we follow a clear, reliable process so you know what to expect every step of the way.</p>
@@ -340,7 +352,7 @@ export default function App() {
               { step: "03", title: "EXECUTE", desc: "Our team arrives on time and completes the work to code with minimal disruption." },
               { step: "04", title: "ENJOY", desc: "You get safe, reliable power with warranties and ongoing support." }
             ].map((item, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/50 rounded-lg p-6 border border-white/5">
+              <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/90 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-xl">
                 <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(211,30,38,0.3)]">
                   {item.step}
                 </div>
@@ -367,36 +379,35 @@ export default function App() {
           
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[
-              { seed: 10, wide: true },
-              { seed: 11 },
-              { seed: 12 },
-              { seed: 13 },
-              { seed: 14 },
-              { seed: 15, wide: true },
-              { seed: 16 },
-              { seed: 17 },
-              { seed: 18 },
-              { seed: 19 },
-              { seed: 20, wide: true },
-              { seed: 21 },
-              { seed: 22 },
-              { seed: 23 },
-              { seed: 24 },
-              { seed: 25 },
-              { seed: 26, wide: true },
-              { seed: 27 },
-              { seed: 28 },
-              { seed: 29 },
+              { img: '1.png', wide: true },
+              { img: '2.png' },
+              { img: '3.png' },
+              { img: '4.png' },
+              { img: '5.png' },
+              { img: '6.png', wide: true },
+              { img: '7.png' },
+              { img: '8.png' },
+              { img: '9.png' },
+              { img: '10.png' },
+              { img: '11.png', wide: true },
+              { img: '12.png' },
+              { img: '13.png' },
+              { img: '14.png' },
+              { img: '15.png' },
+              { img: '16.png' },
+              { img: '17.png', wide: true },
+              { img: '18.png' },
+              { img: '19.png' },
+              { img: '20.png' },
             ].map((item, i) => (
               <div
                 key={i}
                 className={`relative overflow-hidden rounded-lg group bg-navy-900 border border-white/10 hover:border-gold/40 transition-all duration-300 aspect-[4/3] ${item.wide ? 'md:col-span-2' : ''}`}
               >
                 <img 
-                  src={`https://picsum.photos/seed/project-${item.seed}/600/600`} 
+                  src={`/stock-pics/${item.img}`} 
                   alt={`Customer project ${i + 1}`}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -406,8 +417,12 @@ export default function App() {
       </section>
 
       {/* 8. REVIEWS - constant slow stream, 3-4 visible */}
-      <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden relative">
+        <div className="absolute inset-0 z-0">
+          <img src="/stock-pics/22.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy-900/60" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-8">
             <div className="flex justify-center space-x-1 mb-4">
               {[1,2,3,4,5].map(star => <Star key={star} className="text-gold fill-gold w-5 h-5" />)}
@@ -437,8 +452,12 @@ export default function App() {
       </section>
 
       {/* 9. FAQ */}
-      <section id="faq" className="py-12 md:py-14 bg-navy-800">
-        <div className="container mx-auto px-4 md:px-8">
+      <section id="faq" className="py-12 md:py-14 bg-navy-800 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/stock-pics/23.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy-900/65" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10">
             {/* FAQ Accordion */}
             <div className="w-full md:w-1/2">
@@ -468,42 +487,27 @@ export default function App() {
               </div>
             </div>
             
-            {/* Image Placeholder */}
+            {/* FAQ Image */}
             <div className="w-full md:w-1/2">
-              <div className="h-full min-h-[400px] bg-navy-900 rounded border border-white/10 flex items-center justify-center relative">
-                {/* <!-- PHOTO: [description] --> */}
-                <span className="font-mono text-gray-500">&lt;!-- PHOTO: Electrician at work --&gt;</span>
+              <div className="h-full min-h-[400px] rounded-lg border border-white/10 overflow-hidden relative shadow-xl">
+                <img src="/stock-pics/8.png" alt="Electrician at work - Summit Electric" className="w-full h-full min-h-[400px] object-cover" />
+                <div className="absolute inset-0 bg-navy-900/30" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 10. SERVICE AREAS */}
+      {/* 10. MAP - standalone card */}
       <section className="py-12 md:py-14 bg-navy-900 border-t border-white/5">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="rounded-2xl overflow-hidden border border-white/10 bg-navy-800/60 shadow-xl flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-8 md:p-10 flex flex-col justify-center">
-              <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6">PROUDLY SERVING</h2>
-              <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted electrical services across Summit County and surrounding communities.</p>
-              <div className="grid grid-cols-2 gap-3">
-                {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
-                  <a
-                    key={city}
-                    href="#"
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-sm transition-all duration-200 group"
-                  >
-                    <MapPin size={18} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
-                    <span className="group-hover:text-gold transition-colors">{city}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div className="lg:w-1/2 min-h-[320px] md:min-h-[400px] bg-navy-900">
+          <div className="max-w-4xl mx-auto">
+            <h4 className="text-gold font-bold tracking-widest text-sm mb-2 text-center">FIND US</h4>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6 text-center">OUR LOCATION</h2>
+            <div className="rounded-2xl overflow-hidden border-2 border-gold/30 shadow-2xl bg-navy-800 w-full max-w-lg mx-auto aspect-square">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052786.409900489!2d-79.74353328749999!3d41.650627000000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dcaf33c816a8d7%3A0xe32ba79e665453b9!2sSummit%20Electric!5e0!3m2!1sen!2sus!4v1772504144421!5m2!1sen!2sus"
-                className="w-full h-full min-h-[320px] md:min-h-[400px]"
+                className="w-full h-full min-h-[280px]"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
@@ -515,7 +519,30 @@ export default function App() {
         </div>
       </section>
 
-      {/* 11. CTA BANNER */}
+      {/* 11. PROUDLY SERVICING - standalone section, larger area cards */}
+      <section className="py-12 md:py-14 bg-navy-800 border-t border-white/5">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-10">
+            <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold">PROUDLY SERVING</h2>
+            <p className="text-gray-400 mt-3 max-w-xl mx-auto">Trusted electrical services across Summit County and surrounding communities.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
+              <a
+                key={city}
+                href="#"
+                className="flex items-center justify-center gap-4 px-8 py-6 rounded-xl bg-navy-900/80 border-2 border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-lg md:text-xl transition-all duration-200 group shadow-lg"
+              >
+                <MapPin size={24} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="group-hover:text-gold transition-colors">{city}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 12. CTA BANNER */}
       <section id="contact" className="py-12 md:py-14 bg-navy-900 relative border-t border-white/10">
         <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
           <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">READY TO START YOUR PROJECT?</h2>
@@ -528,7 +555,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 12. FOOTER */}
+      {/* 13. FOOTER */}
       <footer className="bg-navy-800 pt-12 pb-6 border-t-4 border-gold">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-8">
