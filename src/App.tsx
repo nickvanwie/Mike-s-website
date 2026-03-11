@@ -415,8 +415,8 @@ export default function App() {
           </div>
 
           <div className="text-center mt-10">
-            <a href="https://www.google.com/search?q=Summit+Electric+reviews" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gold text-white px-8 py-4 rounded font-bold text-base hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
-              <Star className="w-5 h-5 fill-white" />
+            <a href="https://www.google.com/search?q=Summit+Electric+reviews" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gold text-white px-10 py-5 rounded font-bold text-lg md:text-xl hover:bg-white hover:text-navy-900 transition-colors shadow-lg shadow-gold/30">
+              <Star className="w-6 h-6 fill-white shrink-0" />
               Leave us a review on Google
             </a>
           </div>
@@ -474,14 +474,14 @@ export default function App() {
               <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6">PROUDLY SERVING</h2>
               <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted electrical services across Summit County and surrounding communities.</p>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-4">
                 {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
                   <a
                     key={city}
                     href="#"
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-sm transition-all duration-200 group"
+                    className="flex items-center gap-3 px-5 py-4 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-base md:text-lg transition-all duration-200 group"
                   >
-                    <MapPin size={18} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
+                    <MapPin size={24} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
                     <span className="group-hover:text-gold transition-colors">{city}</span>
                   </a>
                 ))}
