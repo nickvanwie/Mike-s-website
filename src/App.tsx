@@ -5,7 +5,7 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
-  const [quoteForm, setQuoteForm] = useState({ name: '', phone: '', email: '', service: '', message: '', consentContact: false, consentTerms: false });
+  const [quoteForm, setQuoteForm] = useState({ name: '', phone: '', message: '', consentSms: false, consentPromo: false });
 
   const handleQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -163,33 +163,17 @@ export default function App() {
                     <input id="quote-phone" type="tel" required value={quoteForm.phone} onChange={(e) => setQuoteForm((f) => ({ ...f, phone: e.target.value }))} placeholder="(123) 456-7890" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm" />
                   </div>
                   <div>
-                    <label htmlFor="quote-email" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Email *</label>
-                    <input id="quote-email" type="email" required value={quoteForm.email} onChange={(e) => setQuoteForm((f) => ({ ...f, email: e.target.value }))} placeholder="john@example.com" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm" />
-                  </div>
-                  <div>
-                    <label htmlFor="quote-service" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Service needed</label>
-                    <select id="quote-service" value={quoteForm.service} onChange={(e) => setQuoteForm((f) => ({ ...f, service: e.target.value }))} className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm">
-                      <option value="">Select service...</option>
-                      <option value="residential">Residential</option>
-                      <option value="commercial">Commercial</option>
-                      <option value="repair">Repair / Emergency</option>
-                      <option value="installation">New Installation</option>
-                      <option value="panel">Panel Upgrade</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="quote-message" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Message</label>
-                    <textarea id="quote-message" rows={3} value={quoteForm.message} onChange={(e) => setQuoteForm((f) => ({ ...f, message: e.target.value }))} placeholder="Tell us about your project..." className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm resize-none" />
+                    <label htmlFor="quote-message" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Message *</label>
+                    <textarea id="quote-message" rows={3} required value={quoteForm.message} onChange={(e) => setQuoteForm((f) => ({ ...f, message: e.target.value }))} placeholder="Tell us about your project..." className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm resize-none" />
                   </div>
                   <div className="space-y-3 pt-1">
                     <label className="flex items-start gap-3 cursor-pointer group">
-                      <input type="checkbox" required checked={quoteForm.consentContact} onChange={(e) => setQuoteForm((f) => ({ ...f, consentContact: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
-                      <span className="text-gray-300 text-sm font-sans">I agree to be contacted by Summit Electric by phone, email, or text regarding my quote request. *</span>
+                      <input type="checkbox" required checked={quoteForm.consentSms} onChange={(e) => setQuoteForm((f) => ({ ...f, consentSms: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
+                      <span className="text-gray-300 text-sm font-sans">I agree to receive text messages from Summit Electric regarding my quote request, appointment updates, and service notifications. Message frequency may vary. Message & data rates may apply. Reply STOP to opt out or HELP for assistance. *</span>
                     </label>
                     <label className="flex items-start gap-3 cursor-pointer group">
-                      <input type="checkbox" required checked={quoteForm.consentTerms} onChange={(e) => setQuoteForm((f) => ({ ...f, consentTerms: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
-                      <span className="text-gray-300 text-sm font-sans">I agree to the <a href="#" className="text-gold hover:text-white underline">Privacy Policy</a> and <a href="#" className="text-gold hover:text-white underline">Terms of Service</a>. *</span>
+                      <input type="checkbox" checked={quoteForm.consentPromo} onChange={(e) => setQuoteForm((f) => ({ ...f, consentPromo: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
+                      <span className="text-gray-300 text-sm font-sans">I agree to receive promotional text messages from Summit Electric, including special offers and discounts.</span>
                     </label>
                   </div>
                   <button type="submit" className="w-full bg-gold text-white font-heading font-bold text-base py-3.5 rounded-lg hover:bg-white hover:text-navy-900 transition-colors duration-200">
