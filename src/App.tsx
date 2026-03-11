@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Search, Star } from 'lucide-react';
+import { Menu, X, Phone, Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Search, Star, Zap } from 'lucide-react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -164,7 +164,7 @@ export default function App() {
                   </div>
                   <div>
                     <label htmlFor="quote-message" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Message *</label>
-                    <textarea id="quote-message" rows={3} required value={quoteForm.message} onChange={(e) => setQuoteForm((f) => ({ ...f, message: e.target.value }))} placeholder="Tell us about your project..." className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm resize-none" />
+                    <textarea id="quote-message" rows={3} required value={quoteForm.message} onChange={(e) => setQuoteForm((f) => ({ ...f, message: e.target.value }))} placeholder="*Your message goes straight to my phone, I'll get back to you as soon as I'm available*" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm resize-none" />
                   </div>
                   <div className="space-y-3 pt-1">
                     <label className="flex items-start gap-3 cursor-pointer group">
@@ -186,15 +186,23 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. TRUST BAR - two-column with image */}
+      {/* 3. TRUST BAR - image left, badges right */}
       <section className="bg-navy-800 border-y border-white/5 py-12 md:py-14 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
-            {/* Left: headline + trust badges */}
-            <div className="w-full lg:w-1/2 space-y-6">
+            {/* Left: supporting image */}
+            <div className="w-full lg:w-1/2 order-2 lg:order-1">
+              <div className="aspect-[4/3] rounded-lg border border-white/10 overflow-hidden relative">
+                <img src="/stock-pics/24.png" alt="Summit Electric - trusted electrical services" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-navy-900/50" />
+              </div>
+            </div>
+            {/* Right: headline + trust badges + filler */}
+            <div className="w-full lg:w-1/2 space-y-6 order-1 lg:order-2">
               <div>
                 <h4 className="text-gold font-bold tracking-widest text-sm mb-2">WHY SUMMIT</h4>
                 <h2 className="font-heading text-2xl md:text-3xl font-bold text-white">BUILT ON TRUST & EXPERIENCE</h2>
+                <p className="text-gray-400 text-sm mt-3 max-w-md">Serving Akron and the greater Summit County area with reliable, professional electrical work since day one.</p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
@@ -202,7 +210,8 @@ export default function App() {
                   { icon: Users, text: "FAMILY BUSINESS" },
                   { icon: Clock, text: "40+ YEARS EXPERIENCE" },
                   { icon: CheckCircle, text: "INSURED" },
-                  { icon: FileText, text: "FULLY LICENSED" }
+                  { icon: FileText, text: "FULLY LICENSED" },
+                  { icon: Zap, text: "24/7 EMERGENCY" }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 px-5 py-3.5 rounded-lg bg-navy-900/60 border border-gold/20 min-w-0">
                     <item.icon className="text-gold w-8 h-8 shrink-0" />
@@ -210,13 +219,9 @@ export default function App() {
                   </div>
                 ))}
               </div>
-            </div>
-            {/* Right: supporting image */}
-            <div className="w-full lg:w-1/2">
-              <div className="aspect-[4/3] rounded-lg border border-white/10 overflow-hidden relative">
-                <img src="/stock-pics/24.png" alt="Summit Electric - trusted electrical services" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-navy-900/50" />
-              </div>
+              <a href="#hero" className="inline-block text-gold font-heading font-bold text-sm border-b-2 border-gold pb-1 hover:text-white hover:border-white transition-colors">
+                GET YOUR FREE QUOTE →
+              </a>
             </div>
           </div>
         </div>
