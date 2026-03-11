@@ -361,46 +361,27 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. GALLERY - collage of customer project photos */}
+      {/* 7. GALLERY - project photos */}
       <section id="gallery" className="py-12 md:py-14 bg-navy-800">
         <div className="container mx-auto px-4 md:px-8">
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
-          <p className="text-gray-400 mb-10 max-w-2xl">A collage of customer project photos—residential and commercial work we're proud of.</p>
+          <p className="text-gray-400 mb-10 max-w-2xl">Residential and commercial electrical work we're proud of.</p>
           
-          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {[
-              { img: '1.png', wide: true },
-              { img: '2.png' },
-              { img: '3.png' },
-              { img: '4.png' },
-              { img: '5.png' },
-              { img: '6.png', wide: true },
-              { img: '7.png' },
-              { img: '8.png' },
-              { img: '9.png' },
-              { img: '10.png' },
-              { img: '11.png', wide: true },
-              { img: '12.png' },
-              { img: '13.png' },
-              { img: '14.png' },
-              { img: '15.png' },
-              { img: '16.png' },
-              { img: '17.png', wide: true },
-              { img: '18.png' },
-              { img: '19.png' },
-              { img: '20.png' },
-            ].map((item, i) => (
+          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png'].map((img, i) => (
               <div
                 key={i}
-                className={`relative overflow-hidden rounded-lg group bg-navy-900 border border-white/10 hover:border-gold/40 transition-all duration-300 aspect-[4/3] ${item.wide ? 'md:col-span-2' : ''}`}
+                className="relative overflow-hidden rounded-xl bg-navy-900 border border-white/10 shadow-lg group"
               >
-                <img 
-                  src={`/stock-pics/${item.img}`} 
-                  alt={`Customer project ${i + 1}`}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="aspect-[4/3]">
+                  <img 
+                    src={`/stock-pics/${img}`} 
+                    alt={`Project ${i + 1} - Summit Electric`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-xl border border-transparent group-hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
               </div>
             ))}
           </div>
