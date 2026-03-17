@@ -10,7 +10,7 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="w-full lg:w-1/2 space-y-6">
               <p className="text-gray-300 leading-relaxed text-lg">
-                Summit Electric has been a trusted name in electrical contracting for over four decades. As a military-owned, family-operated business, we bring disciplined precision and personal care to every project.
+                MPH Property Services has been a trusted name in electrical contracting for over four decades. As a military-owned, family-operated business, we bring disciplined precision and personal care to every project.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 Whether it's a simple residential repair or a complex commercial installation, our team of licensed electricians ensures your systems are safe, efficient, and built to last. We stand behind our work and treat every home and business like our own.
@@ -29,7 +29,7 @@ export default function AboutPage() {
             </div>
             <div className="w-full lg:w-1/2">
               <div className="aspect-[4/3] rounded-lg border border-white/10 relative overflow-hidden">
-                <img src="/about-panel.png" alt="Electrician working on electrical control panel - Summit Electric" className="absolute inset-0 w-full h-full object-cover" />
+                <img src="/about-panel.png" alt="Electrician working on electrical control panel - MPH Property Services" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-navy-900/45" />
               </div>
             </div>

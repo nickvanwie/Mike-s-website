@@ -24,7 +24,7 @@ export default function ProcessPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative max-w-5xl mx-auto">
             {processSteps.map((item, i) => (
               <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/90 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-xl">
-                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(29,49,36,0.3)]">
+                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(5,136,68,0.3)]">
                   {item.step}
                 </div>
                 <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>

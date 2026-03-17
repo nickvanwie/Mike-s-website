@@ -4,7 +4,7 @@ import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, Ma
 import { services } from '../data/services';
 
 const googleReviews = [
-  { name: 'Mike T.', text: 'Summit Electric did an outstanding job upgrading our panel. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
+  { name: 'Mike T.', text: 'MPH Property Services did an outstanding job upgrading our panel. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
   { name: 'Sarah L.', text: 'We had an emergency and they came out the same day. The team was knowledgeable and fixed the issue quickly. Five stars.', date: '1 month ago' },
   { name: 'James K.', text: 'From quote to completion, everything was smooth. Fair pricing and quality work. Will use again for our next project.', date: '3 weeks ago' },
   { name: 'Jennifer M.', text: 'Best electricians in the area. They installed our EV charger and outdoor lighting—both look great and work perfectly.', date: '1 month ago' },
@@ -26,7 +26,7 @@ const faqItems = [
 ];
 
 export default function HomePage() {
-  const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const [quoteForm, setQuoteForm] = useState({ name: '', phone: '', message: '', consentSms: false, consentPromo: false });
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function HomePage() {
     <>
       <section id="hero" className="relative min-h-[70vh] pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/hero.png" alt="Summit Electric - Professional Electrical Services" className="w-full h-full object-cover" />
+          <img src="/hero.png" alt="MPH Property Services - Professional Electrical Services" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60" />
         </div>
@@ -91,11 +91,11 @@ export default function HomePage() {
                   <div className="space-y-3 pt-1">
                     <label className="flex items-start gap-3 cursor-pointer group">
                       <input type="checkbox" required checked={quoteForm.consentSms} onChange={(e) => setQuoteForm((f) => ({ ...f, consentSms: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
-                      <span className="text-gray-300 text-sm font-sans">I agree to receive text messages from Summit Electric regarding my quote request, appointment updates, and service notifications. Message frequency may vary. Message & data rates may apply. Reply STOP to opt out or HELP for assistance. *</span>
+                      <span className="text-gray-300 text-sm font-sans">I agree to receive text messages from MPH Property Services regarding my quote request, appointment updates, and service notifications. Message frequency may vary. Message & data rates may apply. Reply STOP to opt out or HELP for assistance. *</span>
                     </label>
                     <label className="flex items-start gap-3 cursor-pointer group">
                       <input type="checkbox" checked={quoteForm.consentPromo} onChange={(e) => setQuoteForm((f) => ({ ...f, consentPromo: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
-                      <span className="text-gray-300 text-sm font-sans">I agree to receive promotional text messages from Summit Electric, including special offers and discounts.</span>
+                      <span className="text-gray-300 text-sm font-sans">I agree to receive promotional text messages from MPH Property Services, including special offers and discounts.</span>
                     </label>
                   </div>
                   <button type="submit" className="w-full bg-gold text-white font-heading font-bold text-base py-3.5 rounded-lg hover:bg-white hover:text-navy-900 transition-colors duration-200">
@@ -113,13 +113,13 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
               <div className="aspect-[4/3] rounded-lg border border-white/10 overflow-hidden relative">
-                <img src="/stock-pics/24.png" alt="Summit Electric - trusted electrical services" className="w-full h-full object-cover" />
+                <img src="/stock-pics/24.png" alt="MPH Property Services - trusted electrical services" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-navy-900/50" />
               </div>
             </div>
             <div className="w-full lg:w-1/2 space-y-6 order-1 lg:order-2">
               <div>
-                <h4 className="text-gold font-bold tracking-widest text-sm mb-2">WHY SUMMIT</h4>
+                <h4 className="text-gold font-bold tracking-widest text-sm mb-2">WHY MPH</h4>
                 <h2 className="font-heading text-2xl md:text-3xl font-bold text-white">BUILT ON TRUST & EXPERIENCE</h2>
                 <p className="text-gray-400 text-sm mt-3 max-w-md">Serving Akron and the greater Summit County area with reliable, professional electrical work since day one.</p>
               </div>
@@ -150,10 +150,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
-              <h4 className="text-gold font-bold tracking-widest text-sm">ABOUT SUMMIT ELECTRIC</h4>
+              <h4 className="text-gold font-bold tracking-widest text-sm">ABOUT MPH PROPERTY SERVICES</h4>
               <h2 className="font-heading text-3xl md:text-4xl font-bold">POWERING OUR COMMUNITY WITH PRIDE</h2>
               <p className="text-gray-400 leading-relaxed">
-                Summit Electric has been a trusted name in electrical contracting for over four decades. As a military-owned, family-operated business, we bring disciplined precision and personal care to every project.
+                MPH Property Services has been a trusted name in electrical contracting for over four decades. As a military-owned, family-operated business, we bring disciplined precision and personal care to every project.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 Whether it's a simple residential repair or a complex commercial installation, our team of licensed electricians ensures your systems are safe, efficient, and built to last.
@@ -166,7 +166,7 @@ export default function HomePage() {
             </div>
             <div className="w-full md:w-1/2">
               <div className="aspect-[4/3] rounded-lg border border-white/10 relative overflow-hidden">
-                <img src="/about-panel.png" alt="Electrician working on electrical control panel - Summit Electric" className="absolute inset-0 w-full h-full object-cover" />
+                <img src="/about-panel.png" alt="Electrician working on electrical control panel - MPH Property Services" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-navy-900/45" />
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative">
             {processSteps.map((item, i) => (
               <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/90 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-xl">
-                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(29,49,36,0.3)]">
+                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(5,136,68,0.3)]">
                   {item.step}
                 </div>
                 <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
@@ -239,7 +239,7 @@ export default function HomePage() {
             {['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png'].map((img, i) => (
               <div key={i} className="relative overflow-hidden rounded-xl bg-navy-900 border border-white/10 shadow-lg group">
                 <div className="aspect-[4/3]">
-                  <img src={`/stock-pics/${img}`} alt={`Project ${i + 1} - Summit Electric`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                  <img src={`/stock-pics/${img}`} alt={`Project ${i + 1} - MPH Property Services`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
                 </div>
                 <div className="absolute inset-0 rounded-xl border border-transparent group-hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
               </div>
@@ -274,7 +274,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="text-center mt-10">
-            <a href="https://www.google.com/search?q=Summit+Electric+reviews" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gold text-white px-10 py-5 rounded font-bold text-lg md:text-xl hover:bg-white hover:text-navy-900 transition-colors shadow-lg shadow-gold/30">
+            <a href="https://www.google.com/search?q=MPH+Property+Services+reviews" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gold text-white px-10 py-5 rounded font-bold text-lg md:text-xl hover:bg-white hover:text-navy-900 transition-colors shadow-lg shadow-gold/30">
               <Star className="w-6 h-6 fill-white shrink-0" />
               Leave us a review on Google
             </a>
@@ -306,7 +306,7 @@ export default function HomePage() {
             </div>
             <div className="w-full md:w-1/2">
               <div className="h-full min-h-[400px] rounded-lg border border-white/10 overflow-hidden relative shadow-xl">
-                <img src="/stock-pics/8.png" alt="Electrician at work - Summit Electric" className="w-full h-full min-h-[400px] object-cover" />
+                <img src="/stock-pics/8.png" alt="Electrician at work - MPH Property Services" className="w-full h-full min-h-[400px] object-cover" />
                 <div className="absolute inset-0 bg-navy-900/30" />
               </div>
             </div>
@@ -338,7 +338,7 @@ export default function HomePage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Summit Electric location"
+                title="MPH Property Services location"
               />
             </div>
           </div>

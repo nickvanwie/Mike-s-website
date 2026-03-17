@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <img src="/logo.svg" alt="Summit Electric" className="h-14 md:h-16 w-auto" />
+            <img src="/logo.svg" alt="MPH Property Services" className="h-14 md:h-16 w-auto" />
           </Link>
 
           {/* Desktop: main links + Services dropdown */}
@@ -157,7 +157,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-8">
             <div className="md:col-span-2 space-y-6">
               <Link to="/" className="inline-block">
-                <img src="/logo.svg" alt="Summit Electric" className="h-14 md:h-16 w-auto" />
+                <img src="/logo.svg" alt="MPH Property Services" className="h-14 md:h-16 w-auto" />
               </Link>
               <p className="text-gray-400 max-w-xs">
                 Your trusted partner for residential and commercial electrical solutions. Quality workmanship guaranteed.
@@ -166,7 +166,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <a href="tel:1234567891" className="block text-white hover:text-gold transition-colors font-bold">
                   (123) 456-7891
                 </a>
-                <p className="text-gray-400">info@summitelectric.com</p>
+                <p className="text-gray-400">info@mphpropertyservices.com</p>
               </div>
             </div>
             <div>
@@ -200,7 +200,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-            <p>&copy; {new Date().getFullYear()} Summit Electric. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} MPH Property Services. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
