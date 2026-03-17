@@ -1,8 +1,8 @@
 const processSteps = [
   { step: '01', title: 'CONTACT', desc: 'Reach out by phone or our free quote form for a no-pressure consultation.' },
   { step: '02', title: 'ASSESS', desc: 'We visit your property, evaluate your needs, and provide a clear written estimate.' },
-  { step: '03', title: 'EXECUTE', desc: 'Our team arrives on time and completes the work to code with minimal disruption.' },
-  { step: '04', title: 'ENJOY', desc: 'You get safe, reliable power with warranties and ongoing support.' },
+  { step: '03', title: 'EXECUTE', desc: 'Our crew arrives on time and completes the work with minimal disruption.' },
+  { step: '04', title: 'ENJOY', desc: 'You get clean lines, healthier turf, and a property you’re proud to come home to.' },
 ];
 
 export default function ProcessPage() {
@@ -18,7 +18,7 @@ export default function ProcessPage() {
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">HOW WE WORK</h4>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">OUR PROCESS</h1>
             <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-lg">
-              From your first call to the final inspection, we follow a clear, reliable process so you know what to expect every step of the way.
+              From your first call to the final walkthrough, we follow a clear, reliable process so you know what to expect every step of the way.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative max-w-5xl mx-auto">

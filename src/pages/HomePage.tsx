@@ -4,25 +4,25 @@ import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, Ma
 import { services } from '../data/services';
 
 const googleReviews = [
-  { name: 'Mike T.', text: 'MPH Property Services did an outstanding job upgrading our panel. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
-  { name: 'Sarah L.', text: 'We had an emergency and they came out the same day. The team was knowledgeable and fixed the issue quickly. Five stars.', date: '1 month ago' },
+  { name: 'Mike T.', text: 'MPH Property Services did an outstanding job on our lawn and beds. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
+  { name: 'Sarah L.', text: 'We needed our yard cleaned up and they came out the same week. The crew was thorough and the property looked great. Five stars.', date: '1 month ago' },
   { name: 'James K.', text: 'From quote to completion, everything was smooth. Fair pricing and quality work. Will use again for our next project.', date: '3 weeks ago' },
-  { name: 'Jennifer M.', text: 'Best electricians in the area. They installed our EV charger and outdoor lighting—both look great and work perfectly.', date: '1 month ago' },
+  { name: 'Jennifer M.', text: 'Best lawn care in the area. Weekly mowing and mulching—both look great and they’re easy to work with.', date: '1 month ago' },
   { name: 'David R.', text: 'Military-owned and it shows—disciplined, thorough, and honest. Could not ask for a better experience.', date: '2 months ago' },
 ];
 
 const processSteps = [
   { step: '01', title: 'CONTACT', desc: 'Reach out by phone or our free quote form for a no-pressure consultation.' },
   { step: '02', title: 'ASSESS', desc: 'We visit your property, evaluate your needs, and provide a clear written estimate.' },
-  { step: '03', title: 'EXECUTE', desc: 'Our team arrives on time and completes the work to code with minimal disruption.' },
-  { step: '04', title: 'ENJOY', desc: 'You get safe, reliable power with warranties and ongoing support.' },
+  { step: '03', title: 'EXECUTE', desc: 'Our crew arrives on time and completes the work with minimal disruption.' },
+  { step: '04', title: 'ENJOY', desc: 'You get clean lines, healthier turf, and a property you’re proud to come home to.' },
 ];
 
 const faqItems = [
-  { q: 'Do you offer emergency services?', a: "Yes. We offer 24/7 emergency electrical services for urgent issues that cannot wait—including power outages, sparking, burning smells, or safety hazards. Call us anytime; we'll dispatch a licensed electrician as quickly as possible to diagnose and resolve the problem safely." },
-  { q: 'Are your electricians licensed and insured?', a: "Absolutely. Every technician who comes to your home or business is fully licensed, bonded, and insured. We carry general liability and workers' compensation so you're protected. We're happy to provide proof of insurance upon request and to meet any requirements from property managers or HOAs." },
-  { q: 'Do you provide free estimates?', a: "Yes. We provide free, no-obligation estimates for both residential and commercial projects. After we assess your needs—either from your description or an onsite visit—we'll give you a clear written quote with no hidden fees. There's no pressure to commit; we want you to feel confident before any work begins." },
-  { q: 'What areas do you serve?', a: "We proudly serve Akron and the surrounding communities, including Hudson, Stow, Tallmadge, Cuyahoga Falls, Barberton, and the greater Summit County area. If you're unsure whether we cover your location, give us a call or submit a quote request—we'll let you know right away." },
+  { q: 'Do you offer seasonal or one-time services?', a: "Yes. We offer both recurring lawn care (e.g. weekly mowing) and one-time services like mulch, trimming, and property transformations. Tell us what you need and we’ll put together a plan and quote." },
+  { q: 'Are you insured?', a: "Yes. We carry appropriate insurance for our work. We’re happy to provide proof upon request and to meet any requirements from property managers or HOAs." },
+  { q: 'Do you provide free estimates?', a: "Yes. We provide free, no-obligation estimates for residential and commercial properties. After we assess your needs—either from your description or an onsite visit—we’ll give you a clear written quote with no hidden fees. There’s no pressure to commit." },
+  { q: 'What areas do you serve?', a: "We proudly serve Brockport and the surrounding communities, including Spencerport, Hamlin, Ogden, Holley, and Kendall. If you’re unsure whether we cover your location, give us a call or submit a quote request—we’ll let you know right away." },
 ];
 
 export default function HomePage() {
@@ -46,7 +46,7 @@ export default function HomePage() {
     <>
       <section id="hero" className="relative min-h-[70vh] pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/hero.png" alt="MPH Property Services - Professional Electrical Services" className="w-full h-full object-cover" />
+          <img src="/hero.png" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60" />
         </div>
@@ -54,14 +54,14 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start md:items-center">
             <div className="w-full md:max-w-3xl flex-shrink-0">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
-                SERVING AKRON & SURROUNDING AREAS
+                SERVING BROCKPORT & SURROUNDING AREAS
               </div>
               <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
-                RELIABLE ELECTRICAL <br />
-                <span className="text-gold">SOLUTIONS FOR YOU</span>
+                PREMIUM LAWN CARE <br />
+                <span className="text-gold">& LANDSCAPING SERVICES</span>
               </h1>
               <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
-                Professional residential and commercial electrical services. Safety, quality, and integrity in every connection we make.
+                Professional lawn care, landscaping, and property maintenance. Quality results and consistent service you can count on.
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
                 <a href="#contact" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
@@ -113,7 +113,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
               <div className="aspect-[4/3] rounded-lg border border-white/10 overflow-hidden relative">
-                <img src="/stock-pics/24.png" alt="MPH Property Services - trusted electrical services" className="w-full h-full object-cover" />
+                <img src="/stock-pics/24.png" alt="MPH Property Services - trusted lawn care and landscaping" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-navy-900/50" />
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function HomePage() {
               <div>
                 <h4 className="text-gold font-bold tracking-widest text-sm mb-2">WHY MPH</h4>
                 <h2 className="font-heading text-2xl md:text-3xl font-bold text-white">BUILT ON TRUST & EXPERIENCE</h2>
-                <p className="text-gray-400 text-sm mt-3 max-w-md">Serving Akron and the greater Summit County area with reliable, professional electrical work since day one.</p>
+                <p className="text-gray-400 text-sm mt-3 max-w-md">Serving Brockport and surrounding areas with reliable, professional lawn care and landscaping since day one.</p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
@@ -130,7 +130,7 @@ export default function HomePage() {
                   { icon: Clock, text: '40+ YEARS EXPERIENCE' },
                   { icon: CheckCircle, text: 'INSURED' },
                   { icon: FileText, text: 'FULLY LICENSED' },
-                  { icon: Zap, text: '24/7 EMERGENCY' },
+                  { icon: Zap, text: 'SEASONAL CARE' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 px-5 py-3.5 rounded-lg bg-navy-900/60 border border-gold/20 min-w-0">
                     <item.icon className="text-gold w-8 h-8 shrink-0" />
@@ -151,12 +151,12 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
               <h4 className="text-gold font-bold tracking-widest text-sm">ABOUT MPH PROPERTY SERVICES</h4>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold">POWERING OUR COMMUNITY WITH PRIDE</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold">CARING FOR YOUR PROPERTY WITH PRIDE</h2>
               <p className="text-gray-400 leading-relaxed">
-                MPH Property Services has been a trusted name in electrical contracting for over four decades. As a military-owned, family-operated business, we bring disciplined precision and personal care to every project.
+                MPH Property Services provides dependable lawn care, landscaping, and property maintenance with a focus on clean lines, healthy turf, and curb appeal.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                Whether it's a simple residential repair or a complex commercial installation, our team of licensed electricians ensures your systems are safe, efficient, and built to last.
+                From weekly mowing and edging to trimming, mulch and stone, and full property transformations, we treat every yard like it’s our own and stand behind our work.
               </p>
               <div className="pt-4">
                 <Link to="/about" className="text-gold font-bold border-b-2 border-gold pb-1 hover:text-white hover:border-white transition-colors">
@@ -166,7 +166,7 @@ export default function HomePage() {
             </div>
             <div className="w-full md:w-1/2">
               <div className="aspect-[4/3] rounded-lg border border-white/10 relative overflow-hidden">
-                <img src="/about-panel.png" alt="Electrician working on electrical control panel - MPH Property Services" className="absolute inset-0 w-full h-full object-cover" />
+                <img src="/about-panel.png" alt="Lawn care and landscaping - MPH Property Services" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-navy-900/45" />
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-10">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold">PREMIUM ELECTRICAL SERVICES</h2>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold">LAWN CARE & LANDSCAPING</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service) => (
@@ -209,7 +209,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-10">
             <h2 className="font-heading text-3xl md:text-4xl font-bold">HOW WE WORK</h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From your first call to the final inspection, we follow a clear, reliable process so you know what to expect every step of the way.</p>
+            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From your first call to the final walkthrough, we follow a clear, reliable process so you know what to expect every step of the way.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative">
             {processSteps.map((item, i) => (
@@ -234,7 +234,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
-          <p className="text-gray-400 mb-10 max-w-2xl">Residential and commercial electrical work we're proud of.</p>
+          <p className="text-gray-400 mb-10 max-w-2xl">Lawn care and landscaping projects we're proud of.</p>
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png'].map((img, i) => (
               <div key={i} className="relative overflow-hidden rounded-xl bg-navy-900 border border-white/10 shadow-lg group">
@@ -306,7 +306,7 @@ export default function HomePage() {
             </div>
             <div className="w-full md:w-1/2">
               <div className="h-full min-h-[400px] rounded-lg border border-white/10 overflow-hidden relative shadow-xl">
-                <img src="/stock-pics/8.png" alt="Electrician at work - MPH Property Services" className="w-full h-full min-h-[400px] object-cover" />
+                <img src="/stock-pics/8.png" alt="Lawn care and landscaping - MPH Property Services" className="w-full h-full min-h-[400px] object-cover" />
                 <div className="absolute inset-0 bg-navy-900/30" />
               </div>
             </div>
@@ -320,9 +320,9 @@ export default function HomePage() {
             <div className="lg:w-1/2 p-8 md:p-10 flex flex-col justify-center">
               <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6">PROUDLY SERVING</h2>
-              <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted electrical services across Summit County and surrounding communities.</p>
+              <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted lawn care and landscaping across Brockport and surrounding communities.</p>
               <div className="grid grid-cols-2 gap-4">
-                {['Akron', 'Hudson', 'Stow', 'Tallmadge', 'Cuyahoga Falls', 'Barberton'].map((city) => (
+                {['Brockport', 'Spencerport', 'Hamlin', 'Ogden', 'Holley', 'Kendall'].map((city) => (
                   <a key={city} href="#" className="flex items-center gap-3 px-5 py-4 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-base md:text-lg transition-all duration-200 group">
                     <MapPin size={24} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
                     <span className="group-hover:text-gold transition-colors">{city}</span>

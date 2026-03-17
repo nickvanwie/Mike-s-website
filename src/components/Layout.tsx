@@ -160,7 +160,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <img src="/logo.svg" alt="MPH Property Services" className="h-14 md:h-16 w-auto" />
               </Link>
               <p className="text-gray-400 max-w-xs">
-                Your trusted partner for residential and commercial electrical solutions. Quality workmanship guaranteed.
+                Your trusted partner for lawn care, landscaping, and property maintenance. Quality workmanship guaranteed.
               </p>
               <div className="space-y-2">
                 <a href="tel:1234567891" className="block text-white hover:text-gold transition-colors font-bold">
@@ -195,7 +195,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="flex justify-between"><span>Mon - Fri</span> <span>9am - 5pm</span></li>
                 <li className="flex justify-between"><span>Sat - Sun</span> <span>Closed</span></li>
-                <li className="pt-4 text-gold font-bold">24/7 Emergency Service</li>
+                <li className="pt-4 text-gold font-bold">Seasonal Availability</li>
               </ul>
             </div>
           </div>
