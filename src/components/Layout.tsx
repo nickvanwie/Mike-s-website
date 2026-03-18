@@ -10,6 +10,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname]);
+
+  useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 1);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
