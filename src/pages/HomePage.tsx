@@ -83,7 +83,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="w-full md:w-[500px] flex-shrink-0">
+            <div className="w-full md:w-[500px] flex-shrink-0 mt-2">
               <form onSubmit={handleQuoteSubmit} className="rounded-xl border border-white/10 border-t-4 border-t-gold bg-navy-800/95 backdrop-blur-sm shadow-2xl overflow-hidden">
                 <div className="p-6 md:p-8 space-y-4">
                   <h3 className="font-heading text-2xl font-extrabold text-white mb-6 text-center">GET A FREE QUOTE</h3>
