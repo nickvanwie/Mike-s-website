@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Star, Zap } from 'lucide-react';
 import { services } from '../data/services';
 
@@ -28,12 +28,23 @@ const faqItems = [
 export default function HomePage() {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const [quoteForm, setQuoteForm] = useState({ name: '', phone: '', message: '', consentSms: false, consentPromo: false });
+  const location = useLocation();
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash === '#reviews') document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
-    if (hash === '#faq') document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+    const hash = location.hash;
+    if (hash !== '#reviews' && hash !== '#faq') return;
+
+    const id = hash.slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const HEADER_OFFSET_PX = 120;
+    const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET_PX;
+
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'smooth' });
+    });
+  }, [location.hash]);
 
   const handleQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
