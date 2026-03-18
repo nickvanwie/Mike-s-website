@@ -57,7 +57,7 @@ export default function HomePage() {
     <>
       <section id="hero" className="relative min-h-[70vh] pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/hero.png" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
+          <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60" />
         </div>
