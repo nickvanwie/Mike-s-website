@@ -32,7 +32,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const hash = location.hash;
-    if (hash !== '#reviews' && hash !== '#faq') return;
+    if (hash !== '#reviews' && hash !== '#faq' && hash !== '#services') return;
 
     const id = hash.slice(1);
     const el = document.getElementById(id);
@@ -68,8 +68,8 @@ export default function HomePage() {
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
               <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
-                PREMIUM LAWN CARE <br />
-                <span className="text-gold">& LANDSCAPING SERVICES</span>
+                RELIABLE LAWN CARE <br />
+                <span className="text-gold">DONE RIGHT</span>
               </h1>
               <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
                 Professional lawn care, landscaping, and property maintenance. Quality results and consistent service you can count on.
