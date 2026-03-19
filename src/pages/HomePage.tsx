@@ -80,7 +80,7 @@ export default function HomePage() {
             <div className="w-full md:w-[500px] flex-shrink-0 mt-2">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
-                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '10px' }}
+                style={{ width: '100%', height: '938px', border: 'none', borderRadius: '10px' }}
                 id="inline-lDjb3ZWn2YT1dx2rr4eS"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
