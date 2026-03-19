@@ -27,7 +27,6 @@ const faqItems = [
 
 export default function HomePage() {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
-  const [quoteForm, setQuoteForm] = useState({ name: '', phone: '', message: '', consentSms: false, consentPromo: false });
   const location = useLocation();
 
   useEffect(() => {
@@ -45,11 +44,6 @@ export default function HomePage() {
       window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'smooth' });
     });
   }, [location.hash]);
-
-  const handleQuoteSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Quote submitted', quoteForm);
-  };
 
   const scrollToHero = () => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
 
@@ -84,36 +78,24 @@ export default function HomePage() {
               </div>
             </div>
             <div className="w-full md:w-[500px] flex-shrink-0 mt-2">
-              <form onSubmit={handleQuoteSubmit} className="rounded-xl border border-white/10 border-t-4 border-t-gold bg-navy-800/95 backdrop-blur-sm shadow-2xl overflow-hidden">
-                <div className="p-6 md:p-8 space-y-4">
-                  <h3 className="font-heading text-2xl font-extrabold text-white mb-6 text-center">GET A FREE QUOTE</h3>
-                  <div>
-                    <label htmlFor="quote-name" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Full Name *</label>
-                    <input id="quote-name" type="text" required value={quoteForm.name} onChange={(e) => setQuoteForm((f) => ({ ...f, name: e.target.value }))} placeholder="John Smith" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm" />
-                  </div>
-                  <div>
-                    <label htmlFor="quote-phone" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Phone *</label>
-                    <input id="quote-phone" type="tel" required value={quoteForm.phone} onChange={(e) => setQuoteForm((f) => ({ ...f, phone: e.target.value }))} placeholder="(123) 456-7890" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm" />
-                  </div>
-                  <div>
-                    <label htmlFor="quote-message" className="block font-heading font-bold text-sm text-gray-300 mb-1.5">Message *</label>
-                    <textarea id="quote-message" rows={3} required value={quoteForm.message} onChange={(e) => setQuoteForm((f) => ({ ...f, message: e.target.value }))} placeholder="*Your message goes straight to my phone, I'll get back to you as soon as I'm available*" className="w-full bg-navy-900 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold font-sans text-sm resize-none" />
-                  </div>
-                  <div className="space-y-3 pt-1">
-                    <label className="flex items-start gap-3 cursor-pointer group">
-                      <input type="checkbox" required checked={quoteForm.consentSms} onChange={(e) => setQuoteForm((f) => ({ ...f, consentSms: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
-                      <span className="text-gray-300 text-sm font-sans">I agree to receive text messages from MPH Property Services regarding my quote request, appointment updates, and service notifications. Message frequency may vary. Message & data rates may apply. Reply STOP to opt out or HELP for assistance. *</span>
-                    </label>
-                    <label className="flex items-start gap-3 cursor-pointer group">
-                      <input type="checkbox" checked={quoteForm.consentPromo} onChange={(e) => setQuoteForm((f) => ({ ...f, consentPromo: e.target.checked }))} className="mt-1 rounded border-white/30 bg-navy-900 text-gold focus:ring-gold focus:ring-offset-0" />
-                      <span className="text-gray-300 text-sm font-sans">I agree to receive promotional text messages from MPH Property Services, including special offers and discounts.</span>
-                    </label>
-                  </div>
-                  <button type="submit" className="w-full bg-gold text-white font-heading font-bold text-base py-3.5 rounded-lg hover:bg-white hover:text-navy-900 transition-colors duration-200">
-                    REQUEST FREE QUOTE
-                  </button>
-                </div>
-              </form>
+              <iframe
+                src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '10px' }}
+                id="inline-lDjb3ZWn2YT1dx2rr4eS"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Website Form"
+                data-height="938"
+                data-layout-iframe-id="inline-lDjb3ZWn2YT1dx2rr4eS"
+                data-form-id="lDjb3ZWn2YT1dx2rr4eS"
+                title="Website Form"
+              />
+              <script src="https://core.switchflowai.com/js/form_embed.js"></script>
             </div>
           </div>
         </div>
