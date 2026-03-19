@@ -49,14 +49,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop: main links + Services dropdown */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-base font-bold hover:text-gold transition-colors duration-200">
+            <Link to="/" className="text-lg font-extrabold hover:text-gold transition-colors duration-200">
               HOME
             </Link>
-            <Link to="/about" className="text-base font-bold hover:text-gold transition-colors duration-200">
+            <Link to="/about" className="text-lg font-extrabold hover:text-gold transition-colors duration-200">
               ABOUT
             </Link>
             <div className="relative group">
-              <button className="text-base font-bold hover:text-gold transition-colors duration-200 flex items-center gap-1">
+              <button className="text-lg font-extrabold hover:text-gold transition-colors duration-200 flex items-center gap-1">
                 SERVICES
                 <ChevronDown size={18} className="group-hover:rotate-180 transition-transform" />
               </button>
@@ -74,25 +74,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
             </div>
-            <Link to="/process" className="text-base font-bold hover:text-gold transition-colors duration-200">
+            <Link to="/process" className="text-lg font-extrabold hover:text-gold transition-colors duration-200">
               PROCESS
             </Link>
-            <a href={reviewsHref} className="text-base font-bold hover:text-gold transition-colors duration-200">
+            <a href={reviewsHref} className="text-lg font-extrabold hover:text-gold transition-colors duration-200">
               REVIEWS
             </a>
-            <a href={faqHref} className="text-base font-bold hover:text-gold transition-colors duration-200">
+            <a href={faqHref} className="text-lg font-extrabold hover:text-gold transition-colors duration-200">
               FAQ
             </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a href="tel:1234567891" className="flex items-center space-x-2 bg-black border border-white/20 text-white px-4 py-2.5 rounded font-bold text-base hover:bg-navy-800 hover:text-gold transition-colors duration-200">
+            <a href="tel:1234567891" className="flex items-center space-x-2 bg-black border border-white/20 text-white px-4 py-2.5 rounded font-extrabold text-lg hover:bg-navy-800 hover:text-gold transition-colors duration-200">
               <Phone size={20} className="text-gold" />
               <span>(123) 456-7891</span>
             </a>
             <button
               onClick={scrollToQuote}
-              className="bg-gold text-white px-6 py-2.5 rounded font-bold text-base hover:bg-white hover:text-navy-900 transition-colors duration-200"
+              className="bg-gold text-white px-6 py-2.5 rounded font-extrabold text-lg hover:bg-white hover:text-navy-900 transition-colors duration-200"
             >
               GET FREE QUOTE
             </button>
@@ -107,15 +107,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-navy-800 absolute top-full left-0 right-0 p-4 shadow-xl border-t border-white/10">
             <div className="flex flex-col space-y-1">
-              <Link to="/" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+              <Link to="/" className="text-white hover:text-gold font-extrabold text-lg py-2.5 border-b border-white/5" onClick={closeMobile}>
                 HOME
               </Link>
-              <Link to="/about" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+              <Link to="/about" className="text-white hover:text-gold font-extrabold text-lg py-2.5 border-b border-white/5" onClick={closeMobile}>
                 ABOUT
               </Link>
               <div className="border-b border-white/5">
                 <button
-                  className="w-full flex justify-between items-center text-white hover:text-gold font-bold text-base py-2.5"
+                  className="w-full flex justify-between items-center text-white hover:text-gold font-extrabold text-lg py-2.5"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
                   SERVICES
@@ -136,16 +136,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 )}
               </div>
-              <Link to="/process" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+              <Link to="/process" className="text-white hover:text-gold font-extrabold text-lg py-2.5 border-b border-white/5" onClick={closeMobile}>
                 PROCESS
               </Link>
-              <a href={reviewsHref} className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+              <a href={reviewsHref} className="text-white hover:text-gold font-extrabold text-lg py-2.5 border-b border-white/5" onClick={closeMobile}>
                 REVIEWS
               </a>
-              <a href={faqHref} className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+              <a href={faqHref} className="text-white hover:text-gold font-extrabold text-lg py-2.5 border-b border-white/5" onClick={closeMobile}>
                 FAQ
               </a>
-              <a href="tel:1234567891" className="flex items-center space-x-2 text-gold font-bold text-base py-2.5" onClick={closeMobile}>
+              <a href="tel:1234567891" className="flex items-center space-x-2 text-gold font-extrabold text-lg py-2.5" onClick={closeMobile}>
                 <Phone size={18} />
                 <span>(123) 456-7891</span>
               </a>
