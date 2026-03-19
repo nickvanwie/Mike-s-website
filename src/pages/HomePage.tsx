@@ -77,7 +77,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="w-full md:w-[540px] flex-shrink-0 mt-2">
+            <div className="w-full md:w-[540px] flex-shrink-0 mt-2 md:translate-y-4">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
                 style={{ width: '100%', height: '938px', border: 'none', borderRadius: '10px' }}
