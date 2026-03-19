@@ -49,7 +49,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="hero" className="relative min-h-[70vh] pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden">
+      <section id="hero" className="relative min-h-[70vh] pt-20 pb-6 md:pt-24 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
@@ -57,7 +57,7 @@ export default function HomePage() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start md:items-center">
-            <div className="w-full md:max-w-3xl flex-shrink-0">
+            <div className="w-full md:max-w-3xl flex-shrink-0 md:-translate-y-1">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
@@ -101,7 +101,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-navy-800 border-y border-white/5 py-12 md:py-14 relative z-10">
+      <section className="bg-navy-800 border-y border-white/5 pt-6 md:pt-8 pb-12 md:pb-14 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
