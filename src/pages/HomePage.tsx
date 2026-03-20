@@ -49,7 +49,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="hero" className="relative min-h-[70vh] pt-28 pb-6 md:pt-32 md:pb-8">
+      <section id="hero" className="relative min-h-[70vh] pt-28 pb-4 md:pt-32 md:pb-5">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
@@ -102,7 +102,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-navy-800 border-y border-white/5 pt-6 md:pt-8 pb-12 md:pb-14 relative z-10">
+      <section className="bg-navy-800 border-y border-white/5 pt-4 md:pt-5 pb-12 md:pb-14 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
