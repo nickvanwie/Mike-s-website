@@ -49,10 +49,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section
-        id="hero"
-        className="relative min-h-[70vh] pt-20 pb-6 md:pt-24 md:pb-8 overflow-hidden [overflow-anchor:none] overscroll-contain"
-      >
+      <section id="hero" className="relative min-h-[70vh] pt-20 pb-6 md:pt-24 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
@@ -60,7 +57,7 @@ export default function HomePage() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start md:items-center">
-            <div className="w-full md:max-w-3xl flex-shrink-0 md:-translate-y-[20px]">
+            <div className="w-full md:max-w-3xl flex-shrink-0 -translate-y-1 md:-translate-y-[36px]">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
@@ -80,7 +77,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="w-full md:w-[540px] flex-shrink-0 mt-2 md:translate-y-[38px] [overflow-anchor:none] isolate">
+            <div className="w-full md:w-[540px] flex-shrink-0 mt-2 md:translate-y-[38px]">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
                 style={{ width: '100%', height: '938px', border: 'none', borderRadius: '10px' }}
