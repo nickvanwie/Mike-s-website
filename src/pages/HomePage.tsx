@@ -49,15 +49,16 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="hero" className="relative min-h-[70vh] pt-20 pb-6 md:pt-24 md:pb-8 overflow-x-hidden">
-        <div className="absolute inset-0 z-0">
+      <section id="hero" className="relative min-h-[70vh] pt-28 pb-6 md:pt-32 md:pb-8">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
-            <div className="w-full md:max-w-3xl flex-shrink-0 -translate-y-1 md:-translate-y-2">
+            {/* md:mt aligns green badge with Phone row in GHL iframe (title + name field sit above it). Tweak rem if form layout changes. */}
+            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[9rem] md:pt-0">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
@@ -77,7 +78,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="w-full md:w-[540px] flex-shrink-0 mt-2 md:translate-y-[38px]">
+            <div className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
                 style={{ width: '100%', height: '938px', border: 'none', borderRadius: '10px' }}
