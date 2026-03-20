@@ -49,15 +49,15 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="hero" className="relative min-h-[70vh] pt-20 pb-6 md:pt-24 md:pb-8 overflow-hidden">
+      <section id="hero" className="relative min-h-[70vh] pt-20 pb-6 md:pt-24 md:pb-8 overflow-x-hidden">
         <div className="absolute inset-0 z-0">
           <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start md:items-center">
-            <div className="w-full md:max-w-3xl flex-shrink-0 -translate-y-1 md:-translate-y-[36px]">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
+            <div className="w-full md:max-w-3xl flex-shrink-0 -translate-y-1 md:-translate-y-2">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
