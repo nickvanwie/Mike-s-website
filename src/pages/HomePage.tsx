@@ -58,7 +58,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
             {/* md:mt aligns green badge with Phone row in GHL iframe. Tweak if GHL layout changes. */}
-            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0">
+            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:min-h-[calc(100svh-7rem)] max-md:flex max-md:flex-col max-md:justify-center">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
@@ -67,10 +67,12 @@ export default function HomePage() {
                 <span className="text-gold">DONE RIGHT</span>
               </h1>
               <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
-                Professional lawn care, landscaping, and property maintenance. Quality results and consistent service you can count on.
+                Professional lawn care, landscaping, and property maintenance from MPH Property Services.
+                <br />
+                Quality results and consistent service you can count on.
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
-                <a href="#contact" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
+                <a href="#quote-form" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
                   REQUEST SERVICE
                 </a>
                 <a href="#services" className="border border-white/30 text-white px-8 py-3 rounded font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
@@ -78,10 +80,10 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0">
+            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0 max-md:scroll-mt-28 max-md:pb-28">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
-                style={{ width: '100%', height: '938px', border: 'none', borderRadius: '10px' }}
+                className="quote-form-iframe w-full border-0 rounded-[10px]"
                 id="inline-lDjb3ZWn2YT1dx2rr4eS"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -140,7 +142,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="py-12 md:py-14 bg-navy-900">
+      <section id="about" className="py-14 md:py-14 bg-navy-900 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
@@ -168,7 +170,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="py-12 md:py-14 bg-navy-800">
+      <section id="services" className="py-14 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-10">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
@@ -195,7 +197,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="process" className="py-12 md:py-14 bg-navy-900 relative overflow-hidden">
+      <section id="process" className="py-14 md:py-14 bg-navy-900 relative overflow-hidden max-md:border-t max-md:border-white/10">
         <div className="absolute inset-0 z-0">
           <img src="/stock-pics/21.png" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/70" />
@@ -224,7 +226,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="gallery" className="py-12 md:py-14 bg-navy-800">
+      <section id="gallery" className="py-14 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
@@ -242,7 +244,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden relative">
+      <section id="reviews" className="py-14 md:py-14 bg-navy-900 overflow-hidden relative max-md:border-t max-md:border-white/10">
         <div className="absolute inset-0 z-0">
           <img src="/stock-pics/22.png" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/60" />
@@ -276,7 +278,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="faq" className="py-12 md:py-14 bg-navy-800">
+      <section id="faq" className="py-14 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-10">
             <div className="w-full md:w-1/2">
@@ -315,11 +317,11 @@ export default function HomePage() {
               <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6">PROUDLY SERVING</h2>
               <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted lawn care and landscaping across Brockport and surrounding communities.</p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {['Brockport', 'Spencerport', 'Hamlin', 'Ogden', 'Holley', 'Kendall'].map((city) => (
-                  <a key={city} href="#" className="flex items-center gap-3 px-5 py-4 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-base md:text-lg transition-all duration-200 group">
-                    <MapPin size={24} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
-                    <span className="group-hover:text-gold transition-colors">{city}</span>
+                  <a key={city} href="#" className="flex items-start gap-2 md:gap-3 min-w-0 px-3 md:px-5 py-3 md:py-4 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-sm md:text-lg leading-tight transition-all duration-200 group">
+                    <MapPin size={20} className="text-gold shrink-0 mt-0.5 md:mt-0 group-hover:scale-110 transition-transform" />
+                    <span className="group-hover:text-gold transition-colors break-words">{city}</span>
                   </a>
                 ))}
               </div>
