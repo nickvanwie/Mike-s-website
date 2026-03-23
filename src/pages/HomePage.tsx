@@ -31,13 +31,13 @@ export default function HomePage() {
 
   useEffect(() => {
     const hash = location.hash;
-    if (hash !== '#reviews' && hash !== '#faq' && hash !== '#services') return;
+    if (hash !== '#reviews' && hash !== '#faq' && hash !== '#services' && hash !== '#quote-form') return;
 
     const id = hash.slice(1);
     const el = document.getElementById(id);
     if (!el) return;
 
-    const HEADER_OFFSET_PX = 120;
+    const HEADER_OFFSET_PX = window.innerWidth < 768 ? 96 : 120;
     const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET_PX;
 
     window.requestAnimationFrame(() => {
@@ -62,14 +62,18 @@ export default function HomePage() {
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
-              <h1 className="font-heading text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
-                RELIABLE LAWN CARE <br />
+              <h1 className="font-heading max-md:text-[2.15rem] text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
+                <span className="md:hidden">RELIABLE LAWN CARE</span>
+                <span className="hidden md:inline">RELIABLE LAWN CARE <br /></span>
                 <span className="text-gold">DONE RIGHT</span>
               </h1>
-              <p className="text-gray-200 text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
-                Professional lawn care, landscaping, and property maintenance from MPH Property Services.
-                <br />
-                Quality results and consistent service you can count on.
+              <p className="text-gray-200 max-md:text-base text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
+                <span className="md:hidden">Professional lawn care and landscaping by MPH Property Services.</span>
+                <span className="hidden md:inline">
+                  Professional lawn care, landscaping, and property maintenance from MPH Property Services.
+                  <br />
+                  Quality results and consistent service you can count on.
+                </span>
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
                 <a href="#quote-form" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
@@ -80,7 +84,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0 max-md:scroll-mt-28 max-md:pb-28">
+            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0 max-md:scroll-mt-24 max-md:pb-12">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
                 className="quote-form-iframe w-full border-0 rounded-[10px]"
@@ -98,13 +102,12 @@ export default function HomePage() {
                 data-form-id="lDjb3ZWn2YT1dx2rr4eS"
                 title="Website Form"
               />
-              <script src="https://core.switchflowai.com/js/form_embed.js"></script>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-navy-800 border-y border-white/5 -mt-8 md:-mt-12 pt-6 md:pt-8 pb-12 md:pb-14 relative z-10">
+      <section className="bg-navy-800 border-y border-white/5 max-md:-mt-2 md:-mt-12 pt-6 md:pt-8 pb-12 md:pb-14 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
