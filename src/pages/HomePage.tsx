@@ -58,17 +58,17 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
             {/* md:mt aligns green badge with Phone row in GHL iframe. Tweak if GHL layout changes. */}
-            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:min-h-[calc(100svh-7rem)] max-md:flex max-md:flex-col max-md:justify-center">
+            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:min-h-[calc(72svh-6rem)] max-md:flex max-md:flex-col max-md:justify-center">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
               <h1 className="font-heading max-md:text-[2.15rem] text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
-                <span className="md:hidden">RELIABLE LAWN CARE</span>
+                <span className="md:hidden">LAWN CARE</span>
                 <span className="hidden md:inline">RELIABLE LAWN CARE <br /></span>
                 <span className="text-gold">DONE RIGHT</span>
               </h1>
               <p className="text-gray-200 max-md:text-base text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
-                <span className="md:hidden">Professional lawn care and landscaping by MPH Property Services.</span>
+                <span className="md:hidden">Professional lawn care from MPH Property Services.</span>
                 <span className="hidden md:inline">
                   Professional lawn care, landscaping, and property maintenance from MPH Property Services.
                   <br />
@@ -84,7 +84,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0 max-md:scroll-mt-24 max-md:pb-12">
+            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0 max-md:scroll-mt-24 max-md:pb-6">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
                 className="quote-form-iframe w-full border-0 rounded-[10px]"
@@ -107,7 +107,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-navy-800 border-y border-white/5 max-md:-mt-2 md:-mt-12 pt-6 md:pt-8 pb-12 md:pb-14 relative z-10">
+      <section className="bg-navy-800 border-y border-white/5 max-md:mt-0 md:-mt-12 pt-6 md:pt-8 pb-12 md:pb-14 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
@@ -145,7 +145,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="py-14 md:py-14 bg-navy-900 max-md:border-t max-md:border-white/10">
+      <section id="about" className="py-12 md:py-14 bg-navy-900 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
@@ -173,7 +173,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="py-14 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
+      <section id="services" className="py-12 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-10">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
@@ -200,7 +200,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="process" className="py-14 md:py-14 bg-navy-900 relative overflow-hidden max-md:border-t max-md:border-white/10">
+      <section id="process" className="py-12 md:py-14 bg-navy-900 relative overflow-hidden max-md:border-t max-md:border-white/10">
         <div className="absolute inset-0 z-0">
           <img src="/stock-pics/21.png" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/70" />
@@ -229,7 +229,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="gallery" className="py-14 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
+      <section id="gallery" className="py-12 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
@@ -247,7 +247,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="reviews" className="py-14 md:py-14 bg-navy-900 overflow-hidden relative max-md:border-t max-md:border-white/10">
+      <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden relative max-md:border-t max-md:border-white/10">
         <div className="absolute inset-0 z-0">
           <img src="/stock-pics/22.png" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/60" />
@@ -281,7 +281,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="faq" className="py-14 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
+      <section id="faq" className="py-12 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-10">
             <div className="w-full md:w-1/2">
