@@ -201,7 +201,7 @@ export default function HomePage() {
 
       <section id="process" className="py-12 md:py-14 bg-navy-900 relative overflow-hidden max-md:border-t max-md:border-white/10">
         <div className="absolute inset-0 z-0">
-          <img src="/stock-pics/21.png" alt="" className="w-full h-full object-cover" />
+          <img src="/blog images/5.png" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/70" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -248,7 +248,7 @@ export default function HomePage() {
 
       <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden relative max-md:border-t max-md:border-white/10">
         <div className="absolute inset-0 z-0">
-          <img src="/stock-pics/22.png" alt="" className="w-full h-full object-cover" />
+          <img src="/blog images/15.png" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/60" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">

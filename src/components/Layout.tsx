@@ -32,9 +32,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setIsServicesOpen(false);
   };
 
-  const reviewsHref = location.pathname === '/' ? '#reviews' : '/#reviews';
-  const faqHref = location.pathname === '/' ? '#faq' : '/#faq';
-
   return (
     <div className="font-sans text-white bg-navy-900 min-h-screen selection:bg-gold selection:text-navy-900">
       <nav
@@ -80,12 +77,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link to="/blog" className="text-base font-bold hover:text-gold transition-colors duration-200">
               BLOG
             </Link>
-            <a href={reviewsHref} className="text-base font-bold hover:text-gold transition-colors duration-200">
-              REVIEWS
-            </a>
-            <a href={faqHref} className="text-base font-bold hover:text-gold transition-colors duration-200">
-              FAQ
-            </a>
+            <Link to="/contact" className="text-base font-bold hover:text-gold transition-colors duration-200">
+              CONTACT
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -145,12 +139,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link to="/blog" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
                 BLOG
               </Link>
-              <a href={reviewsHref} className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
-                REVIEWS
-              </a>
-              <a href={faqHref} className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
-                FAQ
-              </a>
+              <Link to="/contact" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+                CONTACT
+              </Link>
               <a href="tel:1234567891" className="flex items-center space-x-2 text-gold font-bold text-base py-2.5" onClick={closeMobile}>
                 <Phone size={18} />
                 <span>(123) 456-7891</span>

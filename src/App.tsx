@@ -6,6 +6,7 @@ import ProcessPage from './pages/ProcessPage';
 import ServicePage from './pages/ServicePage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/process" element={<ProcessPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/services/:slug" element={<ServicePage />} />
       </Routes>
     </Layout>
