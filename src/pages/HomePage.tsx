@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Star, Zap } from 'lucide-react';
 import { services } from '../data/services';
 import { blogPosts } from '../data/blogPosts';
-import howWeWorkBg from '../../blog images/Untitled design (23) (1).png';
+import howWeWorkBg from '../../blog images/Untitled design (24).png';
 
 const googleReviews = [
   { name: 'Mike T.', text: 'MPH Property Services did an outstanding job on our lawn and beds. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },

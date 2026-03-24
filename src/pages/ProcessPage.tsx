@@ -1,4 +1,4 @@
-import howWeWorkBg from '../../blog images/Untitled design (23) (1).png';
+import howWeWorkBg from '../../blog images/Untitled design (24).png';
 
 const processSteps = [
   { step: '01', title: 'CONTACT', desc: 'Reach out by phone or our free quote form for a no-pressure consultation.' },
