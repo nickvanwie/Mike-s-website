@@ -49,7 +49,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="hero" className="relative pt-28 pb-0 md:pt-32 md:pb-0">
+      <section id="hero" className="relative pt-28 pb-0 md:pt-32 md:pb-16">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
@@ -58,7 +58,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
             {/* md:mt aligns green badge with Phone row in GHL iframe. Tweak if GHL layout changes. */}
-            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:min-h-[calc(72svh-6rem)] max-md:flex max-md:flex-col max-md:justify-center">
+            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:min-h-[520px] max-md:flex max-md:flex-col max-md:justify-center">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
@@ -68,7 +68,7 @@ export default function HomePage() {
                 <span className="block text-gold">DONE RIGHT</span>
               </h1>
               <p className="text-gray-200 max-md:text-base text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
-                <span className="md:hidden">Professional lawn care from MPH Property Services.</span>
+                <span className="md:hidden">Professional lawn care, landscaping, and property maintenance from MPH Property Services.</span>
                 <span className="hidden md:inline">
                   Professional lawn care, landscaping, and property maintenance from MPH Property Services, delivering quality results and consistent service you can count on.
                 </span>
@@ -82,7 +82,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-2 md:mt-0 md:pt-0 max-md:scroll-mt-24 max-md:pb-6">
+            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-10 md:mt-0 md:pt-0 max-md:scroll-mt-24 max-md:pb-6">
               <iframe
                 src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
                 className="quote-form-iframe w-full border-0 rounded-[10px]"

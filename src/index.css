@@ -18,6 +18,7 @@
 
 .quote-form-iframe {
   height: 1020px;
+  display: block;
 }
 
 @media (max-width: 767px) {
