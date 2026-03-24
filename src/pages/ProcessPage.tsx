@@ -1,3 +1,5 @@
+import howWeWorkBg from '../../blog images/Untitled design (23) (1).png';
+
 const processSteps = [
   { step: '01', title: 'CONTACT', desc: 'Reach out by phone or our free quote form for a no-pressure consultation.' },
   { step: '02', title: 'ASSESS', desc: 'We visit your property, evaluate your needs, and provide a clear written estimate.' },
@@ -10,8 +12,8 @@ export default function ProcessPage() {
     <div className="pt-24 pb-16">
       <section className="py-12 md:py-16 bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/stock-pics/21.png" alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-navy-900/70" />
+          <img src={howWeWorkBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy-900/80" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-12">

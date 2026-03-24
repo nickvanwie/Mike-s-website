@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Star, Zap } from 'lucide-react';
 import { services } from '../data/services';
 import { blogPosts } from '../data/blogPosts';
+import howWeWorkBg from '../../blog images/Untitled design (23) (1).png';
 
 const googleReviews = [
   { name: 'Mike T.', text: 'MPH Property Services did an outstanding job on our lawn and beds. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
@@ -201,7 +202,7 @@ export default function HomePage() {
 
       <section id="process" className="py-12 md:py-14 bg-navy-900 relative overflow-hidden max-md:border-t max-md:border-white/10">
         <div className="absolute inset-0 z-0">
-          <img src="/blog images/5.png" alt="" className="w-full h-full object-cover" />
+          <img src={howWeWorkBg} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/70" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">

@@ -14,7 +14,7 @@ function ImageSlot({
 }) {
   return (
     <div
-      className={`w-full rounded-lg border border-dashed border-white/30 bg-navy-900/70 flex items-center justify-center text-gray-400 text-sm ${className}`}
+      className={`w-full rounded-lg overflow-hidden ${src ? '' : 'border border-dashed border-white/30 bg-navy-900/70 flex items-center justify-center text-gray-400 text-sm'} ${className}`}
       aria-label={label}
     >
       {src ? (
