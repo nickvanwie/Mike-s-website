@@ -63,16 +63,14 @@ export default function HomePage() {
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
               <h1 className="font-heading max-md:text-[2.15rem] text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
-                <span className="md:hidden">LAWN CARE</span>
+                <span className="block md:hidden">LAWN CARE</span>
                 <span className="hidden md:inline">RELIABLE LAWN CARE <br /></span>
-                <span className="text-gold">DONE RIGHT</span>
+                <span className="block text-gold">DONE RIGHT</span>
               </h1>
               <p className="text-gray-200 max-md:text-base text-lg max-w-xl leading-relaxed drop-shadow-md mt-4">
                 <span className="md:hidden">Professional lawn care from MPH Property Services.</span>
                 <span className="hidden md:inline">
-                  Professional lawn care, landscaping, and property maintenance from MPH Property Services.
-                  <br />
-                  Quality results and consistent service you can count on.
+                  Professional lawn care, landscaping, and property maintenance from MPH Property Services, delivering quality results and consistent service you can count on.
                 </span>
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
@@ -97,7 +95,7 @@ export default function HomePage() {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Website Form"
-                data-height="938"
+                data-height="1020"
                 data-layout-iframe-id="inline-lDjb3ZWn2YT1dx2rr4eS"
                 data-form-id="lDjb3ZWn2YT1dx2rr4eS"
                 title="Website Form"
