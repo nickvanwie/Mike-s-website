@@ -77,6 +77,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link to="/process" className="text-base font-bold hover:text-gold transition-colors duration-200">
               PROCESS
             </Link>
+            <Link to="/blog" className="text-base font-bold hover:text-gold transition-colors duration-200">
+              BLOG
+            </Link>
             <a href={reviewsHref} className="text-base font-bold hover:text-gold transition-colors duration-200">
               REVIEWS
             </a>
@@ -139,6 +142,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link to="/process" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
                 PROCESS
               </Link>
+              <Link to="/blog" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+                BLOG
+              </Link>
               <a href={reviewsHref} className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
                 REVIEWS
               </a>
@@ -178,6 +184,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3">
                 <li><Link to="/about" className="text-gray-400 hover:text-gold transition-colors text-sm">About Us</Link></li>
                 <li><Link to="/process" className="text-gray-400 hover:text-gold transition-colors text-sm">Our Process</Link></li>
+                <li><Link to="/blog" className="text-gray-400 hover:text-gold transition-colors text-sm">Blog</Link></li>
                 <li><a href="/#reviews" className="text-gray-400 hover:text-gold transition-colors text-sm">Reviews</a></li>
                 <li><a href="/#contact" className="text-gray-400 hover:text-gold transition-colors text-sm">Contact</a></li>
               </ul>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Star, Zap } from 'lucide-react';
 import { services } from '../data/services';
+import { blogPosts } from '../data/blogPosts';
 
 const googleReviews = [
   { name: 'Mike T.', text: 'MPH Property Services did an outstanding job on our lawn and beds. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
@@ -307,6 +308,37 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-navy-900/30" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" className="py-12 md:py-14 bg-navy-900 max-md:border-t max-md:border-white/10">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <h4 className="text-gold font-bold tracking-widest text-sm mb-2">BLOG</h4>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold">LATEST LAWN CARE INSIGHTS</h2>
+            </div>
+            <Link to="/blog" className="inline-block bg-gold text-white px-6 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors">
+              VIEW ALL BLOG POSTS
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {blogPosts.map((post) => (
+              <article key={post.slug} className="rounded-xl overflow-hidden border border-white/10 bg-navy-800/70 shadow-lg">
+                <div className="aspect-[16/8] bg-navy-900/70 border-b border-white/10 overflow-hidden">
+                  <img src={post.coverImage} alt={post.coverImageAlt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-heading text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
+                  <Link to={`/blog/${post.slug}`} className="text-gold font-bold hover:text-white transition-colors">
+                    READ MORE →
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
