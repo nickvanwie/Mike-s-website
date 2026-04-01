@@ -1,9 +1,14 @@
 export default function ContactQuoteSection() {
   return (
-    <section className="py-12 md:py-16 bg-navy-800 border-t border-white/5">
-      <div className="container mx-auto px-4 md:px-8">
+    <section className="relative py-12 md:py-16 overflow-hidden border-t border-white/5">
+      <div className="absolute inset-0 z-0">
+        <img src="/blog images/14.png" alt="" className="w-full h-full object-cover min-h-[480px]" />
+        <div className="absolute inset-0 bg-navy-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-900/70" />
+      </div>
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-          <div className="bg-navy-800/80 border border-white/10 rounded-lg shadow-xl p-8 md:p-10">
+          <div className="bg-navy-800/90 border border-white/10 rounded-lg shadow-xl p-8 md:p-10 backdrop-blur-sm">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">CONTACT US</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold leading-tight mb-5">GET A FREE QUOTE</h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-xl">

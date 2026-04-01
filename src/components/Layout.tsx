@@ -52,9 +52,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link to="/" className="text-base font-bold hover:text-gold transition-colors duration-200">
               HOME
             </Link>
-            <Link to="/about" className="text-base font-bold hover:text-gold transition-colors duration-200">
-              ABOUT
-            </Link>
             <div className="relative group">
               <button className="text-base font-bold hover:text-gold transition-colors duration-200 flex items-center gap-1">
                 SERVICES
@@ -74,6 +71,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
             </div>
+            <Link to="/#gallery" className="text-base font-bold hover:text-gold transition-colors duration-200">
+              GALLERY
+            </Link>
             <div className="relative group">
               <button className="text-base font-bold hover:text-gold transition-colors duration-200 flex items-center gap-1">
                 SERVICE AREAS
@@ -93,9 +93,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
             </div>
-            <Link to="/process" className="text-base font-bold hover:text-gold transition-colors duration-200">
-              PROCESS
-            </Link>
             <Link to="/blog" className="text-base font-bold hover:text-gold transition-colors duration-200">
               BLOG
             </Link>
@@ -129,9 +126,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link to="/" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
                 HOME
               </Link>
-              <Link to="/about" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
-                ABOUT
-              </Link>
               <div className="border-b border-white/5">
                 <button
                   className="w-full flex justify-between items-center text-white hover:text-gold font-bold text-base py-2.5"
@@ -155,6 +149,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 )}
               </div>
+              <Link to="/#gallery" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
+                GALLERY
+              </Link>
               <div className="border-b border-white/5">
                 <button
                   className="w-full flex justify-between items-center text-white hover:text-gold font-bold text-base py-2.5"
@@ -178,9 +175,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 )}
               </div>
-              <Link to="/process" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
-                PROCESS
-              </Link>
               <Link to="/blog" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
                 BLOG
               </Link>

@@ -22,8 +22,13 @@ export default function ServiceAreaPage() {
 
   return (
     <div className="pt-24 pb-0">
-      <section className="py-12 md:py-16 bg-navy-900">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="relative py-12 md:py-16 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <img src="/hero.svg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy-900/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60" />
+        </div>
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
             <div className="w-full lg:w-1/2">
               <div className="aspect-[4/3] rounded-lg border border-white/10 overflow-hidden relative">
