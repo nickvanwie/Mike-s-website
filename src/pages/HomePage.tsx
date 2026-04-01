@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Star, Zap } from 'lucide-react';
+import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Zap } from 'lucide-react';
 import { services } from '../data/services';
 import { blogPosts } from '../data/blogPosts';
 import howWeWorkBg from '../../blog images/Untitled design (24).png';
-
-const googleReviews = [
-  { name: 'Mike T.', text: 'MPH Property Services did an outstanding job on our lawn and beds. Professional, on time, and left everything clean. Highly recommend!', date: '2 weeks ago' },
-  { name: 'Sarah L.', text: 'We needed our yard cleaned up and they came out the same week. The crew was thorough and the property looked great. Five stars.', date: '1 month ago' },
-  { name: 'James K.', text: 'From quote to completion, everything was smooth. Fair pricing and quality work. Will use again for our next project.', date: '3 weeks ago' },
-  { name: 'Jennifer M.', text: 'Best lawn care in the area. Weekly mowing and mulching—both look great and they’re easy to work with.', date: '1 month ago' },
-  { name: 'David R.', text: 'Military-owned and it shows—disciplined, thorough, and honest. Could not ask for a better experience.', date: '2 months ago' },
-];
+import ReviewsSection from '../components/ReviewsSection';
+import { serviceAreas } from '../data/serviceAreas';
 
 const processSteps = [
   { step: '01', title: 'CONTACT', desc: 'Reach out by phone or our free quote form for a no-pressure consultation.' },
@@ -247,38 +241,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="reviews" className="py-12 md:py-14 bg-navy-900 overflow-hidden relative max-md:border-t max-md:border-white/10">
-        <div className="absolute inset-0 z-0">
-          <img src="/blog images/15.png" alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-navy-900/60" />
-        </div>
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-8">
-            <div className="flex justify-center space-x-1 mb-4">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="text-gold fill-gold w-5 h-5" />
-              ))}
-            </div>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold">WHAT OUR CLIENTS SAY</h2>
-          </div>
-          <div className="relative -mx-4 md:-mx-8 overflow-hidden">
-            <div className="review-marquee-track flex gap-6 py-4 w-max">
-              {[...googleReviews, ...googleReviews].map((review, i) => (
-                <div key={i} className="flex-shrink-0 w-[320px] md:w-[360px] bg-navy-800 rounded-xl p-6 border border-white/10 border-t-4 border-t-gold shadow-xl">
-                  <p className="text-gray-200 text-base leading-relaxed mb-4 line-clamp-3">"{review.text}"</p>
-                  <p className="text-white font-heading font-bold text-sm">{review.name}</p>
-                  <p className="text-gray-500 text-xs mt-0.5">{review.date} · Google Review</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="text-center mt-10">
-            <a href="https://www.google.com/search?q=MPH+Property+Services+reviews" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gold text-white px-10 py-5 rounded font-bold text-lg md:text-xl hover:bg-white hover:text-navy-900 transition-colors shadow-lg shadow-gold/30">
-              <Star className="w-6 h-6 fill-white shrink-0" />
-              Leave us a review on Google
-            </a>
-          </div>
-        </div>
+      <section id="reviews">
+        <ReviewsSection backgroundImageSrc="/blog images/15.png" />
       </section>
 
       <section id="faq" className="py-12 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
@@ -352,11 +316,15 @@ export default function HomePage() {
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6">PROUDLY SERVING</h2>
               <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted lawn care and landscaping across Brockport and surrounding communities.</p>
               <div className="grid grid-cols-2 gap-3 md:gap-4">
-                {['Brockport', 'Spencerport', 'Hamlin', 'Ogden', 'Holley', 'Kendall'].map((city) => (
-                  <a key={city} href="#" className="flex items-start gap-2 md:gap-3 min-w-0 px-3 md:px-5 py-3 md:py-4 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-sm md:text-lg leading-tight transition-all duration-200 group">
+                {serviceAreas.map((area) => (
+                  <Link
+                    key={area.slug}
+                    to={`/service-areas/${area.slug}`}
+                    className="flex items-start gap-2 md:gap-3 min-w-0 px-3 md:px-5 py-3 md:py-4 rounded-lg bg-navy-900/80 border border-white/10 hover:border-gold/50 hover:bg-navy-900 text-white font-heading font-bold text-sm md:text-lg leading-tight transition-all duration-200 group"
+                  >
                     <MapPin size={20} className="text-gold shrink-0 mt-0.5 md:mt-0 group-hover:scale-110 transition-transform" />
-                    <span className="group-hover:text-gold transition-colors break-words">{city}</span>
-                  </a>
+                    <span className="group-hover:text-gold transition-colors break-words">{area.title.replace(/\s+/g, ' ')}</span>
+                  </Link>
                 ))}
               </div>
             </div>

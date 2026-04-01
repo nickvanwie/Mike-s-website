@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { services } from '../data/services';
+import ReviewsSection from '../components/ReviewsSection';
+import ContactQuoteSection from '../components/ContactQuoteSection';
 
 export default function ServicePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -46,6 +48,11 @@ export default function ServicePage() {
           </div>
         </div>
       </section>
+
+      <ReviewsSection />
+
+      <ContactQuoteSection />
+
       <section className="py-12 bg-navy-800 border-t border-white/5">
         <div className="container mx-auto px-4 md:px-8">
           <p className="text-gray-400 text-center mb-6">Explore our other services</p>

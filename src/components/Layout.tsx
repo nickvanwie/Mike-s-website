@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { services } from '../data/services';
+import { serviceAreas } from '../data/serviceAreas';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,6 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const closeMobile = () => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
+    setIsServiceAreasOpen(false);
   };
 
   return (
@@ -66,6 +69,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       className="block px-5 py-2.5 text-sm font-bold hover:bg-navy-900 hover:text-gold transition-colors"
                     >
                       {s.title.replace(/\s+/g, ' ')}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="relative group">
+              <button className="text-base font-bold hover:text-gold transition-colors duration-200 flex items-center gap-1">
+                SERVICE AREAS
+                <ChevronDown size={18} className="group-hover:rotate-180 transition-transform" />
+              </button>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-navy-800 border border-white/10 rounded-lg shadow-xl py-2 min-w-[200px]">
+                  {serviceAreas.map((a) => (
+                    <Link
+                      key={a.slug}
+                      to={`/service-areas/${a.slug}`}
+                      className="block px-5 py-2.5 text-sm font-bold hover:bg-navy-900 hover:text-gold transition-colors"
+                    >
+                      {a.title.replace(/\s+/g, ' ')}
                     </Link>
                   ))}
                 </div>
@@ -133,6 +155,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 )}
               </div>
+              <div className="border-b border-white/5">
+                <button
+                  className="w-full flex justify-between items-center text-white hover:text-gold font-bold text-base py-2.5"
+                  onClick={() => setIsServiceAreasOpen(!isServiceAreasOpen)}
+                >
+                  SERVICE AREAS
+                  <ChevronDown size={18} className={isServiceAreasOpen ? 'rotate-180' : ''} />
+                </button>
+                {isServiceAreasOpen && (
+                  <div className="pl-4 pb-2 flex flex-col space-y-1">
+                    {serviceAreas.map((a) => (
+                      <Link
+                        key={a.slug}
+                        to={`/service-areas/${a.slug}`}
+                        className="text-gray-300 hover:text-gold text-sm py-1.5"
+                        onClick={closeMobile}
+                      >
+                        {a.title.replace(/\s+/g, ' ')}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               <Link to="/process" className="text-white hover:text-gold font-bold text-base py-2.5 border-b border-white/5" onClick={closeMobile}>
                 PROCESS
               </Link>
@@ -155,7 +200,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <footer className="bg-navy-800 pt-12 pb-6 border-t-4 border-gold">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-10 mb-8">
             <div className="md:col-span-2 space-y-6">
               <Link to="/" className="inline-block">
                 <img src="/logo.svg" alt="MPH Property Services" className="h-14 md:h-16 w-auto" />
@@ -187,6 +232,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <li key={s.slug}>
                     <Link to={`/services/${s.slug}`} className="text-gray-400 hover:text-gold transition-colors text-sm">
                       {s.title.replace(/\s+/g, ' ')}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-heading font-bold text-white mb-6">SERVICE AREAS</h4>
+              <ul className="space-y-3">
+                {serviceAreas.map((a) => (
+                  <li key={a.slug}>
+                    <Link to={`/service-areas/${a.slug}`} className="text-gray-400 hover:text-gold transition-colors text-sm">
+                      {a.title.replace(/\s+/g, ' ')}
                     </Link>
                   </li>
                 ))}

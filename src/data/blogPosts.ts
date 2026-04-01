@@ -15,10 +15,10 @@ export const blogPosts: BlogPost[] = [
     title: 'How to Get a Thick, Green Lawn in Western New York (Complete Guide)',
     excerpt:
       'A complete lawn care guide for Brockport, Hamlin, and Spencerport covering mowing height, watering, fertilization, aeration, and weed prevention.',
-    coverImage: '/blog images/12.png',
-    inlineImage: '/blog images/11.png',
-    coverImageAlt: 'Cover image placeholder for thick green lawn guide',
-    inlineImageAlt: 'Inline image placeholder for seasonal lawn care practices',
+    coverImage: '/blog images/14.png',
+    inlineImage: '/blog images/12.png',
+    coverImageAlt: 'Thick, healthy green lawn in sunlight',
+    inlineImageAlt: 'Seasonal lawn care and healthy turf',
     paragraphs: [
       'Achieving a consistently thick, green lawn in Western New York, including areas like Brockport, Hamlin, and Spencerport, requires more than just regular mowing. The region\'s climate, with cold winters, wet springs, and humid summers, creates both opportunities and challenges for turfgrass. Most lawns in these areas are cool-season grasses like Kentucky bluegrass, perennial ryegrass, and fine fescues, which have specific care requirements throughout the year.',
       'The most important factor in lawn health is mowing height. A common mistake homeowners in Brockport, Hamlin, and Spencerport make is cutting grass too short. For cool-season grasses, the optimal height is typically between 3 and 3.5 inches. Taller grass promotes deeper root systems, improves drought tolerance, and naturally suppresses weeds by shading the soil surface. Cutting more than one-third of the blade at once should be avoided, as it stresses the plant.',
@@ -73,10 +73,10 @@ export const blogPosts: BlogPost[] = [
     title: 'Landscaping Improvements That Increase Property Value',
     excerpt:
       'See which landscaping upgrades create the strongest first impression and increase perceived home value in Western New York communities.',
-    coverImage: '/blog images/14.png',
+    coverImage: '/blog images/11.png',
     inlineImage: '/blog images/13.png',
-    coverImageAlt: 'Cover image placeholder for landscaping value article',
-    inlineImageAlt: 'Inline image placeholder for hardscaping and curb appeal',
+    coverImageAlt: 'Professional landscaped garden and lush lawn',
+    inlineImageAlt: 'Hardscaping, beds, and curb appeal details',
     paragraphs: [
       'Landscaping is one of the most effective ways to increase property value in Western New York communities like Brockport, Hamlin, and Spencerport. Well-designed outdoor spaces enhance curb appeal and create a strong first impression.',
       'One of the most impactful upgrades is improving bed definition and cleanliness. Crisp edges, fresh mulch, and properly trimmed shrubs create a clean, intentional look, something buyers immediately notice in competitive markets like Spencerport.',
