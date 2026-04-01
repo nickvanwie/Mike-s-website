@@ -5,7 +5,7 @@ export default function AboutPage() {
     <div className="pt-24 pb-16">
       <section className="py-12 md:py-16 bg-navy-900">
         <div className="container mx-auto px-4 md:px-8">
-          <h4 className="text-gold font-bold tracking-widest text-sm mb-2">ABOUT US</h4>
+          <h4 className="section-eyebrow mb-2">ABOUT US</h4>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-8">CARING FOR YOUR PROPERTY WITH PRIDE</h1>
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="w-full lg:w-1/2 space-y-6">

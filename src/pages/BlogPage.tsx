@@ -38,7 +38,7 @@ export default function BlogPage() {
     <section className="pt-36 md:pt-40 pb-14 md:pb-16 bg-navy-900 min-h-screen">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <h4 className="text-gold font-bold tracking-widest text-sm mb-3">BLOG</h4>
+          <h4 className="section-eyebrow mb-3">BLOG</h4>
           <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4">LAWN CARE INSIGHTS</h1>
           <p className="text-gray-300">
             Practical guides and seasonal advice for homeowners in Brockport, Hamlin, Spencerport, and surrounding Western New York communities.
