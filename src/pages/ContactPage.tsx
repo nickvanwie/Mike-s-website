@@ -12,7 +12,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
             <div className="bg-navy-800/90 border border-white/10 rounded-lg shadow-xl p-8 md:p-10 backdrop-blur-sm">
-              <h4 className="section-eyebrow mb-2">CONTACT US</h4>
+              <h4 className="text-gold font-bold tracking-widest text-sm mb-2">CONTACT US</h4>
               <h1 className="font-heading text-4xl md:text-5xl font-bold leading-tight mb-5">
                 GET A FREE QUOTE
               </h1>

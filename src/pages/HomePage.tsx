@@ -21,13 +21,52 @@ const faqItems = [
   { q: 'What areas do you serve?', a: "We proudly serve Brockport and the surrounding communities, including Spencerport, Hamlin, Ogden, Holley, and Kendall. If you’re unsure whether we cover your location, give us a call or submit a quote request—we’ll let you know right away." },
 ];
 
+function useIsMdUp() {
+  const [isMdUp, setIsMdUp] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(min-width: 768px)').matches : false
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = () => setIsMdUp(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return isMdUp;
+}
+
+const quoteIframeProps = {
+  src: 'https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS',
+  className: 'quote-form-iframe w-full border-0 rounded-[10px]' as const,
+  'data-layout': "{'id':'INLINE'}",
+  'data-trigger-type': 'alwaysShow',
+  'data-trigger-value': '',
+  'data-activation-type': 'alwaysActivated',
+  'data-activation-value': '',
+  'data-deactivation-type': 'neverDeactivate',
+  'data-deactivation-value': '',
+  'data-form-name': 'Website Form',
+  'data-height': '1020',
+  'data-form-id': 'lDjb3ZWn2YT1dx2rr4eS',
+  title: 'Website Form',
+} as const;
+
 export default function HomePage() {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const location = useLocation();
+  const isMdUp = useIsMdUp();
 
   useEffect(() => {
     const hash = location.hash;
-    if (hash !== '#reviews' && hash !== '#faq' && hash !== '#services' && hash !== '#quote-form' && hash !== '#gallery' && hash !== '#blog') return;
+    if (
+      hash !== '#reviews' &&
+      hash !== '#faq' &&
+      hash !== '#services' &&
+      hash !== '#quote-form' &&
+      hash !== '#quote-form-mobile' &&
+      hash !== '#gallery' &&
+      hash !== '#blog'
+    )
+      return;
 
     const id = hash.slice(1);
     const el = document.getElementById(id);
@@ -54,8 +93,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
             {/* md:mt aligns green badge with Phone row in GHL iframe. Tweak if GHL layout changes. */}
-            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:min-h-[520px] max-md:flex max-md:flex-col max-md:justify-center">
-              <div className="inline-block bg-gold/10 text-gold px-3 py-1.5 rounded text-sm md:text-base font-heading font-bold tracking-[0.18em] uppercase mb-2 border border-gold/20 backdrop-blur-sm">
+            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:flex max-md:flex-col max-md:justify-center">
+              <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
               <h1 className="font-heading max-md:text-[2.15rem] text-4xl md:text-6xl leading-tight font-bold text-white drop-shadow-lg">
@@ -70,36 +109,54 @@ export default function HomePage() {
                 </span>
               </p>
               <div className="flex flex-wrap gap-4 pt-6">
-                <a href="#quote-form" className="bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg">
+                <a
+                  href="#quote-form-mobile"
+                  className="md:hidden bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg text-center"
+                >
+                  REQUEST SERVICE
+                </a>
+                <a
+                  href="#quote-form"
+                  className="hidden md:inline-block bg-gold text-white px-8 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors shadow-lg"
+                >
                   REQUEST SERVICE
                 </a>
                 <a href="#services" className="border border-white/30 text-white px-8 py-3 rounded font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
                   VIEW SERVICES
                 </a>
               </div>
+              <div className="md:hidden flex flex-col items-center pt-8 pb-2 pointer-events-none" aria-hidden>
+                <img
+                  src="/hero-mobile-arrows.png"
+                  alt=""
+                  className="w-[min(200px,55vw)] h-auto mix-blend-screen opacity-95 drop-shadow-[0_2px_12px_rgba(255,255,255,0.35)]"
+                />
+              </div>
             </div>
-            <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-10 md:mt-0 md:pt-0 max-md:scroll-mt-24 max-md:pb-6">
-              <iframe
-                src="https://core.switchflowai.com/widget/form/lDjb3ZWn2YT1dx2rr4eS"
-                className="quote-form-iframe w-full border-0 rounded-[10px]"
-                id="inline-lDjb3ZWn2YT1dx2rr4eS"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Website Form"
-                data-height="1020"
-                data-layout-iframe-id="inline-lDjb3ZWn2YT1dx2rr4eS"
-                data-form-id="lDjb3ZWn2YT1dx2rr4eS"
-                title="Website Form"
-              />
-            </div>
+            {isMdUp ? (
+              <div id="quote-form" className="w-full md:w-[540px] flex-shrink-0 mt-10 md:mt-0 md:pt-0 scroll-mt-28">
+                <iframe
+                  {...quoteIframeProps}
+                  id="inline-lDjb3ZWn2YT1dx2rr4eS"
+                  data-layout-iframe-id="inline-lDjb3ZWn2YT1dx2rr4eS"
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </section>
+
+      {!isMdUp ? (
+        <section id="quote-form-mobile" className="bg-white text-navy-900 scroll-mt-24 pt-6 pb-10 px-4">
+          <div className="container mx-auto max-w-lg">
+            <iframe
+              {...quoteIframeProps}
+              id="inline-lDjb3ZWn2YT1dx2rr4eS-mobile"
+              data-layout-iframe-id="inline-lDjb3ZWn2YT1dx2rr4eS-mobile"
+            />
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-navy-800 border-y border-white/5 max-md:mt-0 md:-mt-12 pt-6 md:pt-8 pb-12 md:pb-14 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
@@ -112,7 +169,7 @@ export default function HomePage() {
             </div>
             <div className="w-full lg:w-1/2 space-y-6 order-1 lg:order-2">
               <div>
-                <h4 className="section-eyebrow mb-2">WHY MPH</h4>
+                <h4 className="text-gold font-bold tracking-widest text-sm mb-2">WHY MPH</h4>
                 <h2 className="font-heading text-2xl md:text-3xl font-bold text-white">BUILT ON TRUST & EXPERIENCE</h2>
                 <p className="text-gray-400 text-sm mt-3 max-w-md">Serving Brockport and surrounding areas with reliable, professional lawn care and landscaping since day one.</p>
               </div>
@@ -143,7 +200,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2 space-y-6">
-              <h4 className="section-eyebrow mb-2">ABOUT MPH PROPERTY SERVICES</h4>
+              <h4 className="text-gold font-bold tracking-widest text-sm">ABOUT MPH PROPERTY SERVICES</h4>
               <h2 className="font-heading text-3xl md:text-4xl font-bold">CARING FOR YOUR PROPERTY WITH PRIDE</h2>
               <p className="text-gray-400 leading-relaxed">
                 MPH Property Services provides dependable lawn care, landscaping, and property maintenance with a focus on clean lines, healthy turf, and curb appeal.
@@ -170,7 +227,7 @@ export default function HomePage() {
       <section id="services" className="py-12 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-10">
-            <h4 className="section-eyebrow mb-2">OUR EXPERTISE</h4>
+            <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">LAWN CARE & LANDSCAPING</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -225,7 +282,7 @@ export default function HomePage() {
 
       <section id="gallery" className="py-12 md:py-14 bg-navy-800 max-md:border-t max-md:border-white/10">
         <div className="container mx-auto px-4 md:px-8">
-          <h4 className="section-eyebrow mb-2">OUR WORK</h4>
+          <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
           <p className="text-gray-400 mb-10 max-w-2xl">Lawn care and landscaping projects we're proud of.</p>
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
@@ -249,7 +306,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
             <div>
-              <h4 className="section-eyebrow mb-2">BLOG</h4>
+              <h4 className="text-gold font-bold tracking-widest text-sm mb-2">BLOG</h4>
               <h2 className="font-heading text-3xl md:text-4xl font-bold">LATEST LAWN CARE INSIGHTS</h2>
             </div>
             <Link to="/blog" className="inline-block bg-gold text-white px-6 py-3 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors">
@@ -312,7 +369,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="rounded-2xl overflow-hidden border border-white/10 bg-navy-800/60 shadow-xl flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-8 md:p-10 flex flex-col justify-center">
-              <h4 className="section-eyebrow mb-2">SERVICE AREA</h4>
+              <h4 className="text-gold font-bold tracking-widest text-sm mb-2">SERVICE AREA</h4>
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-6">PROUDLY SERVING</h2>
               <p className="text-gray-400 text-sm mb-8 max-w-md">Trusted lawn care and landscaping across Brockport and surrounding communities.</p>
               <div className="grid grid-cols-2 gap-3 md:gap-4">

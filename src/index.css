@@ -16,12 +16,6 @@
   animation: review-marquee 60s linear infinite;
 }
 
-/* Section labels (brand green) — larger than body, distinct from white titles */
-.section-eyebrow {
-  @apply text-gold font-heading font-bold uppercase text-base md:text-lg tracking-[0.2em];
-  text-shadow: 0 0 24px color-mix(in srgb, var(--color-gold) 40%, transparent);
-}
-
 .quote-form-iframe {
   height: 1020px;
   display: block;

@@ -17,7 +17,7 @@ export default function ProcessPage() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h4 className="section-eyebrow mb-2">HOW WE WORK</h4>
+            <h4 className="text-gold font-bold tracking-widest text-sm mb-2">HOW WE WORK</h4>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">OUR PROCESS</h1>
             <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-lg">
               From your first call to the final walkthrough, we follow a clear, reliable process so you know what to expect every step of the way.

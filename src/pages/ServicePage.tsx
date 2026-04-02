@@ -37,7 +37,7 @@ export default function ServicePage() {
               </div>
             </div>
             <div className="w-full lg:w-1/2 space-y-6">
-              <h4 className="section-eyebrow mb-2">OUR SERVICES</h4>
+              <h4 className="text-gold font-bold tracking-widest text-sm">OUR SERVICES</h4>
               <h1 className="font-heading text-3xl md:text-4xl font-bold text-white">{service.title}</h1>
               <p className="text-gray-300 leading-relaxed text-lg">{service.shortDesc}</p>
               <p className="text-gray-400 leading-relaxed">{service.longDesc}</p>
