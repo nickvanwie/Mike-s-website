@@ -2,17 +2,26 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Zap, ArrowRight } from 'lucide-react';
 import { services } from '../data/services';
+import { processSteps } from '../data/processSteps';
 import { blogPosts } from '../data/blogPosts';
 import howWeWorkBg from '../../blog images/Untitled design (24).png';
 import ReviewsSection from '../components/ReviewsSection';
 import { serviceAreas } from '../data/serviceAreas';
 
-const processSteps = [
-  { step: '01', title: 'CONTACT', desc: 'Reach out by phone or our free quote form for a no-pressure consultation.' },
-  { step: '02', title: 'ASSESS', desc: 'We visit your property, evaluate your needs, and provide a clear written estimate.' },
-  { step: '03', title: 'EXECUTE', desc: 'Our crew arrives on time and completes the work with minimal disruption.' },
-  { step: '04', title: 'ENJOY', desc: 'You get clean lines, healthier turf, and a property you’re proud to come home to.' },
-];
+const galleryLayout = [
+  { file: '1.png', tw: 'col-span-2 aspect-[2/1] min-h-[150px] sm:min-h-[180px] md:col-span-2 md:aspect-[2.2/1]' },
+  { file: '2.png', tw: 'aspect-square' },
+  { file: '3.png', tw: 'aspect-[3/4]' },
+  { file: '4.png', tw: 'aspect-[4/3]' },
+  { file: '5.png', tw: 'aspect-[5/4]' },
+  { file: '6.png', tw: 'col-span-2 aspect-[16/10] md:col-span-2' },
+  { file: '7.png', tw: 'aspect-square' },
+  { file: '8.png', tw: 'aspect-[4/3]' },
+  { file: '9.png', tw: 'aspect-[3/4] min-h-[160px]' },
+  { file: '10.png', tw: 'aspect-square' },
+  { file: '11.png', tw: 'col-span-2 aspect-[2/1] md:col-span-2 md:aspect-[21/9] min-h-[140px]' },
+  { file: '12.png', tw: 'aspect-[4/5]' },
+] as const;
 
 const faqItems = [
   { q: 'Do you offer seasonal or one-time services?', a: "Yes. We offer both recurring lawn care (e.g. weekly mowing) and one-time services like mulch, trimming, and property transformations. Tell us what you need and we’ll put together a plan and quote." },
@@ -237,7 +246,7 @@ export default function HomePage() {
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">LAWN CARE & LANDSCAPING</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
             {services.map((service) => (
               <div
                 key={service.slug}
@@ -250,35 +259,30 @@ export default function HomePage() {
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
 
-                {/* Floating name chip + hover-only description (desktop); mobile: arrow always links */}
-                <div className="absolute bottom-3 left-3 z-10 w-[min(100%,18rem)] sm:w-[min(100%,20rem)]">
-                  <div className="flex flex-col-reverse items-stretch shadow-2xl">
-                    <div className="flex items-center gap-2 rounded-lg border border-white/15 bg-black/95 px-2.5 py-2 shadow-xl backdrop-blur-sm transition-[border-radius] duration-300 group-hover:rounded-t-none group-hover:rounded-b-lg group-focus-within:rounded-t-none group-focus-within:rounded-b-lg">
-                      <span className="min-w-0 flex-1 font-heading text-[0.65rem] font-bold uppercase leading-snug tracking-wide text-white sm:text-xs">
+                {/* 75% width bar: description expands upward and pushes the chip up (flex-col-reverse) */}
+                <div className="absolute bottom-3 left-0 right-0 z-10 flex justify-center px-2">
+                  <div className="flex w-[75%] flex-col-reverse items-stretch">
+                    <div
+                      className="flex items-center gap-3 rounded-lg border border-gold/50 bg-navy-900/95 px-3 py-2.5 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.45)] hover:ring-2 hover:ring-white/80 focus-within:shadow-[0_0_28px_rgba(255,255,255,0.45)] focus-within:ring-2 focus-within:ring-white/80 group-hover:rounded-b-lg group-hover:rounded-t-none group-focus-within:rounded-b-lg group-focus-within:rounded-t-none sm:px-4 sm:py-3"
+                    >
+                      <span className="min-w-0 flex-1 font-heading text-sm font-extrabold uppercase leading-snug tracking-wide text-white sm:text-base">
                         {service.title.replace(/\s+/g, ' ')}
                       </span>
                       <Link
                         to={`/services/${service.slug}`}
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold text-white transition-colors hover:bg-white hover:text-gold sm:h-9 sm:w-9"
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-gold text-white transition-colors hover:border-white hover:bg-white hover:text-gold sm:h-10 sm:w-10"
                         aria-label={`View ${service.title.replace(/\s+/g, ' ')}`}
                       >
-                        <ArrowRight className="h-4 w-4" aria-hidden />
+                        <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                       </Link>
                     </div>
                     <div
                       className="pointer-events-none max-h-0 overflow-hidden opacity-0 transition-[max-height,opacity] duration-500 ease-out motion-reduce:transition-none group-hover:pointer-events-auto group-hover:max-h-[220px] group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:max-h-[220px] group-focus-within:opacity-100 sm:group-hover:max-h-[200px] sm:group-focus-within:max-h-[200px]"
                     >
-                      <div className="rounded-t-lg border border-b-0 border-black/20 bg-white px-3.5 pb-3 pt-3.5 text-navy-900">
-                        <p className="mb-3 line-clamp-5 text-xs leading-relaxed text-gray-800 sm:text-sm sm:line-clamp-4">
+                      <div className="rounded-t-lg border border-b-0 border-gold/40 bg-navy-800 px-3.5 pb-3 pt-3.5 text-white sm:px-4 sm:pt-4">
+                        <p className="line-clamp-5 text-xs leading-relaxed text-white/90 sm:text-sm sm:leading-relaxed sm:line-clamp-4">
                           {service.longDesc}
                         </p>
-                        <Link
-                          to={`/services/${service.slug}`}
-                          className="inline-flex items-center gap-1.5 rounded bg-gold px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-navy-900 sm:text-sm"
-                        >
-                          VIEW SERVICE
-                          <ArrowRight className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
-                        </Link>
                       </div>
                     </div>
                   </div>
@@ -295,23 +299,39 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-navy-900/70" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold">HOW WE WORK</h2>
-            <p className="text-gray-400 mt-3 max-w-2xl mx-auto">From your first call to the final walkthrough, we follow a clear, reliable process so you know what to expect every step of the way.</p>
+            <p className="text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed">
+              A simple path from your first message to a yard you love—no guesswork, no surprises.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-center gap-4 md:gap-1 lg:gap-3 max-w-6xl mx-auto">
             {processSteps.map((item, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/90 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-xl">
-                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(5,136,68,0.3)]">
-                  {item.step}
-                </div>
-                <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                {i < 3 && (
-                  <div className="hidden md:block absolute top-1/2 left-[60%] w-[80%] h-[2px] bg-navy-700 -z-10">
-                    <div className="absolute right-0 -top-1.5 w-3 h-3 border-t-2 border-r-2 border-navy-700 rotate-45 transform translate-x-1/2" />
+              <div key={item.step} className="contents">
+                <div className="group relative z-10 flex flex-col items-center rounded-xl border border-white/10 bg-navy-800/90 p-6 text-center shadow-xl backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-gold/35 hover:shadow-[0_12px_40px_-12px_rgba(5,136,68,0.25)] md:max-w-[220px] md:flex-1 lg:max-w-[240px]">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold bg-navy-900 font-heading text-xl font-bold text-gold shadow-[0_0_18px_rgba(5,136,68,0.35)] transition-transform duration-300 ease-out group-hover:scale-105">
+                    {item.step}
                   </div>
-                )}
+                  <h3 className="font-heading text-lg font-bold tracking-wide text-white transition-colors duration-300 group-hover:text-gold">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
+                    {item.desc}
+                  </p>
+                </div>
+                {i < processSteps.length - 1 ? (
+                  <>
+                    <div className="flex justify-center py-1 text-gold/70 md:hidden" aria-hidden>
+                      <ChevronDown className="h-6 w-6" strokeWidth={2.5} />
+                    </div>
+                    <div
+                      className="hidden md:flex md:items-center md:justify-center md:self-center md:pt-14 md:pb-6 text-gold"
+                      aria-hidden
+                    >
+                      <ArrowRight className="h-7 w-7 shrink-0 opacity-90 transition-opacity duration-300 lg:h-8 lg:w-8" strokeWidth={2.5} />
+                    </div>
+                  </>
+                ) : null}
               </div>
             ))}
           </div>
@@ -323,12 +343,17 @@ export default function HomePage() {
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
           <p className="text-gray-400 mb-10 max-w-2xl">Lawn care and landscaping projects we're proud of.</p>
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-            {['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png'].map((img, i) => (
-              <div key={i} className="relative overflow-hidden rounded-xl bg-navy-900 border border-white/10 shadow-lg group">
-                <div className="aspect-[4/3]">
-                  <img src={`/stock-pics/${img}`} alt={`Project ${i + 1} - MPH Property Services`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
-                </div>
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 grid-flow-dense gap-3 sm:gap-4 md:gap-5">
+            {galleryLayout.map((item, i) => (
+              <div
+                key={item.file}
+                className={`relative overflow-hidden rounded-xl bg-navy-900 border border-white/10 shadow-lg group ${item.tw}`}
+              >
+                <img
+                  src={`/stock-pics/${item.file}`}
+                  alt={`Project ${i + 1} - MPH Property Services`}
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
                 <div className="absolute inset-0 rounded-xl border border-transparent group-hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
               </div>
             ))}

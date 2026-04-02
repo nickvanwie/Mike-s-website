@@ -1,11 +1,6 @@
 import howWeWorkBg from '../../blog images/Untitled design (24).png';
-
-const processSteps = [
-  { step: '01', title: 'CONTACT', desc: 'Reach out by phone or our free quote form for a no-pressure consultation.' },
-  { step: '02', title: 'ASSESS', desc: 'We visit your property, evaluate your needs, and provide a clear written estimate.' },
-  { step: '03', title: 'EXECUTE', desc: 'Our crew arrives on time and completes the work with minimal disruption.' },
-  { step: '04', title: 'ENJOY', desc: 'You get clean lines, healthier turf, and a property you’re proud to come home to.' },
-];
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import { processSteps } from '../data/processSteps';
 
 export default function ProcessPage() {
   return (
@@ -19,23 +14,37 @@ export default function ProcessPage() {
           <div className="text-center mb-12">
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">HOW WE WORK</h4>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">OUR PROCESS</h1>
-            <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-lg">
-              From your first call to the final walkthrough, we follow a clear, reliable process so you know what to expect every step of the way.
+            <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+              A simple path from your first message to a yard you love—no guesswork, no surprises.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 relative max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-center gap-4 md:gap-1 lg:gap-3 max-w-6xl mx-auto">
             {processSteps.map((item, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center z-10 bg-navy-800/90 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-xl">
-                <div className="w-16 h-16 rounded-full border-2 border-gold bg-navy-900 flex items-center justify-center text-gold font-heading font-bold text-xl mb-4 shadow-[0_0_15px_rgba(5,136,68,0.3)]">
-                  {item.step}
-                </div>
-                <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                {i < 3 && (
-                  <div className="hidden md:block absolute top-1/2 left-[60%] w-[80%] h-[2px] bg-navy-700 -z-10">
-                    <div className="absolute right-0 -top-1.5 w-3 h-3 border-t-2 border-r-2 border-navy-700 rotate-45 transform translate-x-1/2" />
+              <div key={item.step} className="contents">
+                <div className="group relative z-10 flex flex-col items-center rounded-xl border border-white/10 bg-navy-800/90 p-6 text-center shadow-xl backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-gold/35 hover:shadow-[0_12px_40px_-12px_rgba(5,136,68,0.25)] md:max-w-[220px] md:flex-1 lg:max-w-[240px]">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold bg-navy-900 font-heading text-xl font-bold text-gold shadow-[0_0_18px_rgba(5,136,68,0.35)] transition-transform duration-300 ease-out group-hover:scale-105">
+                    {item.step}
                   </div>
-                )}
+                  <h3 className="font-heading text-lg font-bold tracking-wide text-white transition-colors duration-300 group-hover:text-gold">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
+                    {item.desc}
+                  </p>
+                </div>
+                {i < processSteps.length - 1 ? (
+                  <>
+                    <div className="flex justify-center py-1 text-gold/70 md:hidden" aria-hidden>
+                      <ChevronDown className="h-6 w-6" strokeWidth={2.5} />
+                    </div>
+                    <div
+                      className="hidden md:flex md:items-center md:justify-center md:self-center md:pt-14 md:pb-6 text-gold"
+                      aria-hidden
+                    >
+                      <ArrowRight className="h-7 w-7 shrink-0 opacity-90 transition-opacity duration-300 lg:h-8 lg:w-8" strokeWidth={2.5} />
+                    </div>
+                  </>
+                ) : null}
               </div>
             ))}
           </div>
