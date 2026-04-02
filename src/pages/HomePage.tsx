@@ -9,7 +9,7 @@ import ReviewsSection from '../components/ReviewsSection';
 import { serviceAreas } from '../data/serviceAreas';
 
 const galleryLayout = [
-  { file: '1.png', tw: 'col-span-2 aspect-[2/1] min-h-[150px] sm:min-h-[180px] md:col-span-2 md:aspect-[2.2/1]' },
+  { file: '1.png', tw: 'col-span-2 aspect-[2/1] min-h-[130px] sm:min-h-[150px] md:col-span-2 md:aspect-[2.2/1]' },
   { file: '2.png', tw: 'aspect-square' },
   { file: '3.png', tw: 'aspect-[3/4]' },
   { file: '4.png', tw: 'aspect-[4/3]' },
@@ -17,9 +17,9 @@ const galleryLayout = [
   { file: '6.png', tw: 'col-span-2 aspect-[16/10] md:col-span-2' },
   { file: '7.png', tw: 'aspect-square' },
   { file: '8.png', tw: 'aspect-[4/3]' },
-  { file: '9.png', tw: 'aspect-[3/4] min-h-[160px]' },
+  { file: '9.png', tw: 'aspect-[3/4] min-h-[140px]' },
   { file: '10.png', tw: 'aspect-square' },
-  { file: '11.png', tw: 'col-span-2 aspect-[2/1] md:col-span-2 md:aspect-[21/9] min-h-[140px]' },
+  { file: '11.png', tw: 'col-span-2 aspect-[2/1] md:col-span-2 md:aspect-[21/9] min-h-[120px]' },
   { file: '12.png', tw: 'aspect-[4/5]' },
 ] as const;
 
@@ -299,41 +299,33 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-navy-900/70" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-10 md:mb-12">
+          <div className="text-center mb-10">
             <h2 className="font-heading text-3xl md:text-4xl font-bold">HOW WE WORK</h2>
             <p className="text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed">
-              A simple path from your first message to a yard you love—no guesswork, no surprises.
+              From your first call to the final walkthrough, we follow a clear, reliable process so you know what to expect every step of the way.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row md:items-start md:justify-center gap-4 md:gap-1 lg:gap-3 max-w-6xl mx-auto">
-            {processSteps.map((item, i) => (
-              <div key={item.step} className="contents">
-                <div className="group relative z-10 flex flex-col items-center rounded-xl border border-white/10 bg-navy-800/90 p-6 text-center shadow-xl backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-gold/35 hover:shadow-[0_12px_40px_-12px_rgba(5,136,68,0.25)] md:max-w-[220px] md:flex-1 lg:max-w-[240px]">
-                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold bg-navy-900 font-heading text-xl font-bold text-gold shadow-[0_0_18px_rgba(5,136,68,0.35)] transition-transform duration-300 ease-out group-hover:scale-105">
-                    {item.step}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 relative max-w-6xl mx-auto">
+            {processSteps.map((item, i) => {
+              const StepIcon = item.Icon;
+              return (
+                <div
+                  key={item.id}
+                  className="relative flex flex-col items-center text-center z-10 rounded-xl border border-white/10 bg-navy-800/90 p-6 shadow-xl backdrop-blur-sm"
+                >
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold bg-navy-900 text-gold shadow-[0_0_15px_rgba(5,136,68,0.3)]">
+                    <StepIcon className="h-8 w-8 shrink-0" strokeWidth={2} aria-hidden />
                   </div>
-                  <h3 className="font-heading text-lg font-bold tracking-wide text-white transition-colors duration-300 group-hover:text-gold">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
-                    {item.desc}
-                  </p>
+                  <h3 className="font-heading font-bold text-lg mb-2 text-white">{item.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                  {i < processSteps.length - 1 ? (
+                    <div className="hidden md:block absolute top-[4.25rem] left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-0.5 bg-navy-600 -z-10" aria-hidden>
+                      <div className="absolute right-0 top-1/2 h-2.5 w-2.5 -translate-y-1/2 translate-x-px border-t-2 border-r-2 border-navy-600 rotate-45" />
+                    </div>
+                  ) : null}
                 </div>
-                {i < processSteps.length - 1 ? (
-                  <>
-                    <div className="flex justify-center py-1 text-gold/70 md:hidden" aria-hidden>
-                      <ChevronDown className="h-6 w-6" strokeWidth={2.5} />
-                    </div>
-                    <div
-                      className="hidden md:flex md:items-center md:justify-center md:self-center md:pt-14 md:pb-6 text-gold"
-                      aria-hidden
-                    >
-                      <ArrowRight className="h-7 w-7 shrink-0 opacity-90 transition-opacity duration-300 lg:h-8 lg:w-8" strokeWidth={2.5} />
-                    </div>
-                  </>
-                ) : null}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -342,19 +334,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
-          <p className="text-gray-400 mb-10 max-w-2xl">Lawn care and landscaping projects we're proud of.</p>
-          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 grid-flow-dense gap-3 sm:gap-4 md:gap-5">
+          <p className="text-gray-400 mb-8 max-w-2xl">Lawn care and landscaping projects we're proud of.</p>
+          <div className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 grid-flow-dense gap-2 sm:gap-2.5 md:gap-2.5">
             {galleryLayout.map((item, i) => (
               <div
                 key={item.file}
-                className={`relative overflow-hidden rounded-xl bg-navy-900 border border-white/10 shadow-lg group ${item.tw}`}
+                className={`relative overflow-hidden rounded-lg bg-navy-900 border border-white/10 shadow-md group ${item.tw}`}
               >
                 <img
                   src={`/stock-pics/${item.file}`}
                   alt={`Project ${i + 1} - MPH Property Services`}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 rounded-xl border border-transparent group-hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-lg border border-transparent group-hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
               </div>
             ))}
           </div>
