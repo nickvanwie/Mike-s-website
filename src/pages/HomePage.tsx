@@ -84,16 +84,19 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="hero" className="relative pt-28 pb-0 md:pt-32 md:pb-16">
+      <section
+        id="hero"
+        className="relative pt-28 pb-0 md:pt-32 md:pb-16 max-md:min-h-[calc(100dvh-5rem)] max-md:flex max-md:flex-col"
+      >
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img src="/hero.svg" alt="MPH Property Services - Lawn Care & Landscaping" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-navy-900/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900/60" />
         </div>
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
+        <div className="container mx-auto px-4 md:px-8 relative z-10 max-md:flex-1 max-md:flex max-md:flex-col max-md:min-h-0">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-start max-md:flex-1 max-md:min-h-0">
             {/* md:mt aligns green badge with Phone row in GHL iframe. Tweak if GHL layout changes. */}
-            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:flex max-md:flex-col max-md:justify-center">
+            <div className="w-full md:max-w-3xl flex-shrink-0 pt-2 md:mt-[10rem] md:pt-0 max-md:flex max-md:flex-col max-md:flex-1 max-md:min-h-0 max-md:justify-start">
               <div className="inline-block bg-gold/10 text-gold px-3 py-1 rounded text-xs font-bold tracking-widest mb-2 border border-gold/20 backdrop-blur-sm">
                 SERVING BROCKPORT & SURROUNDING AREAS
               </div>
@@ -125,11 +128,12 @@ export default function HomePage() {
                   VIEW SERVICES
                 </a>
               </div>
-              <div className="md:hidden flex flex-col items-center pt-8 pb-2 pointer-events-none" aria-hidden>
+              <div className="max-md:flex-1 max-md:min-h-[3rem]" aria-hidden />
+              <div className="md:hidden flex flex-col items-center pt-6 pb-8 pointer-events-none shrink-0" aria-hidden>
                 <img
                   src="/blog images/Untitled design (25) (1).png"
                   alt=""
-                  className="w-[min(200px,55vw)] h-auto mix-blend-screen opacity-95 drop-shadow-[0_2px_12px_rgba(255,255,255,0.35)]"
+                  className="w-[min(340px,94vw)] max-w-none h-auto"
                 />
               </div>
             </div>
