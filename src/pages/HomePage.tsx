@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Zap } from 'lucide-react';
+import { Shield, Users, Clock, CheckCircle, FileText, ChevronDown, ChevronUp, MapPin, Zap, ArrowRight } from 'lucide-react';
 import { services } from '../data/services';
 import { blogPosts } from '../data/blogPosts';
 import howWeWorkBg from '../../blog images/Untitled design (24).png';
@@ -237,24 +237,48 @@ export default function HomePage() {
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">LAWN CARE & LANDSCAPING</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {services.map((service) => (
-              <Link
+              <div
                 key={service.slug}
-                to={`/services/${service.slug}`}
-                className="group flex flex-col md:flex-row rounded-lg overflow-hidden border-2 border-white/25 bg-gold shadow-lg shadow-black/25 hover:-translate-y-1.5 transition-transform duration-300"
+                className="group relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden rounded-xl border border-white/10 bg-navy-900 shadow-xl"
               >
-                <div className="w-full md:w-2/5 h-48 md:h-auto relative overflow-hidden">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-navy-900/10 transition-colors" />
+                <img
+                  src={service.img}
+                  alt={service.title.replace(/\s+/g, ' ')}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-90 transition-opacity duration-500 group-hover:from-black/80" />
+
+                <div className="absolute bottom-0 left-0 right-0 z-10 max-h-[4.25rem] overflow-hidden transition-[max-height] duration-500 ease-out motion-reduce:transition-none group-hover:max-h-[min(75vh,26rem)] group-focus-within:max-h-[min(75vh,26rem)]">
+                  <div className="flex flex-col-reverse">
+                    <div className="flex shrink-0 items-center justify-between gap-3 border border-black bg-black px-4 py-3.5 md:px-5">
+                      <span className="line-clamp-2 min-w-0 font-heading text-xs font-bold uppercase leading-tight tracking-wide text-white sm:text-sm md:text-base">
+                        {service.title.replace(/\s+/g, ' ')}
+                      </span>
+                      <Link
+                        to={`/services/${service.slug}`}
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold text-white transition-colors hover:bg-white hover:text-gold"
+                        aria-label={`View ${service.title.replace(/\s+/g, ' ')}`}
+                      >
+                        <ArrowRight className="h-5 w-5" aria-hidden />
+                      </Link>
+                    </div>
+                    <div className="border-x border-b border-black/15 bg-white px-4 py-4 text-navy-900 md:px-5 md:py-5">
+                      <p className="mb-4 line-clamp-6 text-sm leading-relaxed text-gray-800 md:text-base md:line-clamp-5">
+                        {service.longDesc}
+                      </p>
+                      <Link
+                        to={`/services/${service.slug}`}
+                        className="inline-flex items-center gap-2 rounded bg-gold px-5 py-2.5 text-sm font-bold text-white shadow-md transition-colors hover:bg-navy-900"
+                      >
+                        VIEW SERVICE
+                        <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-8 w-full md:w-3/5 bg-gold border-t md:border-t-0 md:border-l border-white/20">
-                  <h3 className="font-heading text-xl font-bold mb-4 text-white group-hover:underline decoration-2 underline-offset-4 decoration-white/90 transition-all">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/90 text-sm leading-relaxed">{service.shortDesc}</p>
-                </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
