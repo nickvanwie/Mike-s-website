@@ -237,44 +237,49 @@ export default function HomePage() {
             <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h4>
             <h2 className="font-heading text-3xl md:text-4xl font-bold">LAWN CARE & LANDSCAPING</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
             {services.map((service) => (
               <div
                 key={service.slug}
-                className="group relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden rounded-xl border border-white/10 bg-navy-900 shadow-xl"
+                className="group relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-navy-900 shadow-lg"
               >
                 <img
                   src={service.img}
                   alt={service.title.replace(/\s+/g, ' ')}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-90 transition-opacity duration-500 group-hover:from-black/80" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
 
-                <div className="absolute bottom-0 left-0 right-0 z-10 max-h-[4.25rem] overflow-hidden transition-[max-height] duration-500 ease-out motion-reduce:transition-none group-hover:max-h-[min(75vh,26rem)] group-focus-within:max-h-[min(75vh,26rem)]">
-                  <div className="flex flex-col-reverse">
-                    <div className="flex shrink-0 items-center justify-between gap-3 border border-black bg-black px-4 py-3.5 md:px-5">
-                      <span className="line-clamp-2 min-w-0 font-heading text-xs font-bold uppercase leading-tight tracking-wide text-white sm:text-sm md:text-base">
+                {/* Floating name chip + hover-only description (desktop); mobile: arrow always links */}
+                <div className="absolute bottom-3 left-3 z-10 w-[min(100%,18rem)] sm:w-[min(100%,20rem)]">
+                  <div className="flex flex-col-reverse items-stretch shadow-2xl">
+                    <div className="flex items-center gap-2 rounded-lg border border-white/15 bg-black/95 px-2.5 py-2 shadow-xl backdrop-blur-sm transition-[border-radius] duration-300 group-hover:rounded-t-none group-hover:rounded-b-lg group-focus-within:rounded-t-none group-focus-within:rounded-b-lg">
+                      <span className="min-w-0 flex-1 font-heading text-[0.65rem] font-bold uppercase leading-snug tracking-wide text-white sm:text-xs">
                         {service.title.replace(/\s+/g, ' ')}
                       </span>
                       <Link
                         to={`/services/${service.slug}`}
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold text-white transition-colors hover:bg-white hover:text-gold"
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold text-white transition-colors hover:bg-white hover:text-gold sm:h-9 sm:w-9"
                         aria-label={`View ${service.title.replace(/\s+/g, ' ')}`}
                       >
-                        <ArrowRight className="h-5 w-5" aria-hidden />
+                        <ArrowRight className="h-4 w-4" aria-hidden />
                       </Link>
                     </div>
-                    <div className="border-x border-b border-black/15 bg-white px-4 py-4 text-navy-900 md:px-5 md:py-5">
-                      <p className="mb-4 line-clamp-6 text-sm leading-relaxed text-gray-800 md:text-base md:line-clamp-5">
-                        {service.longDesc}
-                      </p>
-                      <Link
-                        to={`/services/${service.slug}`}
-                        className="inline-flex items-center gap-2 rounded bg-gold px-5 py-2.5 text-sm font-bold text-white shadow-md transition-colors hover:bg-navy-900"
-                      >
-                        VIEW SERVICE
-                        <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-                      </Link>
+                    <div
+                      className="pointer-events-none max-h-0 overflow-hidden opacity-0 transition-[max-height,opacity] duration-500 ease-out motion-reduce:transition-none group-hover:pointer-events-auto group-hover:max-h-[220px] group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:max-h-[220px] group-focus-within:opacity-100 sm:group-hover:max-h-[200px] sm:group-focus-within:max-h-[200px]"
+                    >
+                      <div className="rounded-t-lg border border-b-0 border-black/20 bg-white px-3.5 pb-3 pt-3.5 text-navy-900">
+                        <p className="mb-3 line-clamp-5 text-xs leading-relaxed text-gray-800 sm:text-sm sm:line-clamp-4">
+                          {service.longDesc}
+                        </p>
+                        <Link
+                          to={`/services/${service.slug}`}
+                          className="inline-flex items-center gap-1.5 rounded bg-gold px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-navy-900 sm:text-sm"
+                        >
+                          VIEW SERVICE
+                          <ArrowRight className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
