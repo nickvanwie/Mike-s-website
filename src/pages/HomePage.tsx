@@ -17,13 +17,13 @@ const galleryLayout = [
   { file: '2.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '3.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '4.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
-  { file: '5.png', tw: 'col-span-1 md:col-span-3 row-span-1' },
-  { file: '6.png', tw: 'col-span-1 md:col-span-3 row-span-1' },
+  { file: '5.png', tw: 'col-span-1 md:col-span-3 row-span-1 md:row-span-2' },
+  { file: '6.png', tw: 'col-span-1 md:col-span-3 row-span-1 md:row-span-2' },
   { file: '7.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '8.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '9.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
-  { file: '10.png', tw: 'col-span-1 md:col-span-2 row-span-1' },
-  { file: '11.png', tw: 'col-span-2 md:col-span-4 row-span-1' },
+  { file: '10.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
+  { file: '11.png', tw: 'col-span-2 md:col-span-4 row-span-1 md:row-span-2' },
   { file: '12.png', tw: 'col-span-2 md:col-span-6 row-span-1' },
 ] as const;
 
