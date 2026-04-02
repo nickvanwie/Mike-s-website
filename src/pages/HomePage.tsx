@@ -186,7 +186,7 @@ export default function HomePage() {
                   { icon: FileText, text: 'FULLY LICENSED' },
                   { icon: Zap, text: 'SEASONAL CARE' },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 px-5 py-3.5 rounded-lg bg-navy-900/60 border border-gold/20 min-w-0">
+                  <div key={i} className="mp-trust-badge">
                     <item.icon className="text-gold w-8 h-8 shrink-0" />
                     <span className="font-heading text-base md:text-lg font-bold tracking-wide">{item.text}</span>
                   </div>
@@ -239,7 +239,7 @@ export default function HomePage() {
               <Link
                 key={service.slug}
                 to={`/services/${service.slug}`}
-                className="bg-navy-900 rounded overflow-hidden border-t-4 border-gold hover:-translate-y-1.5 transition-transform duration-300 shadow-lg group flex flex-col md:flex-row"
+                className="mp-expertise-card group flex flex-col md:flex-row hover:-translate-y-1.5 transition-transform duration-300"
               >
                 <div className="w-full md:w-2/5 h-48 md:h-auto relative overflow-hidden">
                   <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -320,8 +320,8 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((post) => (
-              <article key={post.slug} className="rounded-xl overflow-hidden border border-white/10 bg-navy-800/70 shadow-lg">
-                <div className="aspect-[16/8] bg-navy-900/70 border-b border-white/10 overflow-hidden">
+              <article key={post.slug} className="mp-blog-card">
+                <div className="aspect-[16/8] bg-navy-900/70 border-b border-gold/15 overflow-hidden">
                   <img src={post.coverImage} alt={post.coverImageAlt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out" />
                 </div>
                 <div className="p-6">

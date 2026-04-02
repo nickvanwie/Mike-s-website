@@ -47,7 +47,7 @@ export default function BlogPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {blogPosts.map((post) => (
-            <article key={post.slug} className="rounded-xl overflow-hidden border border-white/10 bg-navy-800/70 shadow-lg">
+            <article key={post.slug} className="mp-blog-card">
               <ImageSlot label="Cover Image Placeholder" className="aspect-[16/8]" src={post.coverImage} alt={post.coverImageAlt} />
               <div className="p-6 md:p-7">
                 <h2 className="font-heading text-2xl font-bold mb-3">{post.title}</h2>
