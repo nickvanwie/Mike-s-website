@@ -13,7 +13,7 @@ import { serviceAreas } from '../data/serviceAreas';
  * Mobile: 2-col; wide items span full width.
  */
 const galleryLayout = [
-  { file: '1.png', tw: 'col-span-2 md:col-span-6 row-span-1' },
+  { file: '1.png', tw: 'col-span-2 md:col-span-6 row-span-1 md:row-span-2' },
   { file: '2.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '3.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '4.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
@@ -24,7 +24,7 @@ const galleryLayout = [
   { file: '9.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '10.png', tw: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2' },
   { file: '11.png', tw: 'col-span-2 md:col-span-4 row-span-1 md:row-span-2' },
-  { file: '12.png', tw: 'col-span-2 md:col-span-6 row-span-1' },
+  { file: '12.png', tw: 'col-span-2 md:col-span-6 row-span-1 md:row-span-2' },
 ] as const;
 
 const faqItems = [
