@@ -8,19 +8,6 @@
   --color-gold: #058844;
 }
 
-/* Trust badges (Why MPH), expertise tiles, blog cards — shared gold accent + depth */
-@layer components {
-  .mp-trust-badge {
-    @apply flex items-center gap-4 px-5 py-3.5 rounded-lg min-w-0 border border-gold/35 bg-gradient-to-br from-navy-800/85 to-navy-900 shadow-md shadow-black/40 ring-1 ring-inset ring-white/[0.07];
-  }
-  .mp-expertise-card {
-    @apply rounded-lg overflow-hidden border border-gold/25 border-t-4 border-t-gold bg-gradient-to-b from-navy-800/50 to-navy-900 shadow-xl shadow-black/35 ring-1 ring-inset ring-white/[0.06];
-  }
-  .mp-blog-card {
-    @apply rounded-xl overflow-hidden border border-gold/25 border-t-4 border-t-gold bg-gradient-to-b from-navy-800 to-navy-900 shadow-xl shadow-black/35 ring-1 ring-inset ring-white/[0.07];
-  }
-}
-
 @keyframes review-marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

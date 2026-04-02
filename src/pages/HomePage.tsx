@@ -186,7 +186,10 @@ export default function HomePage() {
                   { icon: FileText, text: 'FULLY LICENSED' },
                   { icon: Zap, text: 'SEASONAL CARE' },
                 ].map((item, i) => (
-                  <div key={i} className="mp-trust-badge">
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 px-5 py-3.5 rounded-lg min-w-0 bg-stone-300/95 text-navy-900 border border-stone-400/70 shadow-md shadow-black/15"
+                  >
                     <item.icon className="text-gold w-8 h-8 shrink-0" />
                     <span className="font-heading text-base md:text-lg font-bold tracking-wide">{item.text}</span>
                   </div>
@@ -239,15 +242,15 @@ export default function HomePage() {
               <Link
                 key={service.slug}
                 to={`/services/${service.slug}`}
-                className="mp-expertise-card group flex flex-col md:flex-row hover:-translate-y-1.5 transition-transform duration-300"
+                className="group flex flex-col md:flex-row rounded-lg overflow-hidden border border-stone-400/60 bg-stone-300/95 shadow-lg shadow-black/20 hover:-translate-y-1.5 transition-transform duration-300"
               >
                 <div className="w-full md:w-2/5 h-48 md:h-auto relative overflow-hidden">
                   <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-transparent transition-colors" />
+                  <div className="absolute inset-0 bg-navy-900/15 group-hover:bg-transparent transition-colors" />
                 </div>
-                <div className="p-8 w-full md:w-3/5">
-                  <h3 className="font-heading text-xl font-bold mb-4 group-hover:text-gold transition-colors">{service.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{service.shortDesc}</p>
+                <div className="p-8 w-full md:w-3/5 bg-stone-200/98 border-t md:border-t-0 md:border-l border-stone-400/50">
+                  <h3 className="font-heading text-xl font-bold mb-4 text-navy-900 group-hover:text-gold transition-colors">{service.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">{service.shortDesc}</p>
                 </div>
               </Link>
             ))}
@@ -320,14 +323,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((post) => (
-              <article key={post.slug} className="mp-blog-card">
-                <div className="aspect-[16/8] bg-navy-900/70 border-b border-gold/15 overflow-hidden">
+              <article key={post.slug} className="rounded-xl overflow-hidden border border-stone-400/60 bg-stone-300/95 shadow-lg shadow-black/20">
+                <div className="aspect-[16/8] bg-navy-900/40 border-b border-stone-400/50 overflow-hidden">
                   <img src={post.coverImage} alt={post.coverImageAlt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out" />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-                  <Link to={`/blog/${post.slug}`} className="text-gold font-bold hover:text-white transition-colors">
+                <div className="p-6 bg-stone-200/95">
+                  <h3 className="font-heading text-xl font-bold mb-3 line-clamp-2 text-navy-900">{post.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
+                  <Link to={`/blog/${post.slug}`} className="text-gold font-bold hover:text-navy-900 transition-colors">
                     READ MORE →
                   </Link>
                 </div>

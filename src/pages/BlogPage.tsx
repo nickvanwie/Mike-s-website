@@ -47,11 +47,14 @@ export default function BlogPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {blogPosts.map((post) => (
-            <article key={post.slug} className="mp-blog-card">
-              <ImageSlot label="Cover Image Placeholder" className="aspect-[16/8]" src={post.coverImage} alt={post.coverImageAlt} />
-              <div className="p-6 md:p-7">
-                <h2 className="font-heading text-2xl font-bold mb-3">{post.title}</h2>
-                <p className="text-gray-300 leading-relaxed mb-5">{post.excerpt}</p>
+            <article
+              key={post.slug}
+              className="rounded-xl overflow-hidden border border-stone-400/60 bg-stone-300/95 shadow-lg shadow-black/20"
+            >
+              <ImageSlot label="Cover Image Placeholder" className="aspect-[16/8] border-b border-stone-400/50" src={post.coverImage} alt={post.coverImageAlt} />
+              <div className="p-6 md:p-7 bg-stone-200/95">
+                <h2 className="font-heading text-2xl font-bold mb-3 text-navy-900">{post.title}</h2>
+                <p className="text-gray-700 leading-relaxed mb-5">{post.excerpt}</p>
                 <Link
                   to={`/blog/${post.slug}`}
                   className="inline-block bg-gold text-white px-5 py-2.5 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors"
