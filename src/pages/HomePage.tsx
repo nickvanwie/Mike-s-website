@@ -127,7 +127,7 @@ export default function HomePage() {
               </div>
               <div className="md:hidden flex flex-col items-center pt-8 pb-2 pointer-events-none" aria-hidden>
                 <img
-                  src="/hero-mobile-arrows.png"
+                  src="/blog images/Untitled design (25) (1).png"
                   alt=""
                   className="w-[min(200px,55vw)] h-auto mix-blend-screen opacity-95 drop-shadow-[0_2px_12px_rgba(255,255,255,0.35)]"
                 />
@@ -147,7 +147,7 @@ export default function HomePage() {
       </section>
 
       {!isMdUp ? (
-        <section id="quote-form-mobile" className="bg-white text-navy-900 scroll-mt-24 pt-6 pb-10 px-4">
+        <section id="quote-form-mobile" className="bg-navy-900 border-t border-white/10 scroll-mt-24 pt-6 pb-10 px-4">
           <div className="container mx-auto max-w-lg">
             <iframe
               {...quoteIframeProps}
