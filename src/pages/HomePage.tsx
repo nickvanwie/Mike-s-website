@@ -188,9 +188,9 @@ export default function HomePage() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 px-5 py-3.5 rounded-lg min-w-0 bg-stone-500/95 text-navy-900 border-2 border-gold shadow-md shadow-black/25"
+                    className="flex items-center gap-4 px-5 py-3.5 rounded-lg min-w-0 bg-gold text-white border-2 border-white/25 shadow-md shadow-black/25"
                   >
-                    <item.icon className="text-gold w-8 h-8 shrink-0" />
+                    <item.icon className="text-white w-8 h-8 shrink-0" />
                     <span className="font-heading text-base md:text-lg font-bold tracking-wide">{item.text}</span>
                   </div>
                 ))}
@@ -242,15 +242,17 @@ export default function HomePage() {
               <Link
                 key={service.slug}
                 to={`/services/${service.slug}`}
-                className="group flex flex-col md:flex-row rounded-lg overflow-hidden border-2 border-gold bg-stone-500/95 shadow-lg shadow-black/25 hover:-translate-y-1.5 transition-transform duration-300"
+                className="group flex flex-col md:flex-row rounded-lg overflow-hidden border-2 border-white/25 bg-gold shadow-lg shadow-black/25 hover:-translate-y-1.5 transition-transform duration-300"
               >
                 <div className="w-full md:w-2/5 h-48 md:h-auto relative overflow-hidden">
                   <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-navy-900/15 group-hover:bg-transparent transition-colors" />
+                  <div className="absolute inset-0 bg-navy-900/20 group-hover:bg-navy-900/10 transition-colors" />
                 </div>
-                <div className="p-8 w-full md:w-3/5 bg-stone-500/98 border-t md:border-t-0 md:border-l border-gold/35">
-                  <h3 className="font-heading text-xl font-bold mb-4 text-navy-900 group-hover:text-gold transition-colors">{service.title}</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">{service.shortDesc}</p>
+                <div className="p-8 w-full md:w-3/5 bg-gold border-t md:border-t-0 md:border-l border-white/20">
+                  <h3 className="font-heading text-xl font-bold mb-4 text-white group-hover:underline decoration-2 underline-offset-4 decoration-white/90 transition-all">
+                    {service.title}
+                  </h3>
+                  <p className="text-white/90 text-sm leading-relaxed">{service.shortDesc}</p>
                 </div>
               </Link>
             ))}
@@ -323,14 +325,17 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((post) => (
-              <article key={post.slug} className="rounded-xl overflow-hidden border-2 border-gold bg-stone-500/95 shadow-lg shadow-black/25">
-                <div className="aspect-[16/8] bg-navy-900/40 border-b border-gold/35 overflow-hidden">
+              <article key={post.slug} className="rounded-xl overflow-hidden border-2 border-white/25 bg-gold shadow-lg shadow-black/25">
+                <div className="aspect-[16/8] bg-navy-900/40 border-b border-white/20 overflow-hidden">
                   <img src={post.coverImage} alt={post.coverImageAlt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out" />
                 </div>
-                <div className="p-6 bg-stone-500/98">
-                  <h3 className="font-heading text-xl font-bold mb-3 line-clamp-2 text-navy-900">{post.title}</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-                  <Link to={`/blog/${post.slug}`} className="text-gold font-bold hover:text-navy-900 transition-colors">
+                <div className="p-6 bg-gold">
+                  <h3 className="font-heading text-xl font-bold mb-3 line-clamp-2 text-white">{post.title}</h3>
+                  <p className="text-white/90 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="inline-block text-white font-bold border-b-2 border-white/70 hover:border-white pb-0.5 transition-colors"
+                  >
                     READ MORE →
                   </Link>
                 </div>

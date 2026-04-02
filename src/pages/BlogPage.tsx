@@ -49,15 +49,15 @@ export default function BlogPage() {
           {blogPosts.map((post) => (
             <article
               key={post.slug}
-              className="rounded-xl overflow-hidden border-2 border-gold bg-stone-500/95 shadow-lg shadow-black/25"
+              className="rounded-xl overflow-hidden border-2 border-white/25 bg-gold shadow-lg shadow-black/25"
             >
-              <ImageSlot label="Cover Image Placeholder" className="aspect-[16/8] border-b border-gold/35" src={post.coverImage} alt={post.coverImageAlt} />
-              <div className="p-6 md:p-7 bg-stone-500/98">
-                <h2 className="font-heading text-2xl font-bold mb-3 text-navy-900">{post.title}</h2>
-                <p className="text-gray-700 leading-relaxed mb-5">{post.excerpt}</p>
+              <ImageSlot label="Cover Image Placeholder" className="aspect-[16/8] border-b border-white/20" src={post.coverImage} alt={post.coverImageAlt} />
+              <div className="p-6 md:p-7 bg-gold">
+                <h2 className="font-heading text-2xl font-bold mb-3 text-white">{post.title}</h2>
+                <p className="text-white/90 leading-relaxed mb-5">{post.excerpt}</p>
                 <Link
                   to={`/blog/${post.slug}`}
-                  className="inline-block bg-gold text-white px-5 py-2.5 rounded font-bold hover:bg-white hover:text-navy-900 transition-colors"
+                  className="inline-block bg-white text-gold px-5 py-2.5 rounded font-bold hover:bg-stone-100 transition-colors"
                 >
                   READ ARTICLE
                 </Link>
