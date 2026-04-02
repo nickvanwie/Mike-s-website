@@ -8,18 +8,19 @@ import howWeWorkBg from '../../blog images/Untitled design (24).png';
 import ReviewsSection from '../components/ReviewsSection';
 import { serviceAreas } from '../data/serviceAreas';
 
+/** Masonry columns + column-span for wide tiles — packs without grid row holes. */
 const galleryLayout = [
-  { file: '1.png', tw: 'col-span-2 aspect-[2/1] min-h-[130px] sm:min-h-[150px] md:col-span-2 md:aspect-[2.2/1]' },
-  { file: '2.png', tw: 'aspect-square' },
+  { file: '1.png', tw: 'aspect-[21/9] min-h-[100px] sm:min-h-[120px]', spanAll: true },
+  { file: '2.png', tw: 'aspect-[4/5]' },
   { file: '3.png', tw: 'aspect-[3/4]' },
-  { file: '4.png', tw: 'aspect-[4/3]' },
+  { file: '4.png', tw: 'aspect-square' },
   { file: '5.png', tw: 'aspect-[5/4]' },
-  { file: '6.png', tw: 'col-span-2 aspect-[16/10] md:col-span-2' },
+  { file: '6.png', tw: 'aspect-[16/10]', spanAll: true },
   { file: '7.png', tw: 'aspect-square' },
   { file: '8.png', tw: 'aspect-[4/3]' },
-  { file: '9.png', tw: 'aspect-[3/4] min-h-[140px]' },
+  { file: '9.png', tw: 'aspect-[3/4]' },
   { file: '10.png', tw: 'aspect-square' },
-  { file: '11.png', tw: 'col-span-2 aspect-[2/1] md:col-span-2 md:aspect-[21/9] min-h-[120px]' },
+  { file: '11.png', tw: 'aspect-[2/1] min-h-[100px]', spanAll: true },
   { file: '12.png', tw: 'aspect-[4/5]' },
 ] as const;
 
@@ -335,18 +336,18 @@ export default function HomePage() {
           <h4 className="text-gold font-bold tracking-widest text-sm mb-2">OUR WORK</h4>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">RECENT PROJECTS</h2>
           <p className="text-gray-400 mb-8 max-w-2xl">Lawn care and landscaping projects we're proud of.</p>
-          <div className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 grid-flow-dense gap-2 sm:gap-2.5 md:gap-2.5">
+          <div className="w-full max-w-7xl mx-auto columns-2 md:columns-3 [column-fill:_auto] gap-x-1.5 md:gap-x-2">
             {galleryLayout.map((item, i) => (
               <div
                 key={item.file}
-                className={`relative overflow-hidden rounded-lg bg-navy-900 border border-white/10 shadow-md group ${item.tw}`}
+                className={`relative mb-1.5 md:mb-2 break-inside-avoid overflow-hidden rounded-md bg-navy-900 shadow-sm ring-1 ring-white/10 group w-full ${'spanAll' in item && item.spanAll ? '[column-span:all]' : ''} ${item.tw}`}
               >
                 <img
                   src={`/stock-pics/${item.file}`}
                   alt={`Project ${i + 1} - MPH Property Services`}
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="h-full w-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 rounded-lg border border-transparent group-hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-md border border-transparent group-hover:border-gold/25 transition-colors duration-300 pointer-events-none" />
               </div>
             ))}
           </div>
