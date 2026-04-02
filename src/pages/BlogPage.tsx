@@ -49,10 +49,10 @@ export default function BlogPage() {
           {blogPosts.map((post) => (
             <article
               key={post.slug}
-              className="rounded-xl overflow-hidden border border-stone-400/60 bg-stone-300/95 shadow-lg shadow-black/20"
+              className="rounded-xl overflow-hidden border-2 border-gold bg-stone-500/95 shadow-lg shadow-black/25"
             >
-              <ImageSlot label="Cover Image Placeholder" className="aspect-[16/8] border-b border-stone-400/50" src={post.coverImage} alt={post.coverImageAlt} />
-              <div className="p-6 md:p-7 bg-stone-200/95">
+              <ImageSlot label="Cover Image Placeholder" className="aspect-[16/8] border-b border-gold/35" src={post.coverImage} alt={post.coverImageAlt} />
+              <div className="p-6 md:p-7 bg-stone-500/98">
                 <h2 className="font-heading text-2xl font-bold mb-3 text-navy-900">{post.title}</h2>
                 <p className="text-gray-700 leading-relaxed mb-5">{post.excerpt}</p>
                 <Link
